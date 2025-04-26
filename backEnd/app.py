@@ -2,13 +2,21 @@ from flask import Flask, request, jsonify, abort
 from flask_cors import CORS
 import firebase_admin
 from firebase_admin import credentials, firestore
+from dotenv import load_dotenv
+import getpass
+import os
 
-# --- Configuration -----------------------------------------------------------
-SERVICE_ACCOUNT_PATH = 'hacktech-cce3f-firebase-adminsdk-fbsvc-16eecb3f3c.json'
-VALID_COLLECTIONS = {'sales', 'orders', 'parts', 'supply'}
+# ——— Load .env and grab your service account file path —————————————
+load_dotenv()
+service_account_path = os.getenv("SERVICE_ACCOUNT_PATH")
+if not service_account_path:
+    service_account_path = getpass.getpass(
+        "Enter SERVICE_ACCOUNT_PATH for Firebase service account: "
+    )
+VALID_COLLECTIONS = {"sales", "orders", "parts", "supply"}
 
-# --- Firebase Init -----------------------------------------------------------
-cred = credentials.Certificate(SERVICE_ACCOUNT_PATH)
+# ——— Initialize Firebase —————————————————————————————————————————
+cred = credentials.Certificate(service_account_path)
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
