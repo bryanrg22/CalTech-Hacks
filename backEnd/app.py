@@ -7,9 +7,6 @@ from firebase_admin import credentials, firestore
 SERVICE_ACCOUNT_PATH = 'hacktech-cce3f-firebase-adminsdk-fbsvc-16eecb3f3c.json'
 VALID_COLLECTIONS = {'sales', 'orders', 'parts', 'supply'}
 
-app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": ["http://localhost:5173", "http://127.0.0.1:5173"]}})
-
 # --- Firebase Init -----------------------------------------------------------
 cred = credentials.Certificate(SERVICE_ACCOUNT_PATH)
 firebase_admin.initialize_app(cred)
@@ -18,7 +15,7 @@ db = firestore.client()
 # --- Flask App ---------------------------------------------------------------
 app = Flask(__name__)
 # adjust origins as needed
-CORS(app, resources={r"/api/*": {"origins": "*"}})
+CORS(app, supports_credentials=True)
 
 # --- Helper ------------------------------------------------------------------
 def check_collection(coll_name):
