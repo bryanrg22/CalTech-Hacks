@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Link, useLocation } from "react-router-dom"
-import { Home, Package, ShoppingCart, Truck, Users, BarChart2, Settings, LogOut, Menu, X, Zap } from "lucide-react"
+import { Home, Package, ShoppingCart, Truck, Users, BarChart2, Settings, LogOut, Menu, X, Zap, Map } from "lucide-react"
 
 export default function Sidebar() {
   const [expanded, setExpanded] = useState(true)
@@ -13,6 +13,7 @@ export default function Sidebar() {
 
   const navItems = [
     { name: "Dashboard", icon: Home, path: "/dashboard" },
+    { name: "Map", icon: Map, path: "/map" },
     { name: "Parts", icon: Package, path: "/parts" },
     { name: "Sales", icon: ShoppingCart, path: "/sales" },
     { name: "Orders", icon: Truck, path: "/orders" },
