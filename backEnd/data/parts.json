@@ -1,0 +1,749 @@
+[
+  {
+    "part_id": "P300",
+    "min_stock": 63,
+    "reorder_quantity": 79,
+    "reorder_interval_days": 18,
+    "part_name": "S1 V1 500W Brushless Motor",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S1_V1"
+    ],
+    "weight": NaN,
+    "location": "WH1",
+    "quantity": 158,
+    "blocked": false,
+    "comments": "Obsolete V1 motor superseded by V2",
+    "successor_part": "P304",
+    "stock_level": 0
+  },
+  {
+    "part_id": "P301",
+    "min_stock": 39,
+    "reorder_quantity": 54,
+    "reorder_interval_days": 13,
+    "part_name": "S1 V1 Li-Ion 36V 10Ah Battery Pack",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S1_V1"
+    ],
+    "weight": NaN,
+    "location": "WH2",
+    "quantity": 173,
+    "blocked": false,
+    "comments": "Li-Po battery replaces Li-Ion",
+    "successor_part": "P305",
+    "stock_level": 0
+  },
+  {
+    "part_id": "P302",
+    "min_stock": 41,
+    "reorder_quantity": 146,
+    "reorder_interval_days": 13,
+    "part_name": "S1 V1 Analog Controller ZX",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S1_V1"
+    ],
+    "weight": NaN,
+    "location": "WH2",
+    "quantity": 257,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P303",
+    "min_stock": 79,
+    "reorder_quantity": 124,
+    "reorder_interval_days": 15,
+    "part_name": "S1 V1 Aluminum Frame",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S1_V1"
+    ],
+    "weight": NaN,
+    "location": "WH1",
+    "quantity": 289,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P304",
+    "min_stock": 45,
+    "reorder_quantity": 119,
+    "reorder_interval_days": 14,
+    "part_name": "S1 V2 750W Brushless Motor",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S1_V2"
+    ],
+    "weight": NaN,
+    "location": "WH3",
+    "quantity": 108,
+    "blocked": true,
+    "comments": "Current V2 motor",
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P305",
+    "min_stock": 75,
+    "reorder_quantity": 62,
+    "reorder_interval_days": 7,
+    "part_name": "S1 V2 Li-Po 48V 12Ah Battery Pack",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S1_V2"
+    ],
+    "weight": NaN,
+    "location": "WH3",
+    "quantity": 24,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P306",
+    "min_stock": 25,
+    "reorder_quantity": 66,
+    "reorder_interval_days": 18,
+    "part_name": "S1 V2 Digital Controller ZP",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S1_V2"
+    ],
+    "weight": NaN,
+    "location": "WH3",
+    "quantity": 42,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P307",
+    "min_stock": 52,
+    "reorder_quantity": 187,
+    "reorder_interval_days": 8,
+    "part_name": "S1 V2 Carbon Fiber Frame",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S1_V2"
+    ],
+    "weight": NaN,
+    "location": "WH2",
+    "quantity": 32,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P308",
+    "min_stock": 30,
+    "reorder_quantity": 58,
+    "reorder_interval_days": 10,
+    "part_name": "S2 V1 500W Brushless Motor",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S2_V1"
+    ],
+    "weight": NaN,
+    "location": "WH1",
+    "quantity": 20,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P309",
+    "min_stock": 49,
+    "reorder_quantity": 193,
+    "reorder_interval_days": 17,
+    "part_name": "S2 V1 Li-Ion 36V 10Ah Battery Pack",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S2_V1"
+    ],
+    "weight": NaN,
+    "location": "WH2",
+    "quantity": 160,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P310",
+    "min_stock": 77,
+    "reorder_quantity": 30,
+    "reorder_interval_days": 9,
+    "part_name": "S2 V1 Analog Controller ZX",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S2_V1"
+    ],
+    "weight": NaN,
+    "location": "WH2",
+    "quantity": 167,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P311",
+    "min_stock": 37,
+    "reorder_quantity": 59,
+    "reorder_interval_days": 12,
+    "part_name": "S2 V1 Aluminum Frame",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S2_V1"
+    ],
+    "weight": NaN,
+    "location": "WH3",
+    "quantity": 107,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P312",
+    "min_stock": 50,
+    "reorder_quantity": 77,
+    "reorder_interval_days": 16,
+    "part_name": "S2 V2 750W Brushless Motor",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S2_V2"
+    ],
+    "weight": NaN,
+    "location": "WH3",
+    "quantity": 144,
+    "blocked": true,
+    "comments": "Quality issues",
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P313",
+    "min_stock": 72,
+    "reorder_quantity": 42,
+    "reorder_interval_days": 8,
+    "part_name": "S2 V2 Li-Po 48V 12Ah Battery Pack",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S2_V2"
+    ],
+    "weight": NaN,
+    "location": "WH3",
+    "quantity": 193,
+    "blocked": true,
+    "comments": "Safety recall",
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P314",
+    "min_stock": 70,
+    "reorder_quantity": 74,
+    "reorder_interval_days": 11,
+    "part_name": "S2 V2 Digital Controller ZP",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S2_V2"
+    ],
+    "weight": NaN,
+    "location": "WH3",
+    "quantity": 197,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P315",
+    "min_stock": 79,
+    "reorder_quantity": 66,
+    "reorder_interval_days": 8,
+    "part_name": "S2 V2 Carbon Fiber Frame",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S2_V2"
+    ],
+    "weight": NaN,
+    "location": "WH2",
+    "quantity": 83,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P316",
+    "min_stock": 32,
+    "reorder_quantity": 145,
+    "reorder_interval_days": 9,
+    "part_name": "S3 V1 500W Brushless Motor",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S3_V1"
+    ],
+    "weight": NaN,
+    "location": "WH3",
+    "quantity": 57,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P317",
+    "min_stock": 55,
+    "reorder_quantity": 78,
+    "reorder_interval_days": 8,
+    "part_name": "S3 V1 Li-Ion 36V 10Ah Battery Pack",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S3_V1"
+    ],
+    "weight": NaN,
+    "location": "WH1",
+    "quantity": 272,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P318",
+    "min_stock": 71,
+    "reorder_quantity": 199,
+    "reorder_interval_days": 9,
+    "part_name": "S3 V1 Analog Controller ZX",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S3_V1"
+    ],
+    "weight": NaN,
+    "location": "WH2",
+    "quantity": 217,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P319",
+    "min_stock": 74,
+    "reorder_quantity": 109,
+    "reorder_interval_days": 10,
+    "part_name": "S3 V1 Aluminum Frame",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S3_V1"
+    ],
+    "weight": NaN,
+    "location": "WH1",
+    "quantity": 136,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P320",
+    "min_stock": 67,
+    "reorder_quantity": 88,
+    "reorder_interval_days": 10,
+    "part_name": "S3 V2 750W Brushless Motor",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S3_V2"
+    ],
+    "weight": NaN,
+    "location": "WH2",
+    "quantity": 159,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P321",
+    "min_stock": 18,
+    "reorder_quantity": 155,
+    "reorder_interval_days": 8,
+    "part_name": "S3 V2 Li-Po 48V 12Ah Battery Pack",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S3_V2"
+    ],
+    "weight": NaN,
+    "location": "WH3",
+    "quantity": 139,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P322",
+    "min_stock": 50,
+    "reorder_quantity": 148,
+    "reorder_interval_days": 21,
+    "part_name": "S3 V2 Digital Controller ZP",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S3_V2"
+    ],
+    "weight": NaN,
+    "location": "WH1",
+    "quantity": 176,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P323",
+    "min_stock": 71,
+    "reorder_quantity": 165,
+    "reorder_interval_days": 9,
+    "part_name": "S3 V2 Carbon Fiber Frame",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S3_V2"
+    ],
+    "weight": NaN,
+    "location": "WH1",
+    "quantity": 59,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P324",
+    "min_stock": 25,
+    "reorder_quantity": 183,
+    "reorder_interval_days": 11,
+    "part_name": "LCD Dashboard Display",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S1_V1",
+      "S2_V1",
+      "S3_V1"
+    ],
+    "weight": NaN,
+    "location": "WH1",
+    "quantity": 44,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P325",
+    "min_stock": 56,
+    "reorder_quantity": 121,
+    "reorder_interval_days": 21,
+    "part_name": "10-inch Alloy Wheel",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S1_V1",
+      "S2_V1",
+      "S3_V1"
+    ],
+    "weight": NaN,
+    "location": "WH2",
+    "quantity": 59,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P326",
+    "min_stock": 19,
+    "reorder_quantity": 132,
+    "reorder_interval_days": 17,
+    "part_name": "Mechanical Disc Brake",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S1_V1",
+      "S2_V1",
+      "S3_V1"
+    ],
+    "weight": NaN,
+    "location": "WH1",
+    "quantity": 233,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P327",
+    "min_stock": 56,
+    "reorder_quantity": 111,
+    "reorder_interval_days": 12,
+    "part_name": "Standard LED Headlight",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S1_V1",
+      "S2_V1",
+      "S3_V1"
+    ],
+    "weight": NaN,
+    "location": "WH2",
+    "quantity": 242,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P328",
+    "min_stock": 49,
+    "reorder_quantity": 144,
+    "reorder_interval_days": 19,
+    "part_name": "Standard Charger 42V",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S1_V1",
+      "S2_V1",
+      "S3_V1"
+    ],
+    "weight": NaN,
+    "location": "WH3",
+    "quantity": 226,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P329",
+    "min_stock": 74,
+    "reorder_quantity": 126,
+    "reorder_interval_days": 16,
+    "part_name": "OLED Dashboard Display",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S1_V2",
+      "S2_V2",
+      "S3_V2"
+    ],
+    "weight": NaN,
+    "location": "WH3",
+    "quantity": 54,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P330",
+    "min_stock": 44,
+    "reorder_quantity": 155,
+    "reorder_interval_days": 11,
+    "part_name": "12-inch Alloy Wheel",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S1_V2",
+      "S2_V2",
+      "S3_V2"
+    ],
+    "weight": NaN,
+    "location": "WH3",
+    "quantity": 26,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P331",
+    "min_stock": 62,
+    "reorder_quantity": 43,
+    "reorder_interval_days": 13,
+    "part_name": "Hydraulic Disc Brake",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S1_V2",
+      "S2_V2",
+      "S3_V2"
+    ],
+    "weight": NaN,
+    "location": "WH1",
+    "quantity": 45,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P332",
+    "min_stock": 30,
+    "reorder_quantity": 93,
+    "reorder_interval_days": 9,
+    "part_name": "Advanced LED Headlight with DRL",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S1_V2",
+      "S2_V2",
+      "S3_V2"
+    ],
+    "weight": NaN,
+    "location": "WH3",
+    "quantity": 20,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P333",
+    "min_stock": 64,
+    "reorder_quantity": 92,
+    "reorder_interval_days": 21,
+    "part_name": "Fast Charger 42V 2A",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S1_V2",
+      "S2_V2",
+      "S3_V2"
+    ],
+    "weight": NaN,
+    "location": "WH2",
+    "quantity": 128,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P334",
+    "min_stock": 33,
+    "reorder_quantity": 148,
+    "reorder_interval_days": 9,
+    "part_name": "Power Cable",
+    "part_type": "assembly",
+    "used_in_models": [
+      "S1_V1",
+      "S1_V2",
+      "S2_V1",
+      "S2_V2",
+      "S3_V1",
+      "S3_V2"
+    ],
+    "weight": NaN,
+    "location": "WH3",
+    "quantity": 209,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P335",
+    "min_stock": 60,
+    "reorder_quantity": 66,
+    "reorder_interval_days": 10,
+    "part_name": "Comfort Seat",
+    "part_type": "service",
+    "used_in_models": [
+      "S1_V1",
+      "S1_V2",
+      "S2_V1",
+      "S2_V2",
+      "S3_V1",
+      "S3_V2"
+    ],
+    "weight": NaN,
+    "location": "WH1",
+    "quantity": 283,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P336",
+    "min_stock": 16,
+    "reorder_quantity": 64,
+    "reorder_interval_days": 9,
+    "part_name": "Rear Fender",
+    "part_type": "service",
+    "used_in_models": [
+      "S1_V1",
+      "S1_V2",
+      "S2_V1",
+      "S2_V2",
+      "S3_V1",
+      "S3_V2"
+    ],
+    "weight": NaN,
+    "location": "WH3",
+    "quantity": 104,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P337",
+    "min_stock": 20,
+    "reorder_quantity": 89,
+    "reorder_interval_days": 11,
+    "part_name": "Hex Nut",
+    "part_type": "service",
+    "used_in_models": [
+      "S1_V1",
+      "S1_V2",
+      "S2_V1",
+      "S2_V2",
+      "S3_V1",
+      "S3_V2"
+    ],
+    "weight": NaN,
+    "location": "WH1",
+    "quantity": 229,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  },
+  {
+    "part_id": "P338",
+    "min_stock": 15,
+    "reorder_quantity": 104,
+    "reorder_interval_days": 8,
+    "part_name": "Lock Washer",
+    "part_type": "service",
+    "used_in_models": [
+      "S1_V1",
+      "S1_V2",
+      "S2_V1",
+      "S2_V2",
+      "S3_V1",
+      "S3_V2"
+    ],
+    "weight": NaN,
+    "location": "WH1",
+    "quantity": 31,
+    "blocked": false,
+    "comments": NaN,
+    "successor_part": NaN,
+    "stock_level": 0
+  }
+]

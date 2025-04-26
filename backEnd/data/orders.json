@@ -1,0 +1,1002 @@
+[
+  {
+    "order_id": "O5000",
+    "part_id": "P312",
+    "quantity_ordered": 32,
+    "order_date": "2025-04-19",
+    "expected_delivery_date": "2025-05-13",
+    "supplier_id": "SupA",
+    "status": "ordered",
+    "actual_delivered_at": NaN
+  },
+  {
+    "order_id": "O5001",
+    "part_id": "P314",
+    "quantity_ordered": 76,
+    "order_date": "2025-03-24",
+    "expected_delivery_date": "2025-03-29",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-30"
+  },
+  {
+    "order_id": "O5002",
+    "part_id": "P318",
+    "quantity_ordered": 94,
+    "order_date": "2025-02-04",
+    "expected_delivery_date": "2025-02-14",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-15"
+  },
+  {
+    "order_id": "O5003",
+    "part_id": "P329",
+    "quantity_ordered": 294,
+    "order_date": "2025-03-24",
+    "expected_delivery_date": "2025-04-07",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-04-08"
+  },
+  {
+    "order_id": "O5004",
+    "part_id": "P306",
+    "quantity_ordered": 88,
+    "order_date": "2025-01-24",
+    "expected_delivery_date": "2025-02-08",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-09"
+  },
+  {
+    "order_id": "O5005",
+    "part_id": "P323",
+    "quantity_ordered": 295,
+    "order_date": "2025-03-13",
+    "expected_delivery_date": "2025-03-25",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-26"
+  },
+  {
+    "order_id": "O5006",
+    "part_id": "P303",
+    "quantity_ordered": 314,
+    "order_date": "2025-02-24",
+    "expected_delivery_date": "2025-03-16",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-17"
+  },
+  {
+    "order_id": "O5007",
+    "part_id": "P322",
+    "quantity_ordered": 55,
+    "order_date": "2025-02-14",
+    "expected_delivery_date": "2025-02-27",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-28"
+  },
+  {
+    "order_id": "O5008",
+    "part_id": "P323",
+    "quantity_ordered": 233,
+    "order_date": "2025-02-08",
+    "expected_delivery_date": "2025-02-20",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-21"
+  },
+  {
+    "order_id": "O5009",
+    "part_id": "P338",
+    "quantity_ordered": 115,
+    "order_date": "2025-02-16",
+    "expected_delivery_date": "2025-02-21",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-22"
+  },
+  {
+    "order_id": "O5010",
+    "part_id": "P301",
+    "quantity_ordered": 139,
+    "order_date": "2025-02-11",
+    "expected_delivery_date": "2025-02-17",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-18"
+  },
+  {
+    "order_id": "O5011",
+    "part_id": "P318",
+    "quantity_ordered": 84,
+    "order_date": "2025-03-16",
+    "expected_delivery_date": "2025-03-28",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-29"
+  },
+  {
+    "order_id": "O5012",
+    "part_id": "P319",
+    "quantity_ordered": 121,
+    "order_date": "2025-02-25",
+    "expected_delivery_date": "2025-03-21",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-22"
+  },
+  {
+    "order_id": "O5013",
+    "part_id": "P333",
+    "quantity_ordered": 183,
+    "order_date": "2025-01-25",
+    "expected_delivery_date": "2025-02-07",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-08"
+  },
+  {
+    "order_id": "O5014",
+    "part_id": "P329",
+    "quantity_ordered": 104,
+    "order_date": "2025-02-27",
+    "expected_delivery_date": "2025-03-17",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-18"
+  },
+  {
+    "order_id": "O5015",
+    "part_id": "P320",
+    "quantity_ordered": 196,
+    "order_date": "2025-04-06",
+    "expected_delivery_date": "2025-04-15",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-04-16"
+  },
+  {
+    "order_id": "O5016",
+    "part_id": "P307",
+    "quantity_ordered": 253,
+    "order_date": "2025-04-17",
+    "expected_delivery_date": "2025-05-05",
+    "supplier_id": "SupC",
+    "status": "ordered",
+    "actual_delivered_at": NaN
+  },
+  {
+    "order_id": "O5017",
+    "part_id": "P332",
+    "quantity_ordered": 102,
+    "order_date": "2025-04-04",
+    "expected_delivery_date": "2025-04-26",
+    "supplier_id": "SupA",
+    "status": "ordered",
+    "actual_delivered_at": NaN
+  },
+  {
+    "order_id": "O5018",
+    "part_id": "P311",
+    "quantity_ordered": 184,
+    "order_date": "2025-04-19",
+    "expected_delivery_date": "2025-04-25",
+    "supplier_id": "SupA",
+    "status": "ordered",
+    "actual_delivered_at": NaN
+  },
+  {
+    "order_id": "O5019",
+    "part_id": "P338",
+    "quantity_ordered": 113,
+    "order_date": "2025-03-28",
+    "expected_delivery_date": "2025-04-02",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-04-03"
+  },
+  {
+    "order_id": "O5020",
+    "part_id": "P333",
+    "quantity_ordered": 59,
+    "order_date": "2025-03-06",
+    "expected_delivery_date": "2025-03-15",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-16"
+  },
+  {
+    "order_id": "O5021",
+    "part_id": "P310",
+    "quantity_ordered": 206,
+    "order_date": "2025-01-30",
+    "expected_delivery_date": "2025-02-04",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-05"
+  },
+  {
+    "order_id": "O5022",
+    "part_id": "P311",
+    "quantity_ordered": 185,
+    "order_date": "2025-01-26",
+    "expected_delivery_date": "2025-02-01",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-02"
+  },
+  {
+    "order_id": "O5023",
+    "part_id": "P301",
+    "quantity_ordered": 98,
+    "order_date": "2025-04-18",
+    "expected_delivery_date": "2025-05-13",
+    "supplier_id": "SupB",
+    "status": "ordered",
+    "actual_delivered_at": NaN
+  },
+  {
+    "order_id": "O5024",
+    "part_id": "P324",
+    "quantity_ordered": 98,
+    "order_date": "2025-02-04",
+    "expected_delivery_date": "2025-02-18",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-19"
+  },
+  {
+    "order_id": "O5025",
+    "part_id": "P316",
+    "quantity_ordered": 48,
+    "order_date": "2025-02-24",
+    "expected_delivery_date": "2025-03-07",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-08"
+  },
+  {
+    "order_id": "O5026",
+    "part_id": "P323",
+    "quantity_ordered": 96,
+    "order_date": "2025-03-09",
+    "expected_delivery_date": "2025-03-26",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-27"
+  },
+  {
+    "order_id": "O5027",
+    "part_id": "P328",
+    "quantity_ordered": 143,
+    "order_date": "2025-03-06",
+    "expected_delivery_date": "2025-03-20",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-21"
+  },
+  {
+    "order_id": "O5028",
+    "part_id": "P328",
+    "quantity_ordered": 371,
+    "order_date": "2025-03-01",
+    "expected_delivery_date": "2025-03-10",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-11"
+  },
+  {
+    "order_id": "O5029",
+    "part_id": "P306",
+    "quantity_ordered": 70,
+    "order_date": "2025-04-06",
+    "expected_delivery_date": "2025-04-13",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-04-14"
+  },
+  {
+    "order_id": "O5030",
+    "part_id": "P307",
+    "quantity_ordered": 132,
+    "order_date": "2025-04-04",
+    "expected_delivery_date": "2025-04-22",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-04-23"
+  },
+  {
+    "order_id": "O5031",
+    "part_id": "P307",
+    "quantity_ordered": 111,
+    "order_date": "2025-02-15",
+    "expected_delivery_date": "2025-03-01",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-02"
+  },
+  {
+    "order_id": "O5032",
+    "part_id": "P324",
+    "quantity_ordered": 145,
+    "order_date": "2025-04-13",
+    "expected_delivery_date": "2025-04-23",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-04-24"
+  },
+  {
+    "order_id": "O5033",
+    "part_id": "P315",
+    "quantity_ordered": 171,
+    "order_date": "2025-02-05",
+    "expected_delivery_date": "2025-02-15",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-16"
+  },
+  {
+    "order_id": "O5034",
+    "part_id": "P320",
+    "quantity_ordered": 127,
+    "order_date": "2025-04-20",
+    "expected_delivery_date": "2025-04-29",
+    "supplier_id": "SupB",
+    "status": "ordered",
+    "actual_delivered_at": NaN
+  },
+  {
+    "order_id": "O5035",
+    "part_id": "P327",
+    "quantity_ordered": 147,
+    "order_date": "2025-02-24",
+    "expected_delivery_date": "2025-03-20",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-21"
+  },
+  {
+    "order_id": "O5036",
+    "part_id": "P333",
+    "quantity_ordered": 122,
+    "order_date": "2025-02-01",
+    "expected_delivery_date": "2025-02-09",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-10"
+  },
+  {
+    "order_id": "O5037",
+    "part_id": "P311",
+    "quantity_ordered": 165,
+    "order_date": "2025-02-16",
+    "expected_delivery_date": "2025-02-22",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-23"
+  },
+  {
+    "order_id": "O5038",
+    "part_id": "P338",
+    "quantity_ordered": 123,
+    "order_date": "2025-04-19",
+    "expected_delivery_date": "2025-04-24",
+    "supplier_id": "SupC",
+    "status": "ordered",
+    "actual_delivered_at": NaN
+  },
+  {
+    "order_id": "O5039",
+    "part_id": "P330",
+    "quantity_ordered": 51,
+    "order_date": "2025-04-21",
+    "expected_delivery_date": "2025-05-03",
+    "supplier_id": "SupB",
+    "status": "ordered",
+    "actual_delivered_at": NaN
+  },
+  {
+    "order_id": "O5040",
+    "part_id": "P332",
+    "quantity_ordered": 78,
+    "order_date": "2025-02-19",
+    "expected_delivery_date": "2025-02-27",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-28"
+  },
+  {
+    "order_id": "O5041",
+    "part_id": "P307",
+    "quantity_ordered": 262,
+    "order_date": "2025-04-01",
+    "expected_delivery_date": "2025-04-19",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-04-20"
+  },
+  {
+    "order_id": "O5042",
+    "part_id": "P323",
+    "quantity_ordered": 100,
+    "order_date": "2025-04-21",
+    "expected_delivery_date": "2025-05-07",
+    "supplier_id": "SupA",
+    "status": "ordered",
+    "actual_delivered_at": NaN
+  },
+  {
+    "order_id": "O5043",
+    "part_id": "P317",
+    "quantity_ordered": 139,
+    "order_date": "2025-02-03",
+    "expected_delivery_date": "2025-02-15",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-16"
+  },
+  {
+    "order_id": "O5044",
+    "part_id": "P320",
+    "quantity_ordered": 111,
+    "order_date": "2025-03-28",
+    "expected_delivery_date": "2025-04-18",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-04-19"
+  },
+  {
+    "order_id": "O5045",
+    "part_id": "P309",
+    "quantity_ordered": 152,
+    "order_date": "2025-03-13",
+    "expected_delivery_date": "2025-04-06",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-04-07"
+  },
+  {
+    "order_id": "O5046",
+    "part_id": "P316",
+    "quantity_ordered": 356,
+    "order_date": "2025-02-24",
+    "expected_delivery_date": "2025-03-04",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-05"
+  },
+  {
+    "order_id": "O5047",
+    "part_id": "P308",
+    "quantity_ordered": 96,
+    "order_date": "2025-02-10",
+    "expected_delivery_date": "2025-03-05",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-06"
+  },
+  {
+    "order_id": "O5048",
+    "part_id": "P307",
+    "quantity_ordered": 152,
+    "order_date": "2025-02-24",
+    "expected_delivery_date": "2025-03-10",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-11"
+  },
+  {
+    "order_id": "O5049",
+    "part_id": "P330",
+    "quantity_ordered": 116,
+    "order_date": "2025-04-09",
+    "expected_delivery_date": "2025-04-28",
+    "supplier_id": "SupA",
+    "status": "ordered",
+    "actual_delivered_at": NaN
+  },
+  {
+    "order_id": "O5050",
+    "part_id": "P321",
+    "quantity_ordered": 36,
+    "order_date": "2025-03-28",
+    "expected_delivery_date": "2025-04-09",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-04-10"
+  },
+  {
+    "order_id": "O5051",
+    "part_id": "P334",
+    "quantity_ordered": 127,
+    "order_date": "2025-02-07",
+    "expected_delivery_date": "2025-02-13",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-14"
+  },
+  {
+    "order_id": "O5052",
+    "part_id": "P307",
+    "quantity_ordered": 242,
+    "order_date": "2025-01-26",
+    "expected_delivery_date": "2025-02-12",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-13"
+  },
+  {
+    "order_id": "O5053",
+    "part_id": "P325",
+    "quantity_ordered": 71,
+    "order_date": "2025-02-05",
+    "expected_delivery_date": "2025-02-21",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-22"
+  },
+  {
+    "order_id": "O5054",
+    "part_id": "P319",
+    "quantity_ordered": 135,
+    "order_date": "2025-02-26",
+    "expected_delivery_date": "2025-03-22",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-23"
+  },
+  {
+    "order_id": "O5055",
+    "part_id": "P317",
+    "quantity_ordered": 312,
+    "order_date": "2025-03-28",
+    "expected_delivery_date": "2025-04-09",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-04-10"
+  },
+  {
+    "order_id": "O5056",
+    "part_id": "P333",
+    "quantity_ordered": 156,
+    "order_date": "2025-01-24",
+    "expected_delivery_date": "2025-02-06",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-07"
+  },
+  {
+    "order_id": "O5057",
+    "part_id": "P306",
+    "quantity_ordered": 316,
+    "order_date": "2025-04-19",
+    "expected_delivery_date": "2025-04-28",
+    "supplier_id": "SupA",
+    "status": "ordered",
+    "actual_delivered_at": NaN
+  },
+  {
+    "order_id": "O5058",
+    "part_id": "P330",
+    "quantity_ordered": 78,
+    "order_date": "2025-02-25",
+    "expected_delivery_date": "2025-03-16",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-17"
+  },
+  {
+    "order_id": "O5059",
+    "part_id": "P318",
+    "quantity_ordered": 53,
+    "order_date": "2025-02-23",
+    "expected_delivery_date": "2025-03-07",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-08"
+  },
+  {
+    "order_id": "O5060",
+    "part_id": "P311",
+    "quantity_ordered": 115,
+    "order_date": "2025-03-25",
+    "expected_delivery_date": "2025-03-31",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-04-01"
+  },
+  {
+    "order_id": "O5061",
+    "part_id": "P300",
+    "quantity_ordered": 130,
+    "order_date": "2025-02-08",
+    "expected_delivery_date": "2025-02-22",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-23"
+  },
+  {
+    "order_id": "O5062",
+    "part_id": "P310",
+    "quantity_ordered": 84,
+    "order_date": "2025-02-24",
+    "expected_delivery_date": "2025-03-19",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-20"
+  },
+  {
+    "order_id": "O5063",
+    "part_id": "P322",
+    "quantity_ordered": 25,
+    "order_date": "2025-02-05",
+    "expected_delivery_date": "2025-02-18",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-19"
+  },
+  {
+    "order_id": "O5064",
+    "part_id": "P307",
+    "quantity_ordered": 318,
+    "order_date": "2025-04-21",
+    "expected_delivery_date": "2025-05-08",
+    "supplier_id": "SupA",
+    "status": "ordered",
+    "actual_delivered_at": NaN
+  },
+  {
+    "order_id": "O5065",
+    "part_id": "P316",
+    "quantity_ordered": 115,
+    "order_date": "2025-02-21",
+    "expected_delivery_date": "2025-03-01",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-02"
+  },
+  {
+    "order_id": "O5066",
+    "part_id": "P314",
+    "quantity_ordered": 145,
+    "order_date": "2025-03-18",
+    "expected_delivery_date": "2025-03-27",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-28"
+  },
+  {
+    "order_id": "O5067",
+    "part_id": "P303",
+    "quantity_ordered": 94,
+    "order_date": "2025-04-08",
+    "expected_delivery_date": "2025-04-28",
+    "supplier_id": "SupC",
+    "status": "ordered",
+    "actual_delivered_at": NaN
+  },
+  {
+    "order_id": "O5068",
+    "part_id": "P334",
+    "quantity_ordered": 88,
+    "order_date": "2025-01-26",
+    "expected_delivery_date": "2025-02-01",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-02"
+  },
+  {
+    "order_id": "O5069",
+    "part_id": "P331",
+    "quantity_ordered": 86,
+    "order_date": "2025-02-18",
+    "expected_delivery_date": "2025-03-04",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-05"
+  },
+  {
+    "order_id": "O5070",
+    "part_id": "P333",
+    "quantity_ordered": 123,
+    "order_date": "2025-03-08",
+    "expected_delivery_date": "2025-03-17",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-18"
+  },
+  {
+    "order_id": "O5071",
+    "part_id": "P318",
+    "quantity_ordered": 113,
+    "order_date": "2025-01-25",
+    "expected_delivery_date": "2025-02-06",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-07"
+  },
+  {
+    "order_id": "O5072",
+    "part_id": "P321",
+    "quantity_ordered": 169,
+    "order_date": "2025-03-08",
+    "expected_delivery_date": "2025-03-31",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-04-01"
+  },
+  {
+    "order_id": "O5073",
+    "part_id": "P325",
+    "quantity_ordered": 40,
+    "order_date": "2025-04-04",
+    "expected_delivery_date": "2025-04-27",
+    "supplier_id": "SupC",
+    "status": "ordered",
+    "actual_delivered_at": NaN
+  },
+  {
+    "order_id": "O5074",
+    "part_id": "P332",
+    "quantity_ordered": 160,
+    "order_date": "2025-04-23",
+    "expected_delivery_date": "2025-05-15",
+    "supplier_id": "SupA",
+    "status": "ordered",
+    "actual_delivered_at": NaN
+  },
+  {
+    "order_id": "O5075",
+    "part_id": "P331",
+    "quantity_ordered": 77,
+    "order_date": "2025-03-11",
+    "expected_delivery_date": "2025-04-03",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-04-04"
+  },
+  {
+    "order_id": "O5076",
+    "part_id": "P320",
+    "quantity_ordered": 105,
+    "order_date": "2025-01-30",
+    "expected_delivery_date": "2025-02-20",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-21"
+  },
+  {
+    "order_id": "O5077",
+    "part_id": "P328",
+    "quantity_ordered": 164,
+    "order_date": "2025-02-28",
+    "expected_delivery_date": "2025-03-14",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-15"
+  },
+  {
+    "order_id": "O5078",
+    "part_id": "P325",
+    "quantity_ordered": 40,
+    "order_date": "2025-03-14",
+    "expected_delivery_date": "2025-04-06",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-04-07"
+  },
+  {
+    "order_id": "O5079",
+    "part_id": "P330",
+    "quantity_ordered": 96,
+    "order_date": "2025-04-17",
+    "expected_delivery_date": "2025-05-06",
+    "supplier_id": "SupA",
+    "status": "ordered",
+    "actual_delivered_at": NaN
+  },
+  {
+    "order_id": "O5080",
+    "part_id": "P308",
+    "quantity_ordered": 102,
+    "order_date": "2025-02-06",
+    "expected_delivery_date": "2025-02-22",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-23"
+  },
+  {
+    "order_id": "O5081",
+    "part_id": "P334",
+    "quantity_ordered": 123,
+    "order_date": "2025-02-03",
+    "expected_delivery_date": "2025-02-09",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-10"
+  },
+  {
+    "order_id": "O5082",
+    "part_id": "P313",
+    "quantity_ordered": 35,
+    "order_date": "2025-04-22",
+    "expected_delivery_date": "2025-05-14",
+    "supplier_id": "SupB",
+    "status": "ordered",
+    "actual_delivered_at": NaN
+  },
+  {
+    "order_id": "O5083",
+    "part_id": "P335",
+    "quantity_ordered": 213,
+    "order_date": "2025-02-27",
+    "expected_delivery_date": "2025-03-06",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-07"
+  },
+  {
+    "order_id": "O5084",
+    "part_id": "P314",
+    "quantity_ordered": 65,
+    "order_date": "2025-03-11",
+    "expected_delivery_date": "2025-04-03",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-04-04"
+  },
+  {
+    "order_id": "O5085",
+    "part_id": "P302",
+    "quantity_ordered": 279,
+    "order_date": "2025-03-17",
+    "expected_delivery_date": "2025-03-27",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-28"
+  },
+  {
+    "order_id": "O5086",
+    "part_id": "P317",
+    "quantity_ordered": 156,
+    "order_date": "2025-04-09",
+    "expected_delivery_date": "2025-04-21",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-04-22"
+  },
+  {
+    "order_id": "O5087",
+    "part_id": "P316",
+    "quantity_ordered": 257,
+    "order_date": "2025-02-22",
+    "expected_delivery_date": "2025-03-02",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-03"
+  },
+  {
+    "order_id": "O5088",
+    "part_id": "P301",
+    "quantity_ordered": 33,
+    "order_date": "2025-02-11",
+    "expected_delivery_date": "2025-03-08",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-09"
+  },
+  {
+    "order_id": "O5089",
+    "part_id": "P330",
+    "quantity_ordered": 40,
+    "order_date": "2025-01-27",
+    "expected_delivery_date": "2025-02-08",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-02-09"
+  },
+  {
+    "order_id": "O5090",
+    "part_id": "P324",
+    "quantity_ordered": 81,
+    "order_date": "2025-04-08",
+    "expected_delivery_date": "2025-04-18",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-04-19"
+  },
+  {
+    "order_id": "O5091",
+    "part_id": "P323",
+    "quantity_ordered": 263,
+    "order_date": "2025-02-23",
+    "expected_delivery_date": "2025-03-07",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-08"
+  },
+  {
+    "order_id": "O5092",
+    "part_id": "P309",
+    "quantity_ordered": 237,
+    "order_date": "2025-03-05",
+    "expected_delivery_date": "2025-03-29",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-30"
+  },
+  {
+    "order_id": "O5093",
+    "part_id": "P302",
+    "quantity_ordered": 275,
+    "order_date": "2025-03-19",
+    "expected_delivery_date": "2025-03-29",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-30"
+  },
+  {
+    "order_id": "O5094",
+    "part_id": "P309",
+    "quantity_ordered": 213,
+    "order_date": "2025-03-02",
+    "expected_delivery_date": "2025-03-26",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-27"
+  },
+  {
+    "order_id": "O5095",
+    "part_id": "P303",
+    "quantity_ordered": 107,
+    "order_date": "2025-04-02",
+    "expected_delivery_date": "2025-04-07",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-04-08"
+  },
+  {
+    "order_id": "O5096",
+    "part_id": "P305",
+    "quantity_ordered": 212,
+    "order_date": "2025-03-02",
+    "expected_delivery_date": "2025-03-11",
+    "supplier_id": "SupA",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-12"
+  },
+  {
+    "order_id": "O5097",
+    "part_id": "P314",
+    "quantity_ordered": 77,
+    "order_date": "2025-02-05",
+    "expected_delivery_date": "2025-02-28",
+    "supplier_id": "SupB",
+    "status": "delivered",
+    "actual_delivered_at": "2025-03-01"
+  },
+  {
+    "order_id": "O5098",
+    "part_id": "P333",
+    "quantity_ordered": 59,
+    "order_date": "2025-04-18",
+    "expected_delivery_date": "2025-04-26",
+    "supplier_id": "SupA",
+    "status": "ordered",
+    "actual_delivered_at": NaN
+  },
+  {
+    "order_id": "O5099",
+    "part_id": "P331",
+    "quantity_ordered": 114,
+    "order_date": "2025-03-19",
+    "expected_delivery_date": "2025-04-11",
+    "supplier_id": "SupC",
+    "status": "delivered",
+    "actual_delivered_at": "2025-04-12"
+  }
+]

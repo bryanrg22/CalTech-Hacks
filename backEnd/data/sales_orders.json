@@ -1,0 +1,2002 @@
+[
+  {
+    "sales_order_id": "S6000",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 10,
+    "order_type": "webshop",
+    "requested_date": "2025-03-03",
+    "created_at": "2025-01-01",
+    "accepted_request_date": "2025-01-02"
+  },
+  {
+    "sales_order_id": "S6001",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 42,
+    "order_type": "webshop",
+    "requested_date": "2025-03-31",
+    "created_at": "2025-01-03",
+    "accepted_request_date": "2025-01-04"
+  },
+  {
+    "sales_order_id": "S6002",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 13,
+    "order_type": "webshop",
+    "requested_date": "2025-04-10",
+    "created_at": "2025-01-05",
+    "accepted_request_date": "2025-01-06"
+  },
+  {
+    "sales_order_id": "S6003",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 24,
+    "order_type": "webshop",
+    "requested_date": "2025-04-04",
+    "created_at": "2025-01-07",
+    "accepted_request_date": "2025-01-08"
+  },
+  {
+    "sales_order_id": "S6004",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 28,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-04-03",
+    "created_at": "2025-01-09",
+    "accepted_request_date": "2025-01-10"
+  },
+  {
+    "sales_order_id": "S6005",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 40,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-26",
+    "created_at": "2025-01-11",
+    "accepted_request_date": "2025-01-12"
+  },
+  {
+    "sales_order_id": "S6006",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 15,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-01",
+    "created_at": "2025-01-13",
+    "accepted_request_date": "2025-01-14"
+  },
+  {
+    "sales_order_id": "S6007",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 17,
+    "order_type": "webshop",
+    "requested_date": "2025-03-15",
+    "created_at": "2025-01-15",
+    "accepted_request_date": "2025-01-16"
+  },
+  {
+    "sales_order_id": "S6008",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 18,
+    "order_type": "webshop",
+    "requested_date": "2025-03-03",
+    "created_at": "2025-01-17",
+    "accepted_request_date": "2025-01-18"
+  },
+  {
+    "sales_order_id": "S6009",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 20,
+    "order_type": "webshop",
+    "requested_date": "2025-03-15",
+    "created_at": "2025-01-19",
+    "accepted_request_date": "2025-01-20"
+  },
+  {
+    "sales_order_id": "S6010",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 36,
+    "order_type": "webshop",
+    "requested_date": "2025-03-13",
+    "created_at": "2025-01-21",
+    "accepted_request_date": "2025-01-22"
+  },
+  {
+    "sales_order_id": "S6011",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 9,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-04",
+    "created_at": "2025-01-23",
+    "accepted_request_date": "2025-01-24"
+  },
+  {
+    "sales_order_id": "S6012",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 43,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-13",
+    "created_at": "2025-01-25",
+    "accepted_request_date": "2025-01-26"
+  },
+  {
+    "sales_order_id": "S6013",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 44,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-02",
+    "created_at": "2025-01-27",
+    "accepted_request_date": "2025-01-28"
+  },
+  {
+    "sales_order_id": "S6014",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 23,
+    "order_type": "webshop",
+    "requested_date": "2025-03-04",
+    "created_at": "2025-01-29",
+    "accepted_request_date": "2025-01-30"
+  },
+  {
+    "sales_order_id": "S6015",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 23,
+    "order_type": "webshop",
+    "requested_date": "2025-04-13",
+    "created_at": "2025-01-31",
+    "accepted_request_date": "2025-02-01"
+  },
+  {
+    "sales_order_id": "S6016",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 48,
+    "order_type": "webshop",
+    "requested_date": "2025-03-22",
+    "created_at": "2025-02-02",
+    "accepted_request_date": "2025-02-03"
+  },
+  {
+    "sales_order_id": "S6017",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 23,
+    "order_type": "webshop",
+    "requested_date": "2025-04-08",
+    "created_at": "2025-02-04",
+    "accepted_request_date": "2025-02-05"
+  },
+  {
+    "sales_order_id": "S6018",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 52,
+    "order_type": "webshop",
+    "requested_date": "2025-02-28",
+    "created_at": "2025-02-06",
+    "accepted_request_date": "2025-02-07"
+  },
+  {
+    "sales_order_id": "S6019",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 25,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-23",
+    "created_at": "2025-02-08",
+    "accepted_request_date": "2025-02-09"
+  },
+  {
+    "sales_order_id": "S6020",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 38,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-04-13",
+    "created_at": "2025-02-10",
+    "accepted_request_date": "2025-02-11"
+  },
+  {
+    "sales_order_id": "S6021",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 30,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-24",
+    "created_at": "2025-02-12",
+    "accepted_request_date": "2025-02-13"
+  },
+  {
+    "sales_order_id": "S6022",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 7,
+    "order_type": "webshop",
+    "requested_date": "2025-03-14",
+    "created_at": "2025-02-14",
+    "accepted_request_date": "2025-02-15"
+  },
+  {
+    "sales_order_id": "S6023",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 14,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-04-09",
+    "created_at": "2025-02-16",
+    "accepted_request_date": "2025-02-17"
+  },
+  {
+    "sales_order_id": "S6024",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 35,
+    "order_type": "webshop",
+    "requested_date": "2025-04-04",
+    "created_at": "2025-02-18",
+    "accepted_request_date": "2025-02-19"
+  },
+  {
+    "sales_order_id": "S6025",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 10,
+    "order_type": "webshop",
+    "requested_date": "2025-03-16",
+    "created_at": "2025-02-20",
+    "accepted_request_date": "2025-02-21"
+  },
+  {
+    "sales_order_id": "S6026",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 11,
+    "order_type": "webshop",
+    "requested_date": "2025-04-20",
+    "created_at": "2025-02-22",
+    "accepted_request_date": "2025-02-23"
+  },
+  {
+    "sales_order_id": "S6027",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 24,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-02-26",
+    "created_at": "2025-02-24",
+    "accepted_request_date": "2025-02-25"
+  },
+  {
+    "sales_order_id": "S6028",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 7,
+    "order_type": "webshop",
+    "requested_date": "2025-04-11",
+    "created_at": "2025-02-26",
+    "accepted_request_date": "2025-02-27"
+  },
+  {
+    "sales_order_id": "S6029",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 37,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-02-24",
+    "created_at": "2025-02-28",
+    "accepted_request_date": "2025-02-29"
+  },
+  {
+    "sales_order_id": "S6030",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 30,
+    "order_type": "webshop",
+    "requested_date": "2025-03-22",
+    "created_at": "2025-02-30",
+    "accepted_request_date": "2025-03-01"
+  },
+  {
+    "sales_order_id": "S6031",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 54,
+    "order_type": "webshop",
+    "requested_date": "2025-03-22",
+    "created_at": "2025-03-02",
+    "accepted_request_date": "2025-03-03"
+  },
+  {
+    "sales_order_id": "S6032",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 53,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-03",
+    "created_at": "2025-03-04",
+    "accepted_request_date": "2025-03-05"
+  },
+  {
+    "sales_order_id": "S6033",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 22,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-26",
+    "created_at": "2025-03-06",
+    "accepted_request_date": "2025-03-07"
+  },
+  {
+    "sales_order_id": "S6034",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 34,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-17",
+    "created_at": "2025-03-08",
+    "accepted_request_date": "2025-03-09"
+  },
+  {
+    "sales_order_id": "S6035",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 41,
+    "order_type": "webshop",
+    "requested_date": "2025-04-22",
+    "created_at": "2025-03-10",
+    "accepted_request_date": "2025-03-11"
+  },
+  {
+    "sales_order_id": "S6036",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 55,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-11",
+    "created_at": "2025-03-12",
+    "accepted_request_date": "2025-03-13"
+  },
+  {
+    "sales_order_id": "S6037",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 20,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-04-14",
+    "created_at": "2025-03-14",
+    "accepted_request_date": "2025-03-15"
+  },
+  {
+    "sales_order_id": "S6038",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 52,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-09",
+    "created_at": "2025-03-16",
+    "accepted_request_date": "2025-03-17"
+  },
+  {
+    "sales_order_id": "S6039",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 25,
+    "order_type": "webshop",
+    "requested_date": "2025-03-03",
+    "created_at": "2025-03-18",
+    "accepted_request_date": "2025-03-19"
+  },
+  {
+    "sales_order_id": "S6040",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 18,
+    "order_type": "webshop",
+    "requested_date": "2025-04-09",
+    "created_at": "2025-03-20",
+    "accepted_request_date": "2025-03-21"
+  },
+  {
+    "sales_order_id": "S6041",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 45,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-27",
+    "created_at": "2025-03-22",
+    "accepted_request_date": "2025-03-23"
+  },
+  {
+    "sales_order_id": "S6042",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 2,
+    "order_type": "webshop",
+    "requested_date": "2025-03-12",
+    "created_at": "2025-03-24",
+    "accepted_request_date": "2025-03-25"
+  },
+  {
+    "sales_order_id": "S6043",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 18,
+    "order_type": "webshop",
+    "requested_date": "2025-03-09",
+    "created_at": "2025-03-26",
+    "accepted_request_date": "2025-03-27"
+  },
+  {
+    "sales_order_id": "S6044",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 39,
+    "order_type": "webshop",
+    "requested_date": "2025-04-15",
+    "created_at": "2025-03-28",
+    "accepted_request_date": "2025-03-29"
+  },
+  {
+    "sales_order_id": "S6045",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 29,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-29",
+    "created_at": "2025-03-30",
+    "accepted_request_date": "2025-03-31"
+  },
+  {
+    "sales_order_id": "S6046",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 30,
+    "order_type": "webshop",
+    "requested_date": "2025-03-14",
+    "created_at": "2025-04-01",
+    "accepted_request_date": "2025-04-02"
+  },
+  {
+    "sales_order_id": "S6047",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 46,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-25",
+    "created_at": "2025-04-03",
+    "accepted_request_date": "2025-04-04"
+  },
+  {
+    "sales_order_id": "S6048",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 57,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-11",
+    "created_at": "2025-04-05",
+    "accepted_request_date": "2025-04-06"
+  },
+  {
+    "sales_order_id": "S6049",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 54,
+    "order_type": "webshop",
+    "requested_date": "2025-04-16",
+    "created_at": "2025-04-07",
+    "accepted_request_date": "2025-04-08"
+  },
+  {
+    "sales_order_id": "S6050",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 30,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-20",
+    "created_at": "2025-04-09",
+    "accepted_request_date": "2025-04-10"
+  },
+  {
+    "sales_order_id": "S6051",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 44,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-04-11",
+    "created_at": "2025-04-11",
+    "accepted_request_date": "2025-04-12"
+  },
+  {
+    "sales_order_id": "S6052",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 41,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-04-22",
+    "created_at": "2025-04-13",
+    "accepted_request_date": "2025-04-14"
+  },
+  {
+    "sales_order_id": "S6053",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 34,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-02-28",
+    "created_at": "2025-04-15",
+    "accepted_request_date": "2025-04-16"
+  },
+  {
+    "sales_order_id": "S6054",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 56,
+    "order_type": "webshop",
+    "requested_date": "2025-02-27",
+    "created_at": "2025-04-17",
+    "accepted_request_date": "2025-04-18"
+  },
+  {
+    "sales_order_id": "S6055",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 33,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-07",
+    "created_at": "2025-04-19",
+    "accepted_request_date": "2025-04-20"
+  },
+  {
+    "sales_order_id": "S6056",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 16,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-03",
+    "created_at": "2025-04-21",
+    "accepted_request_date": "2025-04-22"
+  },
+  {
+    "sales_order_id": "S6057",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 2,
+    "order_type": "webshop",
+    "requested_date": "2025-03-01",
+    "created_at": "2025-04-23",
+    "accepted_request_date": "2025-04-24"
+  },
+  {
+    "sales_order_id": "S6058",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 46,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-20",
+    "created_at": "2025-04-25",
+    "accepted_request_date": "2025-04-26"
+  },
+  {
+    "sales_order_id": "S6059",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 17,
+    "order_type": "webshop",
+    "requested_date": "2025-03-05",
+    "created_at": "2025-04-27",
+    "accepted_request_date": "2025-04-28"
+  },
+  {
+    "sales_order_id": "S6060",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 47,
+    "order_type": "webshop",
+    "requested_date": "2025-03-17",
+    "created_at": "2025-04-29",
+    "accepted_request_date": "2025-04-30"
+  },
+  {
+    "sales_order_id": "S6061",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 43,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-25",
+    "created_at": "2025-05-01",
+    "accepted_request_date": "2025-05-02"
+  },
+  {
+    "sales_order_id": "S6062",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 41,
+    "order_type": "webshop",
+    "requested_date": "2025-03-24",
+    "created_at": "2025-05-03",
+    "accepted_request_date": "2025-05-04"
+  },
+  {
+    "sales_order_id": "S6063",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 13,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-04-05",
+    "created_at": "2025-05-05",
+    "accepted_request_date": "2025-05-06"
+  },
+  {
+    "sales_order_id": "S6064",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 45,
+    "order_type": "webshop",
+    "requested_date": "2025-03-25",
+    "created_at": "2025-05-07",
+    "accepted_request_date": "2025-05-08"
+  },
+  {
+    "sales_order_id": "S6065",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 38,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-23",
+    "created_at": "2025-05-09",
+    "accepted_request_date": "2025-05-10"
+  },
+  {
+    "sales_order_id": "S6066",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 3,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-02-24",
+    "created_at": "2025-05-11",
+    "accepted_request_date": "2025-05-12"
+  },
+  {
+    "sales_order_id": "S6067",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 6,
+    "order_type": "webshop",
+    "requested_date": "2025-04-08",
+    "created_at": "2025-05-13",
+    "accepted_request_date": "2025-05-14"
+  },
+  {
+    "sales_order_id": "S6068",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 47,
+    "order_type": "webshop",
+    "requested_date": "2025-03-01",
+    "created_at": "2025-05-15",
+    "accepted_request_date": "2025-05-16"
+  },
+  {
+    "sales_order_id": "S6069",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 26,
+    "order_type": "webshop",
+    "requested_date": "2025-03-22",
+    "created_at": "2025-05-17",
+    "accepted_request_date": "2025-05-18"
+  },
+  {
+    "sales_order_id": "S6070",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 10,
+    "order_type": "webshop",
+    "requested_date": "2025-03-14",
+    "created_at": "2025-05-19",
+    "accepted_request_date": "2025-05-20"
+  },
+  {
+    "sales_order_id": "S6071",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 14,
+    "order_type": "webshop",
+    "requested_date": "2025-03-02",
+    "created_at": "2025-05-21",
+    "accepted_request_date": "2025-05-22"
+  },
+  {
+    "sales_order_id": "S6072",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 58,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-04-19",
+    "created_at": "2025-05-23",
+    "accepted_request_date": "2025-05-24"
+  },
+  {
+    "sales_order_id": "S6073",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 14,
+    "order_type": "webshop",
+    "requested_date": "2025-04-13",
+    "created_at": "2025-05-25",
+    "accepted_request_date": "2025-05-26"
+  },
+  {
+    "sales_order_id": "S6074",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 58,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-19",
+    "created_at": "2025-05-27",
+    "accepted_request_date": "2025-05-28"
+  },
+  {
+    "sales_order_id": "S6075",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 10,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-11",
+    "created_at": "2025-05-29",
+    "accepted_request_date": "2025-05-30"
+  },
+  {
+    "sales_order_id": "S6076",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 39,
+    "order_type": "webshop",
+    "requested_date": "2025-04-15",
+    "created_at": "2025-05-31",
+    "accepted_request_date": "2025-06-01"
+  },
+  {
+    "sales_order_id": "S6077",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 43,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-14",
+    "created_at": "2025-06-02",
+    "accepted_request_date": "2025-06-03"
+  },
+  {
+    "sales_order_id": "S6078",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 26,
+    "order_type": "webshop",
+    "requested_date": "2025-03-03",
+    "created_at": "2025-06-04",
+    "accepted_request_date": "2025-06-05"
+  },
+  {
+    "sales_order_id": "S6079",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 2,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-10",
+    "created_at": "2025-06-06",
+    "accepted_request_date": "2025-06-07"
+  },
+  {
+    "sales_order_id": "S6080",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 51,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-11",
+    "created_at": "2025-06-08",
+    "accepted_request_date": "2025-06-09"
+  },
+  {
+    "sales_order_id": "S6081",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 15,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-05",
+    "created_at": "2025-06-10",
+    "accepted_request_date": "2025-06-11"
+  },
+  {
+    "sales_order_id": "S6082",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 41,
+    "order_type": "webshop",
+    "requested_date": "2025-03-09",
+    "created_at": "2025-06-12",
+    "accepted_request_date": "2025-06-13"
+  },
+  {
+    "sales_order_id": "S6083",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 35,
+    "order_type": "webshop",
+    "requested_date": "2025-04-17",
+    "created_at": "2025-06-14",
+    "accepted_request_date": "2025-06-15"
+  },
+  {
+    "sales_order_id": "S6084",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 7,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-04-04",
+    "created_at": "2025-06-16",
+    "accepted_request_date": "2025-06-17"
+  },
+  {
+    "sales_order_id": "S6085",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 47,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-09",
+    "created_at": "2025-06-18",
+    "accepted_request_date": "2025-06-19"
+  },
+  {
+    "sales_order_id": "S6086",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 5,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-21",
+    "created_at": "2025-06-20",
+    "accepted_request_date": "2025-06-21"
+  },
+  {
+    "sales_order_id": "S6087",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 56,
+    "order_type": "webshop",
+    "requested_date": "2025-04-03",
+    "created_at": "2025-06-22",
+    "accepted_request_date": "2025-06-23"
+  },
+  {
+    "sales_order_id": "S6088",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 1,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-05",
+    "created_at": "2025-06-24",
+    "accepted_request_date": "2025-06-25"
+  },
+  {
+    "sales_order_id": "S6089",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 46,
+    "order_type": "webshop",
+    "requested_date": "2025-04-06",
+    "created_at": "2025-06-26",
+    "accepted_request_date": "2025-06-27"
+  },
+  {
+    "sales_order_id": "S6090",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 20,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-05",
+    "created_at": "2025-06-28",
+    "accepted_request_date": "2025-06-29"
+  },
+  {
+    "sales_order_id": "S6091",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 46,
+    "order_type": "webshop",
+    "requested_date": "2025-03-15",
+    "created_at": "2025-06-30",
+    "accepted_request_date": "2025-07-01"
+  },
+  {
+    "sales_order_id": "S6092",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 36,
+    "order_type": "webshop",
+    "requested_date": "2025-03-14",
+    "created_at": "2025-07-02",
+    "accepted_request_date": "2025-07-03"
+  },
+  {
+    "sales_order_id": "S6093",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 10,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-29",
+    "created_at": "2025-07-04",
+    "accepted_request_date": "2025-07-05"
+  },
+  {
+    "sales_order_id": "S6094",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 47,
+    "order_type": "webshop",
+    "requested_date": "2025-03-11",
+    "created_at": "2025-07-06",
+    "accepted_request_date": "2025-07-07"
+  },
+  {
+    "sales_order_id": "S6095",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 6,
+    "order_type": "webshop",
+    "requested_date": "2025-03-19",
+    "created_at": "2025-07-08",
+    "accepted_request_date": "2025-07-09"
+  },
+  {
+    "sales_order_id": "S6096",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 51,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-07",
+    "created_at": "2025-07-10",
+    "accepted_request_date": "2025-07-11"
+  },
+  {
+    "sales_order_id": "S6097",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 27,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-21",
+    "created_at": "2025-07-12",
+    "accepted_request_date": "2025-07-13"
+  },
+  {
+    "sales_order_id": "S6098",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 34,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-04-08",
+    "created_at": "2025-07-14",
+    "accepted_request_date": "2025-07-15"
+  },
+  {
+    "sales_order_id": "S6099",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 12,
+    "order_type": "webshop",
+    "requested_date": "2025-04-18",
+    "created_at": "2025-07-16",
+    "accepted_request_date": "2025-07-17"
+  },
+  {
+    "sales_order_id": "S6100",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 16,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-16",
+    "created_at": "2025-07-18",
+    "accepted_request_date": "2025-07-19"
+  },
+  {
+    "sales_order_id": "S6101",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 48,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-02-26",
+    "created_at": "2025-07-20",
+    "accepted_request_date": "2025-07-21"
+  },
+  {
+    "sales_order_id": "S6102",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 38,
+    "order_type": "webshop",
+    "requested_date": "2025-04-01",
+    "created_at": "2025-07-22",
+    "accepted_request_date": "2025-07-23"
+  },
+  {
+    "sales_order_id": "S6103",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 11,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-22",
+    "created_at": "2025-07-24",
+    "accepted_request_date": "2025-07-25"
+  },
+  {
+    "sales_order_id": "S6104",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 13,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-25",
+    "created_at": "2025-07-26",
+    "accepted_request_date": "2025-07-27"
+  },
+  {
+    "sales_order_id": "S6105",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 50,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-16",
+    "created_at": "2025-07-28",
+    "accepted_request_date": "2025-07-29"
+  },
+  {
+    "sales_order_id": "S6106",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 26,
+    "order_type": "webshop",
+    "requested_date": "2025-03-30",
+    "created_at": "2025-07-30",
+    "accepted_request_date": "2025-07-31"
+  },
+  {
+    "sales_order_id": "S6107",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 33,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-23",
+    "created_at": "2025-08-01",
+    "accepted_request_date": "2025-08-02"
+  },
+  {
+    "sales_order_id": "S6108",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 33,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-21",
+    "created_at": "2025-08-03",
+    "accepted_request_date": "2025-08-04"
+  },
+  {
+    "sales_order_id": "S6109",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 15,
+    "order_type": "webshop",
+    "requested_date": "2025-04-04",
+    "created_at": "2025-08-05",
+    "accepted_request_date": "2025-08-06"
+  },
+  {
+    "sales_order_id": "S6110",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 11,
+    "order_type": "webshop",
+    "requested_date": "2025-02-25",
+    "created_at": "2025-08-07",
+    "accepted_request_date": "2025-08-08"
+  },
+  {
+    "sales_order_id": "S6111",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 57,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-04-04",
+    "created_at": "2025-08-09",
+    "accepted_request_date": "2025-08-10"
+  },
+  {
+    "sales_order_id": "S6112",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 40,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-24",
+    "created_at": "2025-08-11",
+    "accepted_request_date": "2025-08-12"
+  },
+  {
+    "sales_order_id": "S6113",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 26,
+    "order_type": "webshop",
+    "requested_date": "2025-04-22",
+    "created_at": "2025-08-13",
+    "accepted_request_date": "2025-08-14"
+  },
+  {
+    "sales_order_id": "S6114",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 16,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-28",
+    "created_at": "2025-08-15",
+    "accepted_request_date": "2025-08-16"
+  },
+  {
+    "sales_order_id": "S6115",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 10,
+    "order_type": "webshop",
+    "requested_date": "2025-03-15",
+    "created_at": "2025-08-17",
+    "accepted_request_date": "2025-08-18"
+  },
+  {
+    "sales_order_id": "S6116",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 53,
+    "order_type": "webshop",
+    "requested_date": "2025-04-24",
+    "created_at": "2025-08-19",
+    "accepted_request_date": "2025-08-20"
+  },
+  {
+    "sales_order_id": "S6117",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 30,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-06",
+    "created_at": "2025-08-21",
+    "accepted_request_date": "2025-08-22"
+  },
+  {
+    "sales_order_id": "S6118",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 57,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-27",
+    "created_at": "2025-08-23",
+    "accepted_request_date": "2025-08-24"
+  },
+  {
+    "sales_order_id": "S6119",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 33,
+    "order_type": "webshop",
+    "requested_date": "2025-04-16",
+    "created_at": "2025-08-25",
+    "accepted_request_date": "2025-08-26"
+  },
+  {
+    "sales_order_id": "S6120",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 54,
+    "order_type": "webshop",
+    "requested_date": "2025-03-06",
+    "created_at": "2025-08-27",
+    "accepted_request_date": "2025-08-28"
+  },
+  {
+    "sales_order_id": "S6121",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 24,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-25",
+    "created_at": "2025-08-29",
+    "accepted_request_date": "2025-08-30"
+  },
+  {
+    "sales_order_id": "S6122",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 1,
+    "order_type": "webshop",
+    "requested_date": "2025-04-18",
+    "created_at": "2025-08-31",
+    "accepted_request_date": "2025-09-01"
+  },
+  {
+    "sales_order_id": "S6123",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 57,
+    "order_type": "webshop",
+    "requested_date": "2025-03-30",
+    "created_at": "2025-09-02",
+    "accepted_request_date": "2025-09-03"
+  },
+  {
+    "sales_order_id": "S6124",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 8,
+    "order_type": "webshop",
+    "requested_date": "2025-03-26",
+    "created_at": "2025-09-04",
+    "accepted_request_date": "2025-09-05"
+  },
+  {
+    "sales_order_id": "S6125",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 22,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-19",
+    "created_at": "2025-09-06",
+    "accepted_request_date": "2025-09-07"
+  },
+  {
+    "sales_order_id": "S6126",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 38,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-21",
+    "created_at": "2025-09-08",
+    "accepted_request_date": "2025-09-09"
+  },
+  {
+    "sales_order_id": "S6127",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 37,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-07",
+    "created_at": "2025-09-10",
+    "accepted_request_date": "2025-09-11"
+  },
+  {
+    "sales_order_id": "S6128",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 59,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-04-18",
+    "created_at": "2025-09-12",
+    "accepted_request_date": "2025-09-13"
+  },
+  {
+    "sales_order_id": "S6129",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 36,
+    "order_type": "webshop",
+    "requested_date": "2025-03-25",
+    "created_at": "2025-09-14",
+    "accepted_request_date": "2025-09-15"
+  },
+  {
+    "sales_order_id": "S6130",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 31,
+    "order_type": "webshop",
+    "requested_date": "2025-03-13",
+    "created_at": "2025-09-16",
+    "accepted_request_date": "2025-09-17"
+  },
+  {
+    "sales_order_id": "S6131",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 36,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-04-21",
+    "created_at": "2025-09-18",
+    "accepted_request_date": "2025-09-19"
+  },
+  {
+    "sales_order_id": "S6132",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 42,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-04-14",
+    "created_at": "2025-09-20",
+    "accepted_request_date": "2025-09-21"
+  },
+  {
+    "sales_order_id": "S6133",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 28,
+    "order_type": "webshop",
+    "requested_date": "2025-03-19",
+    "created_at": "2025-09-22",
+    "accepted_request_date": "2025-09-23"
+  },
+  {
+    "sales_order_id": "S6134",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 23,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-27",
+    "created_at": "2025-09-24",
+    "accepted_request_date": "2025-09-25"
+  },
+  {
+    "sales_order_id": "S6135",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 43,
+    "order_type": "webshop",
+    "requested_date": "2025-02-25",
+    "created_at": "2025-09-26",
+    "accepted_request_date": "2025-09-27"
+  },
+  {
+    "sales_order_id": "S6136",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 19,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-02-23",
+    "created_at": "2025-09-28",
+    "accepted_request_date": "2025-09-29"
+  },
+  {
+    "sales_order_id": "S6137",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 60,
+    "order_type": "webshop",
+    "requested_date": "2025-03-05",
+    "created_at": "2025-09-30",
+    "accepted_request_date": "2025-10-01"
+  },
+  {
+    "sales_order_id": "S6138",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 11,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-02-24",
+    "created_at": "2025-10-02",
+    "accepted_request_date": "2025-10-03"
+  },
+  {
+    "sales_order_id": "S6139",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 7,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-02",
+    "created_at": "2025-10-04",
+    "accepted_request_date": "2025-10-05"
+  },
+  {
+    "sales_order_id": "S6140",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 2,
+    "order_type": "webshop",
+    "requested_date": "2025-03-20",
+    "created_at": "2025-10-06",
+    "accepted_request_date": "2025-10-07"
+  },
+  {
+    "sales_order_id": "S6141",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 27,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-12",
+    "created_at": "2025-10-08",
+    "accepted_request_date": "2025-10-09"
+  },
+  {
+    "sales_order_id": "S6142",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 31,
+    "order_type": "webshop",
+    "requested_date": "2025-03-20",
+    "created_at": "2025-10-10",
+    "accepted_request_date": "2025-10-11"
+  },
+  {
+    "sales_order_id": "S6143",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 46,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-23",
+    "created_at": "2025-10-12",
+    "accepted_request_date": "2025-10-13"
+  },
+  {
+    "sales_order_id": "S6144",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 43,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-04-19",
+    "created_at": "2025-10-14",
+    "accepted_request_date": "2025-10-15"
+  },
+  {
+    "sales_order_id": "S6145",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 47,
+    "order_type": "webshop",
+    "requested_date": "2025-04-02",
+    "created_at": "2025-10-16",
+    "accepted_request_date": "2025-10-17"
+  },
+  {
+    "sales_order_id": "S6146",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 19,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-19",
+    "created_at": "2025-10-18",
+    "accepted_request_date": "2025-10-19"
+  },
+  {
+    "sales_order_id": "S6147",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 53,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-02-26",
+    "created_at": "2025-10-20",
+    "accepted_request_date": "2025-10-21"
+  },
+  {
+    "sales_order_id": "S6148",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 51,
+    "order_type": "webshop",
+    "requested_date": "2025-04-13",
+    "created_at": "2025-10-22",
+    "accepted_request_date": "2025-10-23"
+  },
+  {
+    "sales_order_id": "S6149",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 2,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-05",
+    "created_at": "2025-10-24",
+    "accepted_request_date": "2025-10-25"
+  },
+  {
+    "sales_order_id": "S6150",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 7,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-07",
+    "created_at": "2025-10-26",
+    "accepted_request_date": "2025-10-27"
+  },
+  {
+    "sales_order_id": "S6151",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 19,
+    "order_type": "webshop",
+    "requested_date": "2025-03-04",
+    "created_at": "2025-10-28",
+    "accepted_request_date": "2025-10-29"
+  },
+  {
+    "sales_order_id": "S6152",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 51,
+    "order_type": "webshop",
+    "requested_date": "2025-03-16",
+    "created_at": "2025-10-30",
+    "accepted_request_date": "2025-10-31"
+  },
+  {
+    "sales_order_id": "S6153",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 37,
+    "order_type": "webshop",
+    "requested_date": "2025-03-15",
+    "created_at": "2025-11-01",
+    "accepted_request_date": "2025-11-02"
+  },
+  {
+    "sales_order_id": "S6154",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 37,
+    "order_type": "webshop",
+    "requested_date": "2025-04-12",
+    "created_at": "2025-11-03",
+    "accepted_request_date": "2025-11-04"
+  },
+  {
+    "sales_order_id": "S6155",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 2,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-21",
+    "created_at": "2025-11-05",
+    "accepted_request_date": "2025-11-06"
+  },
+  {
+    "sales_order_id": "S6156",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 13,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-10",
+    "created_at": "2025-11-07",
+    "accepted_request_date": "2025-11-08"
+  },
+  {
+    "sales_order_id": "S6157",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 44,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-19",
+    "created_at": "2025-11-09",
+    "accepted_request_date": "2025-11-10"
+  },
+  {
+    "sales_order_id": "S6158",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 51,
+    "order_type": "webshop",
+    "requested_date": "2025-03-20",
+    "created_at": "2025-11-11",
+    "accepted_request_date": "2025-11-12"
+  },
+  {
+    "sales_order_id": "S6159",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 43,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-04-11",
+    "created_at": "2025-11-13",
+    "accepted_request_date": "2025-11-14"
+  },
+  {
+    "sales_order_id": "S6160",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 29,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-19",
+    "created_at": "2025-11-15",
+    "accepted_request_date": "2025-11-16"
+  },
+  {
+    "sales_order_id": "S6161",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 12,
+    "order_type": "webshop",
+    "requested_date": "2025-03-29",
+    "created_at": "2025-11-17",
+    "accepted_request_date": "2025-11-18"
+  },
+  {
+    "sales_order_id": "S6162",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 30,
+    "order_type": "webshop",
+    "requested_date": "2025-04-06",
+    "created_at": "2025-11-19",
+    "accepted_request_date": "2025-11-20"
+  },
+  {
+    "sales_order_id": "S6163",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 32,
+    "order_type": "webshop",
+    "requested_date": "2025-03-10",
+    "created_at": "2025-11-21",
+    "accepted_request_date": "2025-11-22"
+  },
+  {
+    "sales_order_id": "S6164",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 11,
+    "order_type": "webshop",
+    "requested_date": "2025-04-18",
+    "created_at": "2025-11-23",
+    "accepted_request_date": "2025-11-24"
+  },
+  {
+    "sales_order_id": "S6165",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 29,
+    "order_type": "webshop",
+    "requested_date": "2025-03-25",
+    "created_at": "2025-11-25",
+    "accepted_request_date": "2025-11-26"
+  },
+  {
+    "sales_order_id": "S6166",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 39,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-01",
+    "created_at": "2025-11-27",
+    "accepted_request_date": "2025-11-28"
+  },
+  {
+    "sales_order_id": "S6167",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 58,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-19",
+    "created_at": "2025-11-29",
+    "accepted_request_date": "2025-11-30"
+  },
+  {
+    "sales_order_id": "S6168",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 2,
+    "order_type": "webshop",
+    "requested_date": "2025-03-30",
+    "created_at": "2025-12-01",
+    "accepted_request_date": "2025-12-02"
+  },
+  {
+    "sales_order_id": "S6169",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 3,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-04-12",
+    "created_at": "2025-12-03",
+    "accepted_request_date": "2025-12-04"
+  },
+  {
+    "sales_order_id": "S6170",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 33,
+    "order_type": "webshop",
+    "requested_date": "2025-04-12",
+    "created_at": "2025-12-05",
+    "accepted_request_date": "2025-12-06"
+  },
+  {
+    "sales_order_id": "S6171",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 35,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-17",
+    "created_at": "2025-12-07",
+    "accepted_request_date": "2025-12-08"
+  },
+  {
+    "sales_order_id": "S6172",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 30,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-02",
+    "created_at": "2025-12-09",
+    "accepted_request_date": "2025-12-10"
+  },
+  {
+    "sales_order_id": "S6173",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 20,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-15",
+    "created_at": "2025-12-11",
+    "accepted_request_date": "2025-12-12"
+  },
+  {
+    "sales_order_id": "S6174",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 22,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-02",
+    "created_at": "2025-12-13",
+    "accepted_request_date": "2025-12-14"
+  },
+  {
+    "sales_order_id": "S6175",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 35,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-13",
+    "created_at": "2025-12-15",
+    "accepted_request_date": "2025-12-16"
+  },
+  {
+    "sales_order_id": "S6176",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 50,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-22",
+    "created_at": "2025-12-17",
+    "accepted_request_date": "2025-12-18"
+  },
+  {
+    "sales_order_id": "S6177",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 32,
+    "order_type": "webshop",
+    "requested_date": "2025-03-07",
+    "created_at": "2025-12-19",
+    "accepted_request_date": "2025-12-20"
+  },
+  {
+    "sales_order_id": "S6178",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 44,
+    "order_type": "webshop",
+    "requested_date": "2025-04-18",
+    "created_at": "2025-12-21",
+    "accepted_request_date": "2025-12-22"
+  },
+  {
+    "sales_order_id": "S6179",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 3,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-21",
+    "created_at": "2025-12-23",
+    "accepted_request_date": "2025-12-24"
+  },
+  {
+    "sales_order_id": "S6180",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 2,
+    "order_type": "webshop",
+    "requested_date": "2025-03-18",
+    "created_at": "2025-12-25",
+    "accepted_request_date": "2025-12-26"
+  },
+  {
+    "sales_order_id": "S6181",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 2,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-04-13",
+    "created_at": "2025-12-27",
+    "accepted_request_date": "2025-12-28"
+  },
+  {
+    "sales_order_id": "S6182",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 21,
+    "order_type": "webshop",
+    "requested_date": "2025-03-12",
+    "created_at": "2025-12-29",
+    "accepted_request_date": "2025-12-30"
+  },
+  {
+    "sales_order_id": "S6183",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 6,
+    "order_type": "webshop",
+    "requested_date": "2025-03-16",
+    "created_at": "2025-12-31",
+    "accepted_request_date": "2026-01-01"
+  },
+  {
+    "sales_order_id": "S6184",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 19,
+    "order_type": "webshop",
+    "requested_date": "2025-02-25",
+    "created_at": "2026-01-02",
+    "accepted_request_date": "2026-01-03"
+  },
+  {
+    "sales_order_id": "S6185",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 24,
+    "order_type": "webshop",
+    "requested_date": "2025-04-14",
+    "created_at": "2026-01-04",
+    "accepted_request_date": "2026-01-05"
+  },
+  {
+    "sales_order_id": "S6186",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 37,
+    "order_type": "webshop",
+    "requested_date": "2025-04-18",
+    "created_at": "2026-01-06",
+    "accepted_request_date": "2026-01-07"
+  },
+  {
+    "sales_order_id": "S6187",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 4,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-28",
+    "created_at": "2026-01-08",
+    "accepted_request_date": "2026-01-09"
+  },
+  {
+    "sales_order_id": "S6188",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 31,
+    "order_type": "webshop",
+    "requested_date": "2025-04-08",
+    "created_at": "2026-01-10",
+    "accepted_request_date": "2026-01-11"
+  },
+  {
+    "sales_order_id": "S6189",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 36,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-03-17",
+    "created_at": "2026-01-12",
+    "accepted_request_date": "2026-01-13"
+  },
+  {
+    "sales_order_id": "S6190",
+    "model": "S2",
+    "version": "V2",
+    "quantity": 17,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-18",
+    "created_at": "2026-01-14",
+    "accepted_request_date": "2026-01-15"
+  },
+  {
+    "sales_order_id": "S6191",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 21,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-03-27",
+    "created_at": "2026-01-16",
+    "accepted_request_date": "2026-01-17"
+  },
+  {
+    "sales_order_id": "S6192",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 19,
+    "order_type": "webshop",
+    "requested_date": "2025-03-17",
+    "created_at": "2026-01-18",
+    "accepted_request_date": "2026-01-19"
+  },
+  {
+    "sales_order_id": "S6193",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 49,
+    "order_type": "webshop",
+    "requested_date": "2025-03-31",
+    "created_at": "2026-01-20",
+    "accepted_request_date": "2026-01-21"
+  },
+  {
+    "sales_order_id": "S6194",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 44,
+    "order_type": "webshop",
+    "requested_date": "2025-03-04",
+    "created_at": "2026-01-22",
+    "accepted_request_date": "2026-01-23"
+  },
+  {
+    "sales_order_id": "S6195",
+    "model": "S3",
+    "version": "V1",
+    "quantity": 28,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-02-25",
+    "created_at": "2026-01-24",
+    "accepted_request_date": "2026-01-25"
+  },
+  {
+    "sales_order_id": "S6196",
+    "model": "S3",
+    "version": "V2",
+    "quantity": 8,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-18",
+    "created_at": "2026-01-26",
+    "accepted_request_date": "2026-01-27"
+  },
+  {
+    "sales_order_id": "S6197",
+    "model": "S1",
+    "version": "V2",
+    "quantity": 52,
+    "order_type": "fleet_framework",
+    "requested_date": "2025-02-26",
+    "created_at": "2026-01-28",
+    "accepted_request_date": "2026-01-29"
+  },
+  {
+    "sales_order_id": "S6198",
+    "model": "S1",
+    "version": "V1",
+    "quantity": 40,
+    "order_type": "webshop",
+    "requested_date": "2025-02-27",
+    "created_at": "2026-01-30",
+    "accepted_request_date": "2026-01-31"
+  },
+  {
+    "sales_order_id": "S6199",
+    "model": "S2",
+    "version": "V1",
+    "quantity": 23,
+    "order_type": "fleet_spot",
+    "requested_date": "2025-04-14",
+    "created_at": "2026-02-01",
+    "accepted_request_date": "2026-02-02"
+  }
+]
