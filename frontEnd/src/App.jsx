@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import SignIn from "./pages/SignIn"
+import Map from "./pages/Map"
 import Dashboard from "./pages/Dashboard"
 import Parts from "./pages/Parts"
 import Sales from "./pages/Sales"
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<SignIn />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/map" element={<Map />} />
           <Route path="/parts" element={<Parts />} />
           <Route path="/sales" element={<Sales />} />
           <Route path="/orders" element={<Orders />} />
