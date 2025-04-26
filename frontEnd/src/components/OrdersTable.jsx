@@ -1,8 +1,8 @@
 "use client"
 
-import { ArrowRight, CheckCircle, Clock } from "lucide-react"
+import { ArrowRight, CheckCircle, Clock } from 'lucide-react'
 import { useState, useEffect } from "react"
-import { useParts } from "../../hooks/useFirebaseData"
+import { useParts } from "../hooks/useFirebaseData"
 
 export default function OrdersTable({ ordersData }) {
   const { data: partsData, loading: partsLoading } = useParts()

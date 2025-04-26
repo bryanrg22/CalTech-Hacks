@@ -1,14 +1,20 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Search, Filter, Calendar, ArrowUpDown, ExternalLink } from "lucide-react"
+import { Search, Filter, Calendar, ArrowUpDown, ExternalLink, Edit, Trash2, Plus } from "lucide-react"
 import Sidebar from "../components/Sidebar"
 import Header from "../components/Header"
 import { useSales } from "../hooks/useFirebaseData"
 import LoadingSpinner from "../components/LoadingSpinner"
+import Modal from "../components/Modal"
+import SaleForm from "../components/SaleForm"
+import ConfirmDialog from "../components/ConfirmDialog"
+import { deleteDocument } from "../services/apiService"
+import { useToast } from "../components/ToastContext"
 
 export default function Sales() {
-  const { data: salesData, loading, error } = useSales()
+  const { data: salesData, loading, error, refetch } = useSales()
+  const { addToast } = useToast()
   const [searchTerm, setSearchTerm] = useState("")
   const [filterStatus, setFilterStatus] = useState("all")
   const [filteredSales, setFilteredSales] = useState([])
@@ -17,6 +23,12 @@ export default function Sales() {
     webshopOrders: 0,
     fleetOrders: 0,
   })
+
+  // Modal states
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false)
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false)
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
+  const [selectedSale, setSelectedSale] = useState(null)
 
   // Filter sales based on search term and filter status
   useEffect(() => {
@@ -47,6 +59,36 @@ export default function Sales() {
       })
     }
   }, [salesData, searchTerm, filterStatus])
+
+  const handleAddSale = () => {
+    setIsAddModalOpen(true)
+  }
+
+  const handleEditSale = (sale) => {
+    setSelectedSale(sale)
+    setIsEditModalOpen(true)
+  }
+
+  const handleDeleteSale = (sale) => {
+    setSelectedSale(sale)
+    setIsDeleteDialogOpen(true)
+  }
+
+  const confirmDeleteSale = async () => {
+    try {
+      await deleteDocument("sales", selectedSale.id)
+      addToast(`Sale ${selectedSale.id} deleted successfully`, "success")
+      refetch()
+    } catch (error) {
+      addToast(`Error deleting sale: ${error.message}`, "error")
+    }
+  }
+
+  const handleSaveSale = () => {
+    setIsAddModalOpen(false)
+    setIsEditModalOpen(false)
+    refetch()
+  }
 
   return (
     <div className="flex h-screen bg-gray-950 text-white">
@@ -103,11 +145,22 @@ export default function Sales() {
               </div>
             </div>
 
-            {/* Export Button */}
-            <button className="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg flex items-center justify-center">
-              <ExternalLink className="w-5 h-5 mr-2" />
-              Export Data
-            </button>
+            <div className="flex space-x-3">
+              {/* Add Sale Button */}
+              <button
+                className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg flex items-center justify-center"
+                onClick={handleAddSale}
+              >
+                <Plus className="w-5 h-5 mr-2" />
+                Add Sale
+              </button>
+
+              {/* Export Button */}
+              <button className="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg flex items-center justify-center">
+                <ExternalLink className="w-5 h-5 mr-2" />
+                Export Data
+              </button>
+            </div>
           </div>
 
           {/* Sales Summary Cards */}
@@ -188,7 +241,7 @@ export default function Sales() {
                         Accepted
                       </th>
                       <th scope="col" className="px-4 py-3">
-                        Action
+                        Actions
                       </th>
                     </tr>
                   </thead>
@@ -218,9 +271,16 @@ export default function Sales() {
                         </td>
                         <td className="px-4 py-3">{sale.created_at}</td>
                         <td className="px-4 py-3">{sale.requested_date}</td>
-                        <td className="px-4 py-3">{sale.accepted_request_date}</td>
+                        <td className="px-4 py-3">{sale.accepted_request_date || "-"}</td>
                         <td className="px-4 py-3">
-                          <button className="text-emerald-500 hover:text-emerald-400">View Details</button>
+                          <div className="flex space-x-2">
+                            <button className="text-blue-500 hover:text-blue-400" onClick={() => handleEditSale(sale)}>
+                              <Edit className="w-4 h-4" />
+                            </button>
+                            <button className="text-red-500 hover:text-red-400" onClick={() => handleDeleteSale(sale)}>
+                              <Trash2 className="w-4 h-4" />
+                            </button>
+                          </div>
                         </td>
                       </tr>
                     ))}
@@ -231,6 +291,34 @@ export default function Sales() {
           </div>
         </main>
       </div>
+
+      {/* Add Sale Modal */}
+      <Modal isOpen={isAddModalOpen} onClose={() => setIsAddModalOpen(false)} title="Add New Sale">
+        <SaleForm onSave={handleSaveSale} onCancel={() => setIsAddModalOpen(false)} />
+      </Modal>
+
+      {/* Edit Sale Modal */}
+      <Modal
+        isOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        title={`Edit Sale: ${selectedSale?.id}`}
+      >
+        <SaleForm
+          sale={selectedSale}
+          isEditing={true}
+          onSave={handleSaveSale}
+          onCancel={() => setIsEditModalOpen(false)}
+        />
+      </Modal>
+
+      {/* Delete Confirmation Dialog */}
+      <ConfirmDialog
+        isOpen={isDeleteDialogOpen}
+        onClose={() => setIsDeleteDialogOpen(false)}
+        onConfirm={confirmDeleteSale}
+        title="Delete Sale"
+        message={`Are you sure you want to delete sale ${selectedSale?.id}? This action cannot be undone.`}
+      />
     </div>
   )
 }

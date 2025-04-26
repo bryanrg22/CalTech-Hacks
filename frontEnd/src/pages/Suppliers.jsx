@@ -1,18 +1,87 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Users, Search, Filter, ArrowUpDown, Star, Clock, Package } from "lucide-react"
+import { Search, Filter, ArrowUpDown, Star, Clock, Package, Edit, Trash2, Plus } from "lucide-react"
 import Sidebar from "../components/Sidebar"
 import Header from "../components/Header"
-import { useSupply } from "../hooks/useFirebaseData"
+import { useSupply, useParts } from "../hooks/useFirebaseData"
 import LoadingSpinner from "../components/LoadingSpinner"
+import Modal from "../components/Modal"
+import SupplyForm from "../components/SupplyForm"
+import ConfirmDialog from "../components/ConfirmDialog"
+import { deleteDocument } from "../services/apiService"
+import { useToast } from "../components/ToastContext"
 
 export default function Suppliers() {
   const { data: supplyData, loading, error } = useSupply()
+  const { data: partsData } = useParts()
   const [searchTerm, setSearchTerm] = useState("")
   const [filterRating, setFilterRating] = useState("all")
   const [suppliers, setSuppliers] = useState([])
   const [filteredSuppliers, setFilteredSuppliers] = useState([])
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedSupplier, setSelectedSupplier] = useState(null)
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
+  const [supplierToDelete, setSupplierToDelete] = useState(null)
+  const { showToast } = useToast()
+
+  // Function to open the modal
+  const openModal = (supplier = null) => {
+    setSelectedSupplier(supplier)
+    setIsModalOpen(true)
+  }
+
+  // Function to close the modal
+  const closeModal = () => {
+    setSelectedSupplier(null)
+    setIsModalOpen(false)
+  }
+
+  // Function to open the delete confirmation modal
+  const openDeleteModal = (supplier) => {
+    setSupplierToDelete(supplier)
+    setIsDeleteModalOpen(true)
+  }
+
+  // Function to close the delete confirmation modal
+  const closeDeleteModal = () => {
+    setSupplierToDelete(null)
+    setIsDeleteModalOpen(false)
+  }
+
+  const handleDeleteSupplier = async () => {
+    if (supplierToDelete) {
+      try {
+        // Delete all supply documents associated with the supplier
+        const supplierId = supplierToDelete.id
+        const supplyDocumentsToDelete = supplyData?.filter((item) => item.id.startsWith(supplierId))
+
+        if (supplyDocumentsToDelete && supplyDocumentsToDelete.length > 0) {
+          await Promise.all(
+            supplyDocumentsToDelete.map((doc) => {
+              if (doc.id) {
+                return deleteDocument("supply", doc.id)
+              } else {
+                console.warn("Document ID is missing, cannot delete:", doc)
+                return Promise.resolve() // Resolve immediately to avoid blocking other deletions
+              }
+            }),
+          )
+        }
+
+        // After successful deletion, update the state and close the modal
+        setSuppliers((prevSuppliers) => prevSuppliers.filter((supplier) => supplier.id !== supplierToDelete.id))
+        setFilteredSuppliers((prevFilteredSuppliers) =>
+          prevFilteredSuppliers.filter((supplier) => supplier.id !== supplierToDelete.id),
+        )
+        closeDeleteModal()
+        showToast("Supplier deleted successfully", "success")
+      } catch (error) {
+        console.error("Error deleting supplier:", error)
+        showToast("Failed to delete supplier", "error")
+      }
+    }
+  }
 
   // Process supply data to extract supplier information
   useEffect(() => {
@@ -146,8 +215,11 @@ export default function Suppliers() {
             </div>
 
             {/* Add Supplier Button */}
-            <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg flex items-center justify-center">
-              <Users className="w-5 h-5 mr-2" />
+            <button
+              className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg flex items-center justify-center"
+              onClick={() => openModal()}
+            >
+              <Plus className="w-5 h-5 mr-2" />
               Add Supplier
             </button>
           </div>
@@ -258,7 +330,20 @@ export default function Suppliers() {
                             </a>
                           </td>
                           <td className="px-4 py-3">
-                            <button className="text-emerald-500 hover:text-emerald-400">View Details</button>
+                            <div className="flex gap-2">
+                              <button
+                                className="text-emerald-500 hover:text-emerald-400"
+                                onClick={() => openModal(supplier)}
+                              >
+                                <Edit className="w-4 h-4" />
+                              </button>
+                              <button
+                                className="text-red-500 hover:text-red-400"
+                                onClick={() => openDeleteModal(supplier)}
+                              >
+                                <Trash2 className="w-4 h-4" />
+                              </button>
+                            </div>
                           </td>
                         </tr>
                       )
@@ -270,6 +355,20 @@ export default function Suppliers() {
           </div>
         </main>
       </div>
+
+      {/* Modal for Add/Edit Supplier */}
+      <Modal isOpen={isModalOpen} onClose={closeModal} title={selectedSupplier ? "Edit Supplier" : "Add Supplier"}>
+        <SupplyForm supplier={selectedSupplier} onClose={closeModal} />
+      </Modal>
+
+      {/* Delete Confirmation Modal */}
+      <ConfirmDialog
+        isOpen={isDeleteModalOpen}
+        onClose={closeDeleteModal}
+        onConfirm={handleDeleteSupplier}
+        title="Delete Supplier"
+        message={`Are you sure you want to delete supplier ${supplierToDelete?.name}? This action cannot be undone.`}
+      />
     </div>
   )
 }

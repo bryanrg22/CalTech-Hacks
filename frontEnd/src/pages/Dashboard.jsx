@@ -1,24 +1,14 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import {
-  TrendingUp,
-  TrendingDown,
-  AlertTriangle,
-  Clock,
-  Package,
-  ShoppingCart,
-  Truck,
-  Users,
-  BarChart2,
-} from "lucide-react"
+import { TrendingUp, TrendingDown, AlertTriangle, Clock, Package, ShoppingCart, Truck, Users, BarChart2 } from 'lucide-react'
 import Sidebar from "../components/Sidebar"
 import Header from "../components/Header"
-import InventoryStatusCard from "../components/dashboard/InventoryStatusCard"
-import OrdersTable from "../components/dashboard/OrdersTable"
-import SalesChart from "../components/dashboard/SalesChart"
-import SupplierReliabilityChart from "../components/dashboard/SupplierReliabilityChart"
-import LowStockAlert from "../components/dashboard/LowStockAlert"
+import InventoryStatusCard from "../components/InventoryStatusCard"
+import OrdersTable from "../components/OrdersTable"
+import SalesChart from "../components/SalesChart"
+import SupplierReliabilityChart from "../components/SupplierReliabilityChart"
+import LowStockAlert from "../components/LowStockAlert"
 import { useParts, useOrders, useSales, useSupply } from "../hooks/useFirebaseData"
 import LoadingSpinner from "../components/LoadingSpinner"
 

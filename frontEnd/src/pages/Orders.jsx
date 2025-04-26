@@ -1,15 +1,32 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Truck, Search, Filter, Calendar, ArrowUpDown, CheckCircle, Clock, AlertTriangle } from "lucide-react"
+import {
+  Truck,
+  Search,
+  Filter,
+  Calendar,
+  ArrowUpDown,
+  CheckCircle,
+  Clock,
+  AlertTriangle,
+  Edit,
+  Trash2,
+} from "lucide-react"
 import Sidebar from "../components/Sidebar"
 import Header from "../components/Header"
 import { useOrders, useParts } from "../hooks/useFirebaseData"
 import LoadingSpinner from "../components/LoadingSpinner"
+import Modal from "../components/Modal"
+import OrderForm from "../components/OrderForm"
+import ConfirmDialog from "../components/ConfirmDialog"
+import { deleteDocument } from "../services/apiService"
+import { useToast } from "../components/ToastContext"
 
 export default function Orders() {
-  const { data: ordersData, loading: ordersLoading, error: ordersError } = useOrders()
+  const { data: ordersData, loading: ordersLoading, error: ordersError, refetch } = useOrders()
   const { data: partsData, loading: partsLoading } = useParts()
+  const { addToast } = useToast()
   const [searchTerm, setSearchTerm] = useState("")
   const [filterStatus, setFilterStatus] = useState("all")
   const [filteredOrders, setFilteredOrders] = useState([])
@@ -19,6 +36,12 @@ export default function Orders() {
     delivered: 0,
     onTimePercentage: 0,
   })
+
+  // Modal states
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false)
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false)
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
+  const [selectedOrder, setSelectedOrder] = useState(null)
 
   // Enrich orders with part names and filter based on search term and filter status
   useEffect(() => {
@@ -111,6 +134,36 @@ export default function Orders() {
     }
   }
 
+  const handleAddOrder = () => {
+    setIsAddModalOpen(true)
+  }
+
+  const handleEditOrder = (order) => {
+    setSelectedOrder(order)
+    setIsEditModalOpen(true)
+  }
+
+  const handleDeleteOrder = (order) => {
+    setSelectedOrder(order)
+    setIsDeleteDialogOpen(true)
+  }
+
+  const confirmDeleteOrder = async () => {
+    try {
+      await deleteDocument("orders", selectedOrder.id)
+      addToast(`Order ${selectedOrder.id} deleted successfully`, "success")
+      refetch()
+    } catch (error) {
+      addToast(`Error deleting order: ${error.message}`, "error")
+    }
+  }
+
+  const handleSaveOrder = () => {
+    setIsAddModalOpen(false)
+    setIsEditModalOpen(false)
+    refetch()
+  }
+
   const isLoading = ordersLoading || partsLoading
 
   return (
@@ -169,7 +222,10 @@ export default function Orders() {
             </div>
 
             {/* Create Order Button */}
-            <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg flex items-center justify-center">
+            <button
+              className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg flex items-center justify-center"
+              onClick={handleAddOrder}
+            >
               <Truck className="w-5 h-5 mr-2" />
               Create Order
             </button>
@@ -254,7 +310,7 @@ export default function Orders() {
                         Status
                       </th>
                       <th scope="col" className="px-4 py-3">
-                        Action
+                        Actions
                       </th>
                     </tr>
                   </thead>
@@ -306,7 +362,20 @@ export default function Orders() {
                             </span>
                           </td>
                           <td className="px-4 py-3">
-                            <button className="text-emerald-500 hover:text-emerald-400">View Details</button>
+                            <div className="flex space-x-2">
+                              <button
+                                className="text-blue-500 hover:text-blue-400"
+                                onClick={() => handleEditOrder(order)}
+                              >
+                                <Edit className="w-4 h-4" />
+                              </button>
+                              <button
+                                className="text-red-500 hover:text-red-400"
+                                onClick={() => handleDeleteOrder(order)}
+                              >
+                                <Trash2 className="w-4 h-4" />
+                              </button>
+                            </div>
                           </td>
                         </tr>
                       )
@@ -318,6 +387,34 @@ export default function Orders() {
           </div>
         </main>
       </div>
+
+      {/* Add Order Modal */}
+      <Modal isOpen={isAddModalOpen} onClose={() => setIsAddModalOpen(false)} title="Create New Order">
+        <OrderForm onSave={handleSaveOrder} onCancel={() => setIsAddModalOpen(false)} />
+      </Modal>
+
+      {/* Edit Order Modal */}
+      <Modal
+        isOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        title={`Edit Order: ${selectedOrder?.id}`}
+      >
+        <OrderForm
+          order={selectedOrder}
+          isEditing={true}
+          onSave={handleSaveOrder}
+          onCancel={() => setIsEditModalOpen(false)}
+        />
+      </Modal>
+
+      {/* Delete Confirmation Dialog */}
+      <ConfirmDialog
+        isOpen={isDeleteDialogOpen}
+        onClose={() => setIsDeleteDialogOpen(false)}
+        onConfirm={confirmDeleteOrder}
+        title="Delete Order"
+        message={`Are you sure you want to delete order ${selectedOrder?.id}? This action cannot be undone.`}
+      />
     </div>
   )
 }

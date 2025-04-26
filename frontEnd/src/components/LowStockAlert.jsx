@@ -1,8 +1,8 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { AlertTriangle, ArrowRight } from "lucide-react"
-import { useSupply } from "../../hooks/useFirebaseData"
+import { AlertTriangle, ArrowRight } from 'lucide-react'
+import { useSupply } from "../hooks/useFirebaseData"
 
 export default function LowStockAlert({ partsData }) {
   const { data: supplyData, loading: supplyLoading } = useSupply()

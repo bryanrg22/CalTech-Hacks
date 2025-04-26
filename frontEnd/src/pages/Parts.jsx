@@ -1,17 +1,29 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Search, Filter, Plus, ArrowUpDown, AlertTriangle } from "lucide-react"
+import { Search, Filter, Plus, ArrowUpDown, AlertTriangle, Edit, Trash2 } from "lucide-react"
 import Sidebar from "../components/Sidebar"
 import Header from "../components/Header"
 import { useParts } from "../hooks/useFirebaseData"
 import LoadingSpinner from "../components/LoadingSpinner"
+import Modal from "../components/Modal"
+import PartForm from "../components/PartForm"
+import ConfirmDialog from "../components/ConfirmDialog"
+import { deleteDocument } from "../services/apiService"
+import { useToast } from "../components/ToastContext"
 
 export default function Parts() {
-  const { data: partsData, loading, error } = useParts()
+  const { data: partsData, loading, error, refetch } = useParts()
+  const { addToast } = useToast()
   const [searchTerm, setSearchTerm] = useState("")
   const [filterStatus, setFilterStatus] = useState("all")
   const [filteredParts, setFilteredParts] = useState([])
+
+  // Modal states
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false)
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false)
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
+  const [selectedPart, setSelectedPart] = useState(null)
 
   // Filter parts based on search term and filter status
   useEffect(() => {
@@ -42,6 +54,36 @@ export default function Parts() {
     } else {
       return { status: "healthy", color: "text-emerald-500", bgColor: "bg-emerald-500/20" }
     }
+  }
+
+  const handleAddPart = () => {
+    setIsAddModalOpen(true)
+  }
+
+  const handleEditPart = (part) => {
+    setSelectedPart(part)
+    setIsEditModalOpen(true)
+  }
+
+  const handleDeletePart = (part) => {
+    setSelectedPart(part)
+    setIsDeleteDialogOpen(true)
+  }
+
+  const confirmDeletePart = async () => {
+    try {
+      await deleteDocument("parts", selectedPart.id)
+      addToast(`Part ${selectedPart.id} deleted successfully`, "success")
+      refetch()
+    } catch (error) {
+      addToast(`Error deleting part: ${error.message}`, "error")
+    }
+  }
+
+  const handleSavePart = () => {
+    setIsAddModalOpen(false)
+    setIsEditModalOpen(false)
+    refetch()
   }
 
   return (
@@ -87,7 +129,10 @@ export default function Parts() {
             </div>
 
             {/* Add Part Button */}
-            <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg flex items-center justify-center">
+            <button
+              className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg flex items-center justify-center"
+              onClick={handleAddPart}
+            >
               <Plus className="w-5 h-5 mr-2" />
               Add New Part
             </button>
@@ -148,7 +193,7 @@ export default function Parts() {
                         Status
                       </th>
                       <th scope="col" className="px-4 py-3">
-                        Action
+                        Actions
                       </th>
                     </tr>
                   </thead>
@@ -193,7 +238,20 @@ export default function Parts() {
                             </span>
                           </td>
                           <td className="px-4 py-3">
-                            <button className="text-emerald-500 hover:text-emerald-400">View Details</button>
+                            <div className="flex space-x-2">
+                              <button
+                                className="text-blue-500 hover:text-blue-400"
+                                onClick={() => handleEditPart(part)}
+                              >
+                                <Edit className="w-4 h-4" />
+                              </button>
+                              <button
+                                className="text-red-500 hover:text-red-400"
+                                onClick={() => handleDeletePart(part)}
+                              >
+                                <Trash2 className="w-4 h-4" />
+                              </button>
+                            </div>
                           </td>
                         </tr>
                       )
@@ -205,6 +263,34 @@ export default function Parts() {
           </div>
         </main>
       </div>
+
+      {/* Add Part Modal */}
+      <Modal isOpen={isAddModalOpen} onClose={() => setIsAddModalOpen(false)} title="Add New Part">
+        <PartForm onSave={handleSavePart} onCancel={() => setIsAddModalOpen(false)} />
+      </Modal>
+
+      {/* Edit Part Modal */}
+      <Modal
+        isOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        title={`Edit Part: ${selectedPart?.part_name || selectedPart?.id}`}
+      >
+        <PartForm
+          part={selectedPart}
+          isEditing={true}
+          onSave={handleSavePart}
+          onCancel={() => setIsEditModalOpen(false)}
+        />
+      </Modal>
+
+      {/* Delete Confirmation Dialog */}
+      <ConfirmDialog
+        isOpen={isDeleteDialogOpen}
+        onClose={() => setIsDeleteDialogOpen(false)}
+        onConfirm={confirmDeletePart}
+        title="Delete Part"
+        message={`Are you sure you want to delete ${selectedPart?.part_name || selectedPart?.id}? This action cannot be undone.`}
+      />
     </div>
   )
 }
