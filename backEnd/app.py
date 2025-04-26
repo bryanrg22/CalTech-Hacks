@@ -6,8 +6,10 @@ from dotenv import load_dotenv
 import getpass
 import os
 
+from hugo.hugo import Hugo
+
 # ——— Load .env and grab your service account file path —————————————
-load_dotenv()
+load_dotenv(override=True)
 service_account_path = os.getenv("SERVICE_ACCOUNT_PATH")
 if not service_account_path:
     service_account_path = getpass.getpass(
@@ -19,6 +21,8 @@ VALID_COLLECTIONS = {"sales", "orders", "parts", "supply"}
 cred = credentials.Certificate(service_account_path)
 firebase_admin.initialize_app(cred)
 db = firestore.client()
+
+hugo = Hugo()
 
 # --- Flask App ---------------------------------------------------------------
 app = Flask(__name__)
@@ -73,6 +77,20 @@ def delete_document(collection, doc_id):
     return jsonify({
         'message': f"Document '{collection}/{doc_id}' deleted"
     })
+
+@app.route("/api/chat", methods=["POST"])
+def chat():
+    payload = request.get_json(silent=True) or {}
+    query   = payload.get("query", "").strip()
+    if not query:
+        abort(400, description="`query` is required")
+
+    try:
+        # Hugo.chat() is interactive; we want a single‐shot call
+        answer = hugo.agent.run(input=query)
+        return jsonify({ "response": answer })
+    except Exception as e:
+        abort(500, description=f"Hugo error: {e}")
 
 # --- Entry Point -------------------------------------------------------------
 if __name__ == "__main__":

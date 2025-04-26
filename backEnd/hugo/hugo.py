@@ -7,13 +7,13 @@ import email
 from email import policy
 from email.parser import BytesParser
 from typing import List
-from part import Part
-from supplier import Supplier
-from order import Order
-from sales import Sales
+from .part     import Part
+from .order    import Order
+from .sales    import Sales
+from .supplier import Supplier
 import os
 from dotenv import load_dotenv
-from upload_data import initialize_firebase
+from .upload_data import initialize_firebase
 
 from langchain.llms.openai import OpenAI
 from langchain.chains import LLMChain, SequentialChain

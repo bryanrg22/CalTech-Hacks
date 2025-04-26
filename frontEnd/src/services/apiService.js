@@ -107,3 +107,22 @@ export async function deleteDocument(collection, docId) {
     throw error
   }
 }
+
+/**
+ * Ask Hugo a question
+ * @param {string} query — what the user typed
+ * @returns {Promise<string>} — Hugo’s reply text
+ */
+export async function chatWithHugo(query) {
+  const res = await fetch(`${API_BASE_URL}/chat`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ query }),
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.description || err.detail || `Chat error: ${res.status}`);
+  }
+  const { response } = await res.json();
+  return response;
+}

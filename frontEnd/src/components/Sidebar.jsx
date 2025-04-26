@@ -1,8 +1,9 @@
 "use client"
 
 import { useState } from "react"
+
 import { Link, useLocation } from "react-router-dom"
-import { Home, Package, ShoppingCart, Truck, Users, BarChart2, Settings, LogOut, Menu, X, Zap, Map } from "lucide-react"
+import { Home, Package, ShoppingCart, Truck, Users, BarChart2, Settings, LogOut, Menu, X, Zap, Map, Bot } from "lucide-react"
 
 export default function Sidebar() {
   const [expanded, setExpanded] = useState(true)
@@ -19,6 +20,7 @@ export default function Sidebar() {
     { name: "Orders", icon: Truck, path: "/orders" },
     { name: "Suppliers", icon: Users, path: "/suppliers" },
     { name: "Analytics", icon: BarChart2, path: "/analytics" },
+    { name: "Hugo AI", icon: Bot, path: "/hugo-ai" },
     { name: "Settings", icon: Settings, path: "/settings" },
   ]
 
