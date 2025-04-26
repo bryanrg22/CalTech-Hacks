@@ -1,0 +1,786 @@
+[
+  {
+    "supplier_id": "SupC",
+    "part_id": "P300",
+    "price_per_unit": 136.45,
+    "lead_time_days": 8,
+    "min_order_qty": 18,
+    "reliability_rating": 0.86
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P300",
+    "price_per_unit": 37.99,
+    "lead_time_days": 14,
+    "min_order_qty": 63,
+    "reliability_rating": 0.79
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P301",
+    "price_per_unit": 51.81,
+    "lead_time_days": 6,
+    "min_order_qty": 39,
+    "reliability_rating": 0.9
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P301",
+    "price_per_unit": 88.67,
+    "lead_time_days": 25,
+    "min_order_qty": 28,
+    "reliability_rating": 0.75
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P302",
+    "price_per_unit": 99.82,
+    "lead_time_days": 10,
+    "min_order_qty": 71,
+    "reliability_rating": 0.98
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P302",
+    "price_per_unit": 27.21,
+    "lead_time_days": 11,
+    "min_order_qty": 33,
+    "reliability_rating": 0.92
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P303",
+    "price_per_unit": 161.64,
+    "lead_time_days": 24,
+    "min_order_qty": 31,
+    "reliability_rating": 0.8
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P303",
+    "price_per_unit": 167.46,
+    "lead_time_days": 20,
+    "min_order_qty": 89,
+    "reliability_rating": 0.8
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P303",
+    "price_per_unit": 31.44,
+    "lead_time_days": 5,
+    "min_order_qty": 57,
+    "reliability_rating": 0.93
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P304",
+    "price_per_unit": 140.08,
+    "lead_time_days": 7,
+    "min_order_qty": 63,
+    "reliability_rating": 0.87
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P304",
+    "price_per_unit": 142.48,
+    "lead_time_days": 24,
+    "min_order_qty": 66,
+    "reliability_rating": 0.82
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P304",
+    "price_per_unit": 55.17,
+    "lead_time_days": 22,
+    "min_order_qty": 15,
+    "reliability_rating": 0.82
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P305",
+    "price_per_unit": 68.83,
+    "lead_time_days": 17,
+    "min_order_qty": 19,
+    "reliability_rating": 0.92
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P305",
+    "price_per_unit": 35.98,
+    "lead_time_days": 15,
+    "min_order_qty": 30,
+    "reliability_rating": 0.7
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P305",
+    "price_per_unit": 116.6,
+    "lead_time_days": 9,
+    "min_order_qty": 84,
+    "reliability_rating": 0.73
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P306",
+    "price_per_unit": 152.21,
+    "lead_time_days": 15,
+    "min_order_qty": 44,
+    "reliability_rating": 0.93
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P306",
+    "price_per_unit": 121.89,
+    "lead_time_days": 7,
+    "min_order_qty": 26,
+    "reliability_rating": 0.84
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P306",
+    "price_per_unit": 119.45,
+    "lead_time_days": 9,
+    "min_order_qty": 91,
+    "reliability_rating": 0.84
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P307",
+    "price_per_unit": 189.48,
+    "lead_time_days": 14,
+    "min_order_qty": 63,
+    "reliability_rating": 0.7
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P307",
+    "price_per_unit": 152.0,
+    "lead_time_days": 18,
+    "min_order_qty": 69,
+    "reliability_rating": 0.75
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P307",
+    "price_per_unit": 110.45,
+    "lead_time_days": 17,
+    "min_order_qty": 82,
+    "reliability_rating": 0.95
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P308",
+    "price_per_unit": 96.28,
+    "lead_time_days": 16,
+    "min_order_qty": 57,
+    "reliability_rating": 0.89
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P308",
+    "price_per_unit": 156.59,
+    "lead_time_days": 23,
+    "min_order_qty": 42,
+    "reliability_rating": 0.8
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P309",
+    "price_per_unit": 105.2,
+    "lead_time_days": 23,
+    "min_order_qty": 81,
+    "reliability_rating": 0.78
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P309",
+    "price_per_unit": 179.23,
+    "lead_time_days": 24,
+    "min_order_qty": 67,
+    "reliability_rating": 0.93
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P310",
+    "price_per_unit": 192.25,
+    "lead_time_days": 5,
+    "min_order_qty": 80,
+    "reliability_rating": 0.8
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P310",
+    "price_per_unit": 21.64,
+    "lead_time_days": 17,
+    "min_order_qty": 42,
+    "reliability_rating": 0.88
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P310",
+    "price_per_unit": 21.89,
+    "lead_time_days": 23,
+    "min_order_qty": 36,
+    "reliability_rating": 0.92
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P311",
+    "price_per_unit": 190.66,
+    "lead_time_days": 6,
+    "min_order_qty": 54,
+    "reliability_rating": 0.86
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P311",
+    "price_per_unit": 187.42,
+    "lead_time_days": 16,
+    "min_order_qty": 11,
+    "reliability_rating": 0.85
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P312",
+    "price_per_unit": 168.84,
+    "lead_time_days": 20,
+    "min_order_qty": 38,
+    "reliability_rating": 0.85
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P312",
+    "price_per_unit": 158.19,
+    "lead_time_days": 18,
+    "min_order_qty": 53,
+    "reliability_rating": 0.97
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P312",
+    "price_per_unit": 111.78,
+    "lead_time_days": 24,
+    "min_order_qty": 31,
+    "reliability_rating": 0.82
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P313",
+    "price_per_unit": 33.92,
+    "lead_time_days": 22,
+    "min_order_qty": 28,
+    "reliability_rating": 0.74
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P313",
+    "price_per_unit": 88.43,
+    "lead_time_days": 10,
+    "min_order_qty": 98,
+    "reliability_rating": 0.97
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P314",
+    "price_per_unit": 165.69,
+    "lead_time_days": 9,
+    "min_order_qty": 88,
+    "reliability_rating": 0.94
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P314",
+    "price_per_unit": 110.83,
+    "lead_time_days": 5,
+    "min_order_qty": 19,
+    "reliability_rating": 0.79
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P314",
+    "price_per_unit": 191.76,
+    "lead_time_days": 23,
+    "min_order_qty": 24,
+    "reliability_rating": 0.75
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P315",
+    "price_per_unit": 117.5,
+    "lead_time_days": 10,
+    "min_order_qty": 72,
+    "reliability_rating": 0.91
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P315",
+    "price_per_unit": 36.92,
+    "lead_time_days": 22,
+    "min_order_qty": 30,
+    "reliability_rating": 0.79
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P316",
+    "price_per_unit": 46.28,
+    "lead_time_days": 11,
+    "min_order_qty": 31,
+    "reliability_rating": 0.98
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P316",
+    "price_per_unit": 190.07,
+    "lead_time_days": 12,
+    "min_order_qty": 12,
+    "reliability_rating": 0.75
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P316",
+    "price_per_unit": 167.98,
+    "lead_time_days": 8,
+    "min_order_qty": 95,
+    "reliability_rating": 0.98
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P317",
+    "price_per_unit": 194.67,
+    "lead_time_days": 13,
+    "min_order_qty": 50,
+    "reliability_rating": 0.91
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P317",
+    "price_per_unit": 27.06,
+    "lead_time_days": 12,
+    "min_order_qty": 96,
+    "reliability_rating": 0.96
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P318",
+    "price_per_unit": 159.6,
+    "lead_time_days": 10,
+    "min_order_qty": 79,
+    "reliability_rating": 0.94
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P318",
+    "price_per_unit": 64.45,
+    "lead_time_days": 12,
+    "min_order_qty": 42,
+    "reliability_rating": 0.79
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P319",
+    "price_per_unit": 133.99,
+    "lead_time_days": 24,
+    "min_order_qty": 84,
+    "reliability_rating": 0.83
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P319",
+    "price_per_unit": 153.55,
+    "lead_time_days": 24,
+    "min_order_qty": 32,
+    "reliability_rating": 0.92
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P320",
+    "price_per_unit": 143.77,
+    "lead_time_days": 21,
+    "min_order_qty": 51,
+    "reliability_rating": 0.99
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P320",
+    "price_per_unit": 122.39,
+    "lead_time_days": 19,
+    "min_order_qty": 99,
+    "reliability_rating": 0.72
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P320",
+    "price_per_unit": 121.95,
+    "lead_time_days": 9,
+    "min_order_qty": 61,
+    "reliability_rating": 0.7
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P321",
+    "price_per_unit": 72.66,
+    "lead_time_days": 22,
+    "min_order_qty": 26,
+    "reliability_rating": 0.9
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P321",
+    "price_per_unit": 191.64,
+    "lead_time_days": 23,
+    "min_order_qty": 45,
+    "reliability_rating": 0.81
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P321",
+    "price_per_unit": 112.75,
+    "lead_time_days": 12,
+    "min_order_qty": 11,
+    "reliability_rating": 0.8
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P322",
+    "price_per_unit": 194.7,
+    "lead_time_days": 13,
+    "min_order_qty": 51,
+    "reliability_rating": 0.77
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P322",
+    "price_per_unit": 100.93,
+    "lead_time_days": 13,
+    "min_order_qty": 21,
+    "reliability_rating": 0.9
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P323",
+    "price_per_unit": 93.73,
+    "lead_time_days": 16,
+    "min_order_qty": 74,
+    "reliability_rating": 0.91
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P323",
+    "price_per_unit": 56.96,
+    "lead_time_days": 17,
+    "min_order_qty": 29,
+    "reliability_rating": 0.7
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P323",
+    "price_per_unit": 71.65,
+    "lead_time_days": 12,
+    "min_order_qty": 78,
+    "reliability_rating": 0.8
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P324",
+    "price_per_unit": 114.38,
+    "lead_time_days": 10,
+    "min_order_qty": 39,
+    "reliability_rating": 0.9
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P324",
+    "price_per_unit": 69.29,
+    "lead_time_days": 14,
+    "min_order_qty": 85,
+    "reliability_rating": 0.78
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P324",
+    "price_per_unit": 142.77,
+    "lead_time_days": 23,
+    "min_order_qty": 11,
+    "reliability_rating": 0.9
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P325",
+    "price_per_unit": 134.35,
+    "lead_time_days": 23,
+    "min_order_qty": 14,
+    "reliability_rating": 0.94
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P325",
+    "price_per_unit": 36.25,
+    "lead_time_days": 16,
+    "min_order_qty": 42,
+    "reliability_rating": 0.85
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P326",
+    "price_per_unit": 82.49,
+    "lead_time_days": 11,
+    "min_order_qty": 88,
+    "reliability_rating": 0.88
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P326",
+    "price_per_unit": 167.45,
+    "lead_time_days": 14,
+    "min_order_qty": 25,
+    "reliability_rating": 0.98
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P326",
+    "price_per_unit": 101.93,
+    "lead_time_days": 8,
+    "min_order_qty": 59,
+    "reliability_rating": 0.84
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P327",
+    "price_per_unit": 51.1,
+    "lead_time_days": 24,
+    "min_order_qty": 91,
+    "reliability_rating": 0.96
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P327",
+    "price_per_unit": 112.11,
+    "lead_time_days": 20,
+    "min_order_qty": 53,
+    "reliability_rating": 0.83
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P327",
+    "price_per_unit": 122.96,
+    "lead_time_days": 5,
+    "min_order_qty": 25,
+    "reliability_rating": 0.81
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P328",
+    "price_per_unit": 192.46,
+    "lead_time_days": 14,
+    "min_order_qty": 60,
+    "reliability_rating": 0.96
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P328",
+    "price_per_unit": 76.5,
+    "lead_time_days": 9,
+    "min_order_qty": 99,
+    "reliability_rating": 0.82
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P329",
+    "price_per_unit": 116.06,
+    "lead_time_days": 18,
+    "min_order_qty": 34,
+    "reliability_rating": 0.79
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P329",
+    "price_per_unit": 133.15,
+    "lead_time_days": 14,
+    "min_order_qty": 83,
+    "reliability_rating": 0.8
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P330",
+    "price_per_unit": 103.78,
+    "lead_time_days": 12,
+    "min_order_qty": 14,
+    "reliability_rating": 0.98
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P330",
+    "price_per_unit": 107.12,
+    "lead_time_days": 19,
+    "min_order_qty": 31,
+    "reliability_rating": 0.79
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P331",
+    "price_per_unit": 116.08,
+    "lead_time_days": 14,
+    "min_order_qty": 36,
+    "reliability_rating": 0.76
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P331",
+    "price_per_unit": 94.51,
+    "lead_time_days": 23,
+    "min_order_qty": 43,
+    "reliability_rating": 0.7
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P331",
+    "price_per_unit": 130.2,
+    "lead_time_days": 12,
+    "min_order_qty": 70,
+    "reliability_rating": 0.72
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P332",
+    "price_per_unit": 199.66,
+    "lead_time_days": 22,
+    "min_order_qty": 42,
+    "reliability_rating": 0.88
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P332",
+    "price_per_unit": 96.11,
+    "lead_time_days": 8,
+    "min_order_qty": 30,
+    "reliability_rating": 0.75
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P333",
+    "price_per_unit": 80.25,
+    "lead_time_days": 9,
+    "min_order_qty": 50,
+    "reliability_rating": 0.72
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P333",
+    "price_per_unit": 51.03,
+    "lead_time_days": 8,
+    "min_order_qty": 33,
+    "reliability_rating": 0.79
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P333",
+    "price_per_unit": 153.57,
+    "lead_time_days": 13,
+    "min_order_qty": 65,
+    "reliability_rating": 0.73
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P334",
+    "price_per_unit": 137.59,
+    "lead_time_days": 6,
+    "min_order_qty": 37,
+    "reliability_rating": 0.8
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P334",
+    "price_per_unit": 91.18,
+    "lead_time_days": 14,
+    "min_order_qty": 26,
+    "reliability_rating": 0.91
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P335",
+    "price_per_unit": 134.33,
+    "lead_time_days": 16,
+    "min_order_qty": 99,
+    "reliability_rating": 0.98
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P335",
+    "price_per_unit": 55.67,
+    "lead_time_days": 7,
+    "min_order_qty": 87,
+    "reliability_rating": 0.81
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P335",
+    "price_per_unit": 113.98,
+    "lead_time_days": 14,
+    "min_order_qty": 61,
+    "reliability_rating": 0.76
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P336",
+    "price_per_unit": 64.59,
+    "lead_time_days": 6,
+    "min_order_qty": 59,
+    "reliability_rating": 0.91
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P336",
+    "price_per_unit": 108.1,
+    "lead_time_days": 25,
+    "min_order_qty": 44,
+    "reliability_rating": 0.87
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P336",
+    "price_per_unit": 21.7,
+    "lead_time_days": 9,
+    "min_order_qty": 88,
+    "reliability_rating": 0.83
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P337",
+    "price_per_unit": 113.37,
+    "lead_time_days": 15,
+    "min_order_qty": 63,
+    "reliability_rating": 0.71
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P337",
+    "price_per_unit": 55.53,
+    "lead_time_days": 13,
+    "min_order_qty": 43,
+    "reliability_rating": 0.86
+  },
+  {
+    "supplier_id": "SupC",
+    "part_id": "P338",
+    "price_per_unit": 170.0,
+    "lead_time_days": 5,
+    "min_order_qty": 35,
+    "reliability_rating": 0.96
+  },
+  {
+    "supplier_id": "SupA",
+    "part_id": "P338",
+    "price_per_unit": 86.37,
+    "lead_time_days": 8,
+    "min_order_qty": 93,
+    "reliability_rating": 0.97
+  },
+  {
+    "supplier_id": "SupB",
+    "part_id": "P338",
+    "price_per_unit": 184.89,
+    "lead_time_days": 24,
+    "min_order_qty": 10,
+    "reliability_rating": 0.94
+  }
+]
