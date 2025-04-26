@@ -3,7 +3,7 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 
 # Path to your service account key JSON file
-SERVICE_ACCOUNT_PATH = 'path/to/serviceAccountKey.json'
+SERVICE_ACCOUNT_PATH = '/home/bkhwaja/vscode/CalTech-Hacks/backEnd/hacktech-cce3f-firebase-adminsdk-fbsvc-16eecb3f3c.json'
 # Paths to the JSON files
 SALES_JSON_PATH = 'data/sales_orders.json'
 ORDERS_JSON_PATH = 'data/orders.json'

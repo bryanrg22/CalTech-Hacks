@@ -13,7 +13,23 @@ from order import Order
 from sales import Sales
 import os
 from dotenv import load_dotenv
+from upload_data import initialize_firebase
 
+from langchain.llms.openai import OpenAI
+from langchain.chains import LLMChain, SequentialChain
+from langchain.prompts import PromptTemplate
+from langchain.tools import Tool
+from langchain.agents import AgentType, initialize_agent, load_tools
+from langchain.memory import ConversationBufferMemory
+from langchain.output_parsers import PydanticOutputParser
+
+from datetime import datetime
+
+# Paths to the JSON files
+SALES_JSON_PATH = 'data/sales_orders.json'
+ORDERS_JSON_PATH = 'data/orders.json'
+PARTS_JSON_PATH = 'data/parts.json'
+SUPPLY_JSON_PATH = 'data/supply.json'
 
 class Hugo:
 
@@ -22,7 +38,7 @@ class Hugo:
     load_dotenv()
 
     # KEY
-    self._key = os.getenv("opeanAI_key")
+    self._key = os.getenv("OPENAI_API_KEY")
 
     # PARTS CLASS
     self.parts = parts
@@ -51,7 +67,39 @@ class Hugo:
 
   def _init_sales(self, sales: List[Sales]) -> List[Sales]:
       return sales
+    
+  def create_data_context(self):
+        parts_data = [vars(part) for part in self.parts]
+        suppliers_data = [vars(supplier) for supplier in self.suppliers]
+        orders_data = [vars(order) for order in self.orders]
+        sales_data = [vars(sale) for sale in self.sales]
+        
+        return {
+            "parts": parts_data,
+            "suppliers": suppliers_data,
+            "orders": orders_data, 
+            "sales": sales_data
+        }
 
+  # === TOOL HELPERS ===
+  def get_inventory_data(self):
+    return json.dumps(self.create_data_context(), indent=2)
+  
+  def search_parts(self, other):
+    return json.dumps([vars(p) for p in self.parts if other.lower() in p.part_name.lower() or other.lower() in p.part_id.lower()], indent=2)
+  
+  def check_low_stocks(self):
+    return json.dumps([vars(p) for p in self.parts if p.quantity <= p.min_stock], indent=2)
+  
+  def find_supplier_for_part(self, part_id):
+    return json.dumps([vars(s) for s in self.suppliers if s.part_id == part_id], indent=2)
+  
+  def check_pending_orders(self):
+    return json.dumps([vars(o) for o in self.orders if o.status == "ordered" or o.status == "delivered"], indent=2)
+  
+  def get_sales_by_model(self, model):
+    return json.dumps([vars(s) for s in self.sales if model.lower() in s.model.lower()], indent=2)
+  
   # Parsing Action
   def parse_pdf_to_parts_and_requirements(self,pdf_path):
       # Upload file
@@ -109,7 +157,6 @@ class Hugo:
     with open(file_path, 'rb') as f:
         msg = BytesParser(policy=policy.default).parse(f)
 
-    # Handle multipart and plain text
     if msg.is_multipart():
         for part in msg.walk():
             if part.get_content_type() == 'text/plain':
@@ -129,3 +176,198 @@ class Hugo:
           ]
       )
       return response.output_text
+    
+  def chat(self):
+    # Initialize LangChain components
+    llm = OpenAI(api_key=self._key, temperature=0.2)
+    memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+    
+    # Define system message template
+    system_template = """
+    You are Hugo, an inventory management assistant for a scooter manufacturing company.
+    You have access to the following data:
+    - Parts inventory: details about all parts, including quantities, locations, and which models they're used in
+    - Suppliers: information about suppliers, prices, lead times, and reliability ratings
+    - Orders: purchase orders for parts, including quantities and delivery dates
+    - Sales: sales orders for different scooter models
+    
+    Answer questions about inventory, production capacity, supply chain, and forecasting.
+    Be precise, data-driven, and helpful. If you don't know something, say so clearly.
+    Do not include the tool names in your response.
+    
+    Available parts data: {parts_count} parts
+    Available suppliers data: {suppliers_count} supplier relationships
+    Available orders data: {orders_count} orders
+    Available sales data: {sales_count} sales orders
+    
+    Today's date: {current_date}
+    """
+    tools = [
+        Tool(
+            name="get_inventory_data",
+            func=self.get_inventory_data,
+            description="Get all inventory data including parts, suppliers, orders and sales"
+        ),
+        Tool(
+            name="search_parts",
+            func=self.search_parts,
+            description="Search for parts by name or ID"
+        ),
+        Tool(
+            name="check_low_stock",
+            func=self.check_low_stocks,
+            description="Find parts that are currently at or below minimum stock levels"
+        ),
+        Tool(
+            name="find_suppliers_for_part",
+            func=self.find_supplier_for_part,
+            description="Find all suppliers for a specific part ID"
+        ),
+        Tool(
+            name="check_pending_orders",
+            func=self.check_pending_orders,
+            description="Check all pending or processing orders"
+        ),
+        Tool(
+            name="get_sales_by_model",
+            func=self.get_sales_by_model,
+            description="Get sales orders for a specific scooter model"
+        )
+    ]
+    
+    # Initialize the agent
+    agent = initialize_agent(
+        tools,
+        llm,
+        agent=AgentType.CHAT_CONVERSATIONAL_REACT_DESCRIPTION,
+        verbose=True,
+        memory=memory
+    )
+    
+    system_message = system_template.format(
+        parts_count=len(self.parts),
+        suppliers_count=len(self.suppliers),
+        orders_count=len(self.orders),
+        sales_count=len(self.sales),
+        current_date=datetime.now().strftime("%Y-%m-%d")
+    )
+    
+    # Set the system message
+    agent.agent.llm_chain.prompt.messages[0].prompt.template = system_message
+    
+    print("Welcome to Hugo, your inventory management assistant.")
+    print("Ask me anything about parts, suppliers, orders, or production capacity.")
+    print("Type 'exit' to quit.")
+    
+    while True:
+        user_input = input("\nYou: ")
+        if user_input.lower() in ["exit", "quit", "bye"]:
+            print("Goodbye!")
+            break
+        
+        try:
+            response = agent.run(input=user_input)
+            print(f"\nHugo: {response}")
+        except Exception as e:
+            print(f"\nHugo: I encountered an error while processing your request: {str(e)}")
+  
+
+
+def get_all_parts(db):
+    parts_ref = db.collection('parts')  # 'parts' is your collection name
+    docs = parts_ref.stream()
+
+    parts = []
+    for doc in docs:
+        data = doc.to_dict()
+        part = Part(
+            part_id=data.get('part_id'),
+            min_stock=data.get('min_stock'),
+            reorder_quantity=data.get('reorder_quantity'),
+            reorder_interval_days=data.get('reorder_interval_days'),
+            part_name=data.get('part_name'),
+            part_type=data.get('part_type'),
+            used_in_models=data.get('used_in_models', ''),
+            weight=0,
+            location=data.get('location'),
+            quantity=data.get('quantity'),
+            blocked=data.get('blocked', False),
+            comments=data.get('comments', ""),
+            successor_part=data.get('successor_part', None)
+        )
+        parts.append(part)
+    
+    return parts
+  
+def get_all_orders(db):
+    orders_ref = db.collection('orders')  # 'orders' collection
+    docs = orders_ref.stream()
+
+    orders = []
+    for doc in docs:
+        data = doc.to_dict()
+        order = Order(
+            order_id=data.get('order_id'),
+            part_id=data.get('part_id'),
+            quantity_ordered=data.get('quantity_ordered'),
+            order_date=data.get('order_date'),
+            expected_delivery_date=data.get('expected_delivery_date'),
+            supplier_id=data.get('supplier_id'),
+            status=data.get('status'),
+            actual_delivered_at=data.get('actual_delivered_at')
+        )
+        orders.append(order)
+
+    return orders
+  
+def get_all_sales(db):
+    sales_ref = db.collection('sales')
+    docs = sales_ref.stream()
+    
+    sales_list = []
+    for doc in docs:
+        data = doc.to_dict()
+        sales = Sales(
+            sales_order_id=data.get('sales_order_id'),
+            model=data.get('model'),
+            version=data.get('version'),
+            quantity=data.get('quantity'),
+            order_type=data.get('order_type'),
+            requested_date=data.get('requested_date'),
+            created_at=data.get('created_at'),
+            accepted_request_date=data.get('accepted_request_date')
+        )
+        sales_list.append(sales)
+    return sales_list
+  
+def get_all_suppliers(collection):
+    supply_ref = db.collection('supply')
+    docs = supply_ref.stream()
+    
+    suppliers_list = []
+    for doc in docs:
+        data = doc.to_dict()
+        supplier = Supplier(
+            supplier_id=data.get('supplier_id'),
+            part_id=data.get('part_id'),
+            price_per_unit=data.get('price_per_unit'),
+            lead_time_days=data.get('lead_time_days'),
+            min_order_qty=data.get('min_order_qty'),
+            reliability_rating=data.get('reliability_rating')
+        )
+        suppliers_list.append(supplier)
+    return suppliers_list
+    
+if __name__ == "__main__":
+  db = initialize_firebase()
+  parts = get_all_parts(db)
+  orders = get_all_orders(db)
+  sales = get_all_sales(db)
+  suppliers = get_all_suppliers(db)
+  
+  hugo = Hugo(parts=parts, orders=orders, sales=sales, suppliers=suppliers)
+  
+  mode = input("Enter mode: ")
+  if mode == "chat":
+    hugo.chat()
+  
