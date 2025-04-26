@@ -4,7 +4,7 @@ from firebase_admin import credentials, firestore
 
 def main():
     # TODO: replace with the path to your service account key
-    cred = credentials.Certificate("path/to/serviceAccountKey.json")
+    cred = credentials.Certificate("hacktech-cce3f-firebase-adminsdk-fbsvc-16eecb3f3c.json")
     firebase_admin.initialize_app(cred)
     db = firestore.client()
 
