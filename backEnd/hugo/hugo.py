@@ -13,7 +13,7 @@ from order import Order
 from sales import Sales
 import os
 from dotenv import load_dotenv
-from upload_data import initialize_firebase
+from upload_data import initialize_firebase, upload_specs
 
 from langchain.llms.openai import OpenAI
 from langchain.chains import LLMChain, SequentialChain
@@ -143,6 +143,9 @@ class Hugo:
         )
         suppliers_list.append(supplier)
     return suppliers_list
+  
+  def _init_specs(self):
+    pass
     
   def create_data_context(self):
         parts_data = [vars(part) for part in self.parts]
@@ -180,7 +183,7 @@ class Hugo:
     pass
   
   # Parsing Action
-  def parse_pdf_to_parts_and_requirements(self,pdf_path):
+  def parse_pdf_to_parts_and_requirements(self, pdf_path):
       # Upload file
       file = self.client.files.create(
           file=open(pdf_path, "rb"),
@@ -229,7 +232,21 @@ class Hugo:
           raise ValueError("❌ Failed to decode JSON from OpenAI response.") from e
 
       # Return structured result
-      return parsed_output["Bill_of_Materials"], parsed_output["Assembly_Requirements"]
+      bill_of_materials = parsed_output["Bill_of_Materials"]
+      requirements = parsed_output["Assembly_Requirements"]
+      
+      spl = pdf_path.split("/")
+
+      print(bill_of_materials)
+
+      print(requirements)
+      data = {
+        "spec_name" : spl[-1][:-4],
+        "bill of materials" : bill_of_materials,
+        "requirements": requirements
+      }
+      
+      converted = json.dumps(data, indent=2)
 
   # Extracting the Email
   def extract_email_body(self, file_path):
