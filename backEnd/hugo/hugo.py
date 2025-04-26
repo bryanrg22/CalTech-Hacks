@@ -33,40 +33,116 @@ SUPPLY_JSON_PATH = 'data/supply.json'
 
 class Hugo:
 
-  def __init__(self, parts: List[Part], suppliers: List[Supplier], orders: List[Order], sales: List[Sales]) -> None:
+  def __init__(self) -> None:
     
     load_dotenv()
+
+    # DATABASE
+    self.db = initialize_firebase()
 
     # KEY
     self._key = os.getenv("OPENAI_API_KEY")
 
     # PARTS CLASS
-    self.parts = parts
+    self.parts = self._init_parts()
 
     # SUPPLIER CLASS
-    self.suppliers = suppliers
+    self.suppliers = self._init_suppliers()
 
     # ORDERS CLASS
-    self.orders = orders
+    self.orders = self._init_orders()
 
     # SALES CLASS
-    self.sales = sales
+    self.sales = self._init_sales()
 
     # CLIENT
     self.client = openai.OpenAI(api_key=self._key)
   
   # === INIT HELPERS ===
-  def _init_parts(self, parts: List[Part]) -> List[Part]:
-      return parts
+  def _init_parts(self) -> List[Part]:
+    parts_ref = self.db.collection('parts') 
+    docs = parts_ref.stream()
 
-  def _init_suppliers(self, suppliers: List[Supplier]) -> List[Supplier]:
-      return suppliers
+    parts = []
+    for doc in docs:
+        data = doc.to_dict()
+        part = Part(
+            part_id=data.get('part_id'),
+            min_stock=data.get('min_stock'),
+            reorder_quantity=data.get('reorder_quantity'),
+            reorder_interval_days=data.get('reorder_interval_days'),
+            part_name=data.get('part_name'),
+            part_type=data.get('part_type'),
+            used_in_models=data.get('used_in_models', ''),
+            weight=0,
+            location=data.get('location'),
+            quantity=data.get('quantity'),
+            blocked=data.get('blocked', False),
+            comments=data.get('comments', ""),
+            successor_part=data.get('successor_part', None)
+        )
+        parts.append(part)
+    
+    return parts
 
-  def _init_orders(self, orders: List[Order]) -> List[Order]:
-      return orders
+  def _init_suppliers(self) -> List[Supplier]:
+    orders_ref = self.db.collection('orders')  # 'orders' collection
+    docs = orders_ref.stream()
 
-  def _init_sales(self, sales: List[Sales]) -> List[Sales]:
-      return sales
+    orders = []
+    for doc in docs:
+        data = doc.to_dict()
+        order = Order(
+            order_id=data.get('order_id'),
+            part_id=data.get('part_id'),
+            quantity_ordered=data.get('quantity_ordered'),
+            order_date=data.get('order_date'),
+            expected_delivery_date=data.get('expected_delivery_date'),
+            supplier_id=data.get('supplier_id'),
+            status=data.get('status'),
+            actual_delivered_at=data.get('actual_delivered_at')
+        )
+        orders.append(order)
+
+    return orders
+
+  def _init_orders(self) -> List[Order]:
+    sales_ref = self.db.collection('sales')
+    docs = sales_ref.stream()
+    
+    sales_list = []
+    for doc in docs:
+        data = doc.to_dict()
+        sales = Sales(
+            sales_order_id=data.get('sales_order_id'),
+            model=data.get('model'),
+            version=data.get('version'),
+            quantity=data.get('quantity'),
+            order_type=data.get('order_type'),
+            requested_date=data.get('requested_date'),
+            created_at=data.get('created_at'),
+            accepted_request_date=data.get('accepted_request_date')
+        )
+        sales_list.append(sales)
+    return sales_list
+
+  def _init_sales(self) -> List[Sales]:
+    supply_ref = self.db.collection('supply')
+    docs = supply_ref.stream()
+    
+    suppliers_list = []
+    for doc in docs:
+        data = doc.to_dict()
+        supplier = Supplier(
+            supplier_id=data.get('supplier_id'),
+            part_id=data.get('part_id'),
+            price_per_unit=data.get('price_per_unit'),
+            lead_time_days=data.get('lead_time_days'),
+            min_order_qty=data.get('min_order_qty'),
+            reliability_rating=data.get('reliability_rating')
+        )
+        suppliers_list.append(supplier)
+    return suppliers_list
     
   def create_data_context(self):
         parts_data = [vars(part) for part in self.parts]
@@ -99,6 +175,9 @@ class Hugo:
   
   def get_sales_by_model(self, model):
     return json.dumps([vars(s) for s in self.sales if model.lower() in s.model.lower()], indent=2)
+  
+  def create_relationship(self):
+    pass
   
   # Parsing Action
   def parse_pdf_to_parts_and_requirements(self,pdf_path):
@@ -235,7 +314,6 @@ class Hugo:
         )
     ]
     
-    # Initialize the agent
     agent = initialize_agent(
         tools,
         llm,
@@ -270,104 +348,10 @@ class Hugo:
             print(f"\nHugo: {response}")
         except Exception as e:
             print(f"\nHugo: I encountered an error while processing your request: {str(e)}")
-  
-
-
-def get_all_parts(db):
-    parts_ref = db.collection('parts')  # 'parts' is your collection name
-    docs = parts_ref.stream()
-
-    parts = []
-    for doc in docs:
-        data = doc.to_dict()
-        part = Part(
-            part_id=data.get('part_id'),
-            min_stock=data.get('min_stock'),
-            reorder_quantity=data.get('reorder_quantity'),
-            reorder_interval_days=data.get('reorder_interval_days'),
-            part_name=data.get('part_name'),
-            part_type=data.get('part_type'),
-            used_in_models=data.get('used_in_models', ''),
-            weight=0,
-            location=data.get('location'),
-            quantity=data.get('quantity'),
-            blocked=data.get('blocked', False),
-            comments=data.get('comments', ""),
-            successor_part=data.get('successor_part', None)
-        )
-        parts.append(part)
     
-    return parts
-  
-def get_all_orders(db):
-    orders_ref = db.collection('orders')  # 'orders' collection
-    docs = orders_ref.stream()
-
-    orders = []
-    for doc in docs:
-        data = doc.to_dict()
-        order = Order(
-            order_id=data.get('order_id'),
-            part_id=data.get('part_id'),
-            quantity_ordered=data.get('quantity_ordered'),
-            order_date=data.get('order_date'),
-            expected_delivery_date=data.get('expected_delivery_date'),
-            supplier_id=data.get('supplier_id'),
-            status=data.get('status'),
-            actual_delivered_at=data.get('actual_delivered_at')
-        )
-        orders.append(order)
-
-    return orders
-  
-def get_all_sales(db):
-    sales_ref = db.collection('sales')
-    docs = sales_ref.stream()
-    
-    sales_list = []
-    for doc in docs:
-        data = doc.to_dict()
-        sales = Sales(
-            sales_order_id=data.get('sales_order_id'),
-            model=data.get('model'),
-            version=data.get('version'),
-            quantity=data.get('quantity'),
-            order_type=data.get('order_type'),
-            requested_date=data.get('requested_date'),
-            created_at=data.get('created_at'),
-            accepted_request_date=data.get('accepted_request_date')
-        )
-        sales_list.append(sales)
-    return sales_list
-  
-def get_all_suppliers(collection):
-    supply_ref = db.collection('supply')
-    docs = supply_ref.stream()
-    
-    suppliers_list = []
-    for doc in docs:
-        data = doc.to_dict()
-        supplier = Supplier(
-            supplier_id=data.get('supplier_id'),
-            part_id=data.get('part_id'),
-            price_per_unit=data.get('price_per_unit'),
-            lead_time_days=data.get('lead_time_days'),
-            min_order_qty=data.get('min_order_qty'),
-            reliability_rating=data.get('reliability_rating')
-        )
-        suppliers_list.append(supplier)
-    return suppliers_list
     
 if __name__ == "__main__":
-  db = initialize_firebase()
-  parts = get_all_parts(db)
-  orders = get_all_orders(db)
-  sales = get_all_sales(db)
-  suppliers = get_all_suppliers(db)
   
-  hugo = Hugo(parts=parts, orders=orders, sales=sales, suppliers=suppliers)
-  
-  mode = input("Enter mode: ")
-  if mode == "chat":
-    hugo.chat()
+  hugo = Hugo()
+  hugo.chat()
   
