@@ -1,0 +1,572 @@
+[
+  {
+    "spec_name": "scanned_S1_V1_specs",
+    "bill of materials": [
+      {
+        "Part_ID": "P300",
+        "Part_Name": "S1 V1 500W Brushless Motor",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P301",
+        "Part_Name": "S1 V1 Li-Ion 36V 10Ah Battery Pack",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P302",
+        "Part_Name": "S1 V1 Analog Controller ZX",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P303",
+        "Part_Name": "S1 V1 Aluminum Frame",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P324",
+        "Part_Name": "LCD Dashboard Display",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P325",
+        "Part_Name": "10-inch Alloy Wheel",
+        "Qty": 2,
+        "Notes": "Front & Rear"
+      },
+      {
+        "Part_ID": "P326",
+        "Part_Name": "Mechanical Disc Brake",
+        "Qty": 1,
+        "Notes": "160 mm rotor"
+      },
+      {
+        "Part_ID": "P327",
+        "Part_Name": "Standard LED Headlight",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P328",
+        "Part_Name": "Standard Charger 42V",
+        "Qty": 1,
+        "Notes": "1.5 A"
+      },
+      {
+        "Part_ID": "P334",
+        "Part_Name": "Power Cable",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P335",
+        "Part_Name": "Comfort Seat",
+        "Qty": 1,
+        "Notes": "Optional"
+      },
+      {
+        "Part_ID": "P336",
+        "Part_Name": "Rear Fender",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P337",
+        "Part_Name": "Hex Nut",
+        "Qty": 12,
+        "Notes": "M6"
+      },
+      {
+        "Part_ID": "P338",
+        "Part_Name": "Lock Washer",
+        "Qty": 12,
+        "Notes": "M6"
+      }
+    ],
+    "requirements": [
+      "Torque motor mounting bolts to 35 Nm.",
+      "Run battery BMS self-test before first power-on.",
+      "Apply thread-locker to all Hex Nut (P337) fasteners.",
+      "Calibrate brake levers after wheel installation."
+    ]
+  },
+  {
+    "spec_name": "scanned_S1_V2_specs",
+    "bill of materials": [
+      {
+        "Part_ID": "P304",
+        "Part_Name": "S1 V2 750W Brushless Motor",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P305",
+        "Part_Name": "S1 V2 Li-Po 48V 12Ah Battery Pack",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P306",
+        "Part_Name": "S1 V2 Digital Controller ZP",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P307",
+        "Part_Name": "S1 V2 Carbon Fiber Frame",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P329",
+        "Part_Name": "OLED Dashboard Display",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P330",
+        "Part_Name": "12-inch Alloy Wheel",
+        "Qty": 2,
+        "Notes": "Front & Rear"
+      },
+      {
+        "Part_ID": "P331",
+        "Part_Name": "Hydraulic Disc Brake",
+        "Qty": 1,
+        "Notes": "180 mm rotor"
+      },
+      {
+        "Part_ID": "P332",
+        "Part_Name": "Advanced LED Headlight with DRL",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P333",
+        "Part_Name": "Fast Charger 42V 2A",
+        "Qty": 1,
+        "Notes": "2.0 A"
+      },
+      {
+        "Part_ID": "P334",
+        "Part_Name": "Power Cable",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P335",
+        "Part_Name": "Comfort Seat",
+        "Qty": 1,
+        "Notes": "Optional"
+      },
+      {
+        "Part_ID": "P336",
+        "Part_Name": "Rear Fender",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P337",
+        "Part_Name": "Hex Nut",
+        "Qty": 12,
+        "Notes": "M6"
+      },
+      {
+        "Part_ID": "P338",
+        "Part_Name": "Lock Washer",
+        "Qty": 12,
+        "Notes": "M6"
+      }
+    ],
+    "requirements": [
+      "Torque motor mounting bolts to 40 Nm due to higher power.",
+      "Verify firmware version \u2265 v1.2 on Digital Controller ZP.",
+      "Perform waterproofing seal test on Carbon Fiber Frame joints.",
+      "Calibrate hydraulic brake pads for 0.2 mm rotor clearance."
+    ]
+  },
+  {
+    "spec_name": "scanned_S2_V1_specs",
+    "bill of materials": [
+      {
+        "Part_ID": "P308",
+        "Part_Name": "S2 V1 500W Brushless Motor",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P309",
+        "Part_Name": "S2 V1 Li-Ion 36V 10Ah Battery Pack",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P310",
+        "Part_Name": "S2 V1 Analog Controller ZX",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P311",
+        "Part_Name": "S2 V1 Aluminum Frame",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P324",
+        "Part_Name": "LCD Dashboard Display",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P325",
+        "Part_Name": "10-inch Alloy Wheel",
+        "Qty": 2,
+        "Notes": "Front & Rear"
+      },
+      {
+        "Part_ID": "P326",
+        "Part_Name": "Mechanical Disc Brake",
+        "Qty": 1,
+        "Notes": "160 mm rotor"
+      },
+      {
+        "Part_ID": "P327",
+        "Part_Name": "Standard LED Headlight",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P328",
+        "Part_Name": "Standard Charger 42V",
+        "Qty": 1,
+        "Notes": "1.5 A"
+      },
+      {
+        "Part_ID": "P334",
+        "Part_Name": "Power Cable",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P335",
+        "Part_Name": "Comfort Seat",
+        "Qty": 1,
+        "Notes": "Optional"
+      },
+      {
+        "Part_ID": "P336",
+        "Part_Name": "Rear Fender",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P337",
+        "Part_Name": "Hex Nut",
+        "Qty": 12,
+        "Notes": "M6"
+      },
+      {
+        "Part_ID": "P338",
+        "Part_Name": "Lock Washer",
+        "Qty": 12,
+        "Notes": "M6"
+      }
+    ],
+    "requirements": [
+      "Torque motor mounting bolts to 35 Nm.",
+      "Verify battery cell balancing before installation.",
+      "Apply silicone sealant to display wiring grommet.",
+      "Brake rotor run-out must be \u2264 0.15 mm."
+    ]
+  },
+  {
+    "spec_name": "scanned_S2_V2_specs",
+    "bill of materials": [
+      {
+        "Part_ID": "P312",
+        "Part_Name": "S2 V2 750W Brushless Motor",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P313",
+        "Part_Name": "S2 V2 Li-Po 48V 12Ah Battery Pack",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P314",
+        "Part_Name": "S2 V2 Digital Controller ZP",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P315",
+        "Part_Name": "S2 V2 Carbon Fiber Frame",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P329",
+        "Part_Name": "OLED Dashboard Display",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P330",
+        "Part_Name": "12-inch Alloy Wheel",
+        "Qty": 2,
+        "Notes": "Front & Rear"
+      },
+      {
+        "Part_ID": "P331",
+        "Part_Name": "Hydraulic Disc Brake",
+        "Qty": 1,
+        "Notes": "180 mm rotor"
+      },
+      {
+        "Part_ID": "P332",
+        "Part_Name": "Advanced LED Headlight with DRL",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P333",
+        "Part_Name": "Fast Charger 42V 2A",
+        "Qty": 1,
+        "Notes": "2.0 A"
+      },
+      {
+        "Part_ID": "P334",
+        "Part_Name": "Power Cable",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P335",
+        "Part_Name": "Comfort Seat",
+        "Qty": 1,
+        "Notes": "Optional"
+      },
+      {
+        "Part_ID": "P336",
+        "Part_Name": "Rear Fender",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P337",
+        "Part_Name": "Hex Nut",
+        "Qty": 12,
+        "Notes": "M6"
+      },
+      {
+        "Part_ID": "P338",
+        "Part_Name": "Lock Washer",
+        "Qty": 12,
+        "Notes": "M6"
+      }
+    ],
+    "requirements": [
+      "Torque motor mounting bolts to 40 Nm.",
+      "Perform regenerative-brake calibration in controller diagnostics.",
+      "Ensure OLED Display firmware v3.0 or later.",
+      "Verify wheel alignment within 0.5 mm lateral run-out."
+    ]
+  },
+  {
+    "spec_name": "scanned_S3_V1_specs",
+    "bill of materials": [
+      {
+        "Part_ID": "P316",
+        "Part_Name": "S3 V1 500W Brushless Motor",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P317",
+        "Part_Name": "S3 V1 Li-Ion 36V 10Ah Battery Pack",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P318",
+        "Part_Name": "S3 V1 Analog Controller ZX",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P319",
+        "Part_Name": "S3 V1 Aluminum Frame",
+        "Qty": 1,
+        "Notes": "Reinforced down-tube"
+      },
+      {
+        "Part_ID": "P324",
+        "Part_Name": "LCD Dashboard Display",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P325",
+        "Part_Name": "10-inch Alloy Wheel",
+        "Qty": 2,
+        "Notes": "Front & Rear"
+      },
+      {
+        "Part_ID": "P326",
+        "Part_Name": "Mechanical Disc Brake",
+        "Qty": 1,
+        "Notes": "160 mm rotor"
+      },
+      {
+        "Part_ID": "P327",
+        "Part_Name": "Standard LED Headlight",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P328",
+        "Part_Name": "Standard Charger 42V",
+        "Qty": 1,
+        "Notes": "1.5 A"
+      },
+      {
+        "Part_ID": "P334",
+        "Part_Name": "Power Cable",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P335",
+        "Part_Name": "Comfort Seat",
+        "Qty": 1,
+        "Notes": "Optional"
+      },
+      {
+        "Part_ID": "P336",
+        "Part_Name": "Rear Fender",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P337",
+        "Part_Name": "Hex Nut",
+        "Qty": 12,
+        "Notes": "M6"
+      },
+      {
+        "Part_ID": "P338",
+        "Part_Name": "Lock Washer",
+        "Qty": 12,
+        "Notes": "M6"
+      }
+    ],
+    "requirements": [
+      "Torque motor mounting bolts to 35 Nm.",
+      "Inspect frame welds for 100% penetration.",
+      "Seal battery housing with IP65 gasket kit.",
+      "Confirm brake pad wear limit \u2265 4 mm after calibration."
+    ]
+  },
+  {
+    "spec_name": "scanned_S3_V2_specs",
+    "bill of materials": [
+      {
+        "Part_ID": "P320",
+        "Part_Name": "S3 V2 750W Brushless Motor",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P321",
+        "Part_Name": "S3 V2 Li-Po 48V 12Ah Battery Pack",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P322",
+        "Part_Name": "S3 V2 Digital Controller ZP",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P323",
+        "Part_Name": "S3 V2 Carbon Fiber Frame",
+        "Qty": 1,
+        "Notes": "Reinforced down-tube"
+      },
+      {
+        "Part_ID": "P329",
+        "Part_Name": "OLED Dashboard Display",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P330",
+        "Part_Name": "12-inch Alloy Wheel",
+        "Qty": 2,
+        "Notes": "Front & Rear"
+      },
+      {
+        "Part_ID": "P331",
+        "Part_Name": "Hydraulic Disc Brake",
+        "Qty": 1,
+        "Notes": "180 mm rotor"
+      },
+      {
+        "Part_ID": "P332",
+        "Part_Name": "Advanced LED Headlight with DRL",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P333",
+        "Part_Name": "Fast Charger 42V 2A",
+        "Qty": 1,
+        "Notes": "2.0 A"
+      },
+      {
+        "Part_ID": "P334",
+        "Part_Name": "Power Cable",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P335",
+        "Part_Name": "Comfort Seat",
+        "Qty": 1,
+        "Notes": "Optional"
+      },
+      {
+        "Part_ID": "P336",
+        "Part_Name": "Rear Fender",
+        "Qty": 1,
+        "Notes": ""
+      },
+      {
+        "Part_ID": "P337",
+        "Part_Name": "Hex Nut",
+        "Qty": 12,
+        "Notes": "M6"
+      },
+      {
+        "Part_ID": "P338",
+        "Part_Name": "Lock Washer",
+        "Qty": 12,
+        "Notes": "M6"
+      }
+    ],
+    "requirements": [
+      "Torque motor mounting bolts to 42 Nm.",
+      "Run full temperature-cycling test (-10\u00b0C \u2192 60\u00b0C).",
+      "Update Digital Controller ZP firmware to v4.1.",
+      "Validate hydraulic brake fluid pressure at 1.6 bar."
+    ]
+  }
+]

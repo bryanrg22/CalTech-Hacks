@@ -9,6 +9,7 @@ SALES_JSON_PATH = 'data/sales_orders.json'
 ORDERS_JSON_PATH = 'data/orders.json'
 PARTS_JSON_PATH = 'data/parts.json'
 SUPPLY_JSON_PATH = 'data/supply.json'
+SPEC_JSON_PATH = 'data/specs.json'
 
 def initialize_firebase():
     """
@@ -99,13 +100,27 @@ def upload_supply(db):
         doc_ref.set(data)
         print(f"Uploaded supply/{doc_id}")
 
+def upload_specs(db):
+
+    with open(SPEC_JSON_PATH, 'r') as f:
+        spec = json.load(f)
+
+    for entry in spec:
+        spec_name = entry.get('spec_name')
+        if not spec_name:
+            print("Skipping entry without 'spec_name'")
+            continue
+
+        doc_ref = db.collection('specs').document(spec_name)
+        data = {k: v for k, v in entry.items() if k != 'spec_name'}
+        doc_ref.set(data)
+        print(f"Uploaded parts/{spec_name}")
+
 
 def main():
     db = initialize_firebase()
-    upload_sales_orders(db)
-    upload_orders(db)
-    upload_parts(db)
-    upload_supply(db)
+    upload_specs(db)
+    
 
 
 if __name__ == '__main__':
