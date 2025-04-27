@@ -3,10 +3,9 @@
  */
 
 // Slack API configuration
-require('dotenv').config();
-const SLACK_API_URL  = process.env.SLACK_API_URL;
-const SLACK_BOT_TOKEN = process.env.SLACK_BOT_TOKEN;
-const SLACK_CHANNEL   = process.env.SLACK_CHANNEL;
+const SLACK_API_URL = "https://slack.com/api/chat.postMessage"
+const SLACK_BOT_TOKEN = "xoxb-8815276833843-8834891283840-NeIZ0eCaRngHsoWXXfchUMzv"
+const SLACK_CHANNEL = "U08PZ84QHSP" // User ID to send DM to
 
 /**
  * Send a message to Slack through the backend endpoint
