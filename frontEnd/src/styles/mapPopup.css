@@ -1,0 +1,128 @@
+/* Custom styles for the map popup */
+.maplibregl-popup.supply-popup {
+  max-width: 300px !important;
+}
+
+.maplibregl-popup.supply-popup .maplibregl-popup-content {
+  background-color: rgba(17, 24, 39, 0.95);
+  border: 1px solid rgba(55, 65, 81, 0.8);
+  border-radius: 8px;
+  padding: 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.maplibregl-popup.supply-popup .maplibregl-popup-tip {
+  border-top-color: rgba(17, 24, 39, 0.95);
+  border-bottom-color: rgba(17, 24, 39, 0.95);
+}
+
+.supply-popup-content {
+  color: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.supply-popup-header {
+  background-color: rgba(5, 150, 105, 0.2);
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(55, 65, 81, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.supply-popup-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #10b981;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.supply-popup-body {
+  padding: 12px 16px;
+}
+
+.supply-popup-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.supply-popup-row:last-child {
+  margin-bottom: 0;
+}
+
+.supply-popup-label {
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.supply-popup-value {
+  font-weight: 500;
+}
+
+.supply-popup-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.supply-popup-badge.high {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+}
+
+.supply-popup-badge.low {
+  background-color: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+}
+
+.supply-popup-footer {
+  padding: 8px 16px;
+  border-top: 1px solid rgba(55, 65, 81, 0.8);
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(31, 41, 55, 0.5);
+}
+
+.supply-popup-button {
+  background: none;
+  border: none;
+  color: #10b981;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.supply-popup-button:hover {
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.supply-popup-close {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.supply-popup-close:hover {
+  color: #f3f4f6;
+  background-color: rgba(156, 163, 175, 0.1);
+}

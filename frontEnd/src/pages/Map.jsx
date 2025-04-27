@@ -1,132 +1,240 @@
-"use client";
+/* -------------------------------------------------------------------
+   src/pages/Map.jsx         — MOCK DATA VERSION
+   ------------------------------------------------------------------- */
+   "use client"
 
-import React, { useState, useEffect, useRef } from "react";
-import { Package, ShoppingCart, Truck, Users } from "lucide-react";
-import Sidebar from "../components/Sidebar";
-import Header from "../components/Header";
-import { useParts, useOrders, useSales, useSupply } from "../hooks/useFirebaseData";
-import LoadingSpinner from "../components/LoadingSpinner";
-import "maplibre-gl/dist/maplibre-gl.css";
-import maplibregl from "maplibre-gl";
-import { Map as RLMap } from "react-map-gl/maplibre";
-import { ScatterplotLayer, ArcLayer } from "@deck.gl/layers";
-import { MapboxOverlay } from "@deck.gl/mapbox";
-
-// View settings for the globe
-const INITIAL_VIEW_STATE = {
-  longitude: -50,
-  latitude: 20,
-  zoom: 2,
-  pitch: 0,
-  bearing: 0
-};
-
-export default function Map() {
-  // Points to render on the globe
-  const sampleData = [
-    { position: [-90, 20], size: 1000 },
-    { position: [0, 0], size: 500 },
-    { position: [90, -20], size: 2000 }
-  ];
-
-  // Routes between those points
-  const routeData = [
-    { source: [-90, 20], target: [0, 0] },
-    { source: [0, 0],    target: [90, -20] }
-  ];
-
-  // Overlay that paints scatter + arcs on top of the MapLibre globe
-  const overlay = new MapboxOverlay({
-    beforeId: undefined,
-    interleaved: true,
-    layers: [
-      new ScatterplotLayer({
-        id: 'scatter-layer',
-        data: sampleData,
-        getPosition: d => d.position,
-        getRadius:   d => d.size * 0.01,
-        getFillColor:[200,200,200],
-        pickable:    false
-      }),
-      new ArcLayer({
-        id: 'arc-layer',
-        data: routeData,
-        getSourcePosition: d => d.source,
-        getTargetPosition: d => d.target,
-        getSourceColor: [200, 200, 200],
-        getTargetColor: [200, 200, 200],
-        getWidth: 2,
-        pickable: false,
-        parameters: { depthTest: false }
-      })
-    ]
-  });
-
-  // Firebase hooks and stats logic remain unchanged
-  const { data: partsData,     loading: partsLoading     } = useParts();
-  const { data: ordersData,    loading: ordersLoading    } = useOrders({ orderBy: { field: "order_date", direction: "desc" }, limit: 5 });
-  const { data: salesData,     loading: salesLoading     } = useSales();
-  const { data: suppliersData, loading: suppliersLoading } = useSupply();
-
-  const [stats, setStats] = useState([
-    { title: "Total Parts",   value: "0", change: "0%", trend: "neutral", icon: Package,        color: "emerald" },
-    { title: "Active Orders", value: "0", change: "0%", trend: "neutral", icon: Truck,          color: "blue"    },
-    { title: "Sales Orders",  value: "0", change: "0%", trend: "neutral", icon: ShoppingCart, color: "purple"  },
-    { title: "Suppliers",     value: "0", change: "0%", trend: "neutral", icon: Users,          color: "amber"   }
-  ]);
-
-  useEffect(() => {
-    if (!partsLoading && !ordersLoading && !salesLoading && !suppliersLoading) {
-      const uniqueSuppliers = [...new Set(suppliersData.map(item => {
-        const idx = item.id.indexOf("_");
-        return idx > 0 ? item.id.substring(0, idx) : item.id;
-      }))];
-
-      const activeOrders = ordersData.filter(o => o.status === "ordered").length;
-      setStats([
-        { title: "Total Parts",   value: partsData.length.toString(),        change: "+12%", trend: "up",    icon: Package,        color: "emerald" },
-        { title: "Active Orders", value: activeOrders.toString(),            change: "-5%",  trend: "down", icon: Truck,          color: "blue"    },
-        { title: "Sales Orders",  value: salesData.length.toString(),         change: "+18%", trend: "up",    icon: ShoppingCart, color: "purple"  },
-        { title: "Suppliers",     value: uniqueSuppliers.length.toString(),   change: "0%",   trend: "neutral",icon: Users,          color: "amber"   }
-      ]);
-    }
-  }, [partsData, ordersData, salesData, suppliersData, partsLoading, ordersLoading, salesLoading, suppliersLoading]);
-
-  const isLoading = partsLoading || ordersLoading || salesLoading || suppliersLoading;
-  const mapRef = useRef(null);
-
-  return (
-    <div className="flex h-screen bg-gray-950 text-white">
-            <style>{`.deckgl-overlay { z-index: 1000 !important; }`}</style>
-      <Sidebar />
-      <div className="flex-1 flex flex-col md:ml-64">
-        <Header title="Supply Chain Globe" />
-        <main className="flex-1 overflow-auto p-6">
-          {isLoading ? (
-            <div className="flex items-center justify-center h-full">
-              <LoadingSpinner />
-            </div>
-          ) : (
-            <div style={{ position: 'relative', width: '100%', height: '80vh' }}>
-              <RLMap
-                ref={mapRef}
-                attributionControl={false}
-                logoPosition={null}
-                reuseMaps
-                initialViewState={INITIAL_VIEW_STATE}
-                mapLib={maplibregl}
-                mapStyle="https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json"
-                style={{ width: '100%', height: '100%' }}
-                onLoad={() => {
-                  const map = mapRef.current.getMap();
-                  map.setProjection({ type: 'globe' });
-                  map.addControl(overlay);
-                }}
-              />
-            </div>
-          )}
-        </main>
-      </div>
-    </div>
-  );
-}
+   import { useEffect, useMemo, useRef, useState } from "react"
+   import Map from "react-map-gl/maplibre"
+   import maplibregl from "maplibre-gl"
+   import "maplibre-gl/dist/maplibre-gl.css"
+   
+   import Sidebar from "../components/Sidebar"
+   import Header from "../components/Header"
+   import LoadingSpinner from "../components/LoadingSpinner"
+   import RoutePopup from "../components/RoutePopup"
+   
+   /* ═══════════════════════════════════════════════════════════════════
+      1.  MOCK DATA  — tweak as you like
+      ═══════════════════════════════════════════════════════════════════ */
+   const WAREHOUSES = [
+     { id: "WH_LAX", name: "Los Angeles DC", coords: [-118.255, 34.052] },
+     { id: "WH_ORD", name: "Chicago DC", coords: [-87.907, 41.974] },
+     { id: "WH_FRA", name: "Frankfurt Hub", coords: [8.57, 50.033] },
+   ]
+   
+   const SUPPLIERS = [
+     { id: "SupA", name: "Shenzhen Factory", coords: [114.058, 22.543] },
+     { id: "SupB", name: "Taipei Fab", coords: [121.565, 25.034] },
+     { id: "SupC", name: "Berlin Plastics", coords: [13.405, 52.52] },
+     { id: "SupD", name: "São Paulo Foundry", coords: [-46.633, -23.55] },
+   ]
+   
+   /* three purchase orders tie them together */
+   const ORDERS = [
+     {
+       id: "O1001",
+       warehouse_id: "WH_LAX",
+       supplier_id: "SupA",
+       status: "ordered",
+       priority: "high",
+       eta: "2025-05-15",
+       distance: "11,825 km",
+     },
+     {
+       id: "O1002",
+       warehouse_id: "WH_ORD",
+       supplier_id: "SupB",
+       status: "ordered",
+       priority: "low",
+       eta: "2025-05-22",
+       distance: "12,540 km",
+     },
+     {
+       id: "O1003",
+       warehouse_id: "WH_FRA",
+       supplier_id: "SupC",
+       status: "ordered",
+       priority: "low",
+       eta: "2025-05-10",
+       distance: "545 km",
+     },
+   ]
+   
+   /* ═══════════════════════════════════════════════════════════════════
+      2.  INITIAL VIEW
+      ═══════════════════════════════════════════════════════════════════ */
+   const INITIAL_VIEW_STATE = { longitude: -30, latitude: 25, zoom: 1.7, pitch: 0, bearing: 0 }
+   
+   /* ═══════════════════════════════════════════════════════════════════
+      3.  REACT COMPONENT
+      ═══════════════════════════════════════════════════════════════════ */
+   export default function MapPage() {
+     /* pretend to "load" */
+     const [loading, setLoading] = useState(true)
+     useEffect(() => {
+       const t = setTimeout(() => setLoading(false), 500)
+       return () => clearTimeout(t)
+     }, [])
+   
+     /* State for the custom popup */
+     const [popupInfo, setPopupInfo] = useState(null)
+     const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 })
+   
+     /* build GeoJSON once (memo) */
+     const { nodesGeoJSON, arcsGeoJSON } = useMemo(() => {
+       const nodeFeatures = [
+         ...WAREHOUSES.map((w) => ({
+           type: "Feature",
+           geometry: { type: "Point", coordinates: w.coords },
+           properties: { type: "warehouse", name: w.name, id: w.id },
+         })),
+         ...SUPPLIERS.map((s) => ({
+           type: "Feature",
+           geometry: { type: "Point", coordinates: s.coords },
+           properties: { type: "supplier", name: s.name, id: s.id },
+         })),
+       ]
+   
+       const arcFeatures = ORDERS.map((o) => {
+         const wh = WAREHOUSES.find((w) => w.id === o.warehouse_id)
+         const sp = SUPPLIERS.find((s) => s.id === o.supplier_id)
+         return wh && sp
+           ? {
+               type: "Feature",
+               geometry: { type: "LineString", coordinates: [wh.coords, sp.coords] },
+               properties: {
+                 urgent: o.priority === "high",
+                 warehouse_id: wh.id,
+                 warehouse_name: wh.name,
+                 supplier_id: sp.id,
+                 supplier_name: sp.name,
+                 part_id: o.id?.replace("O", "P") ?? "P-???",
+                 order_id: o.id,
+                 priority: o.priority,
+                 eta: o.eta,
+                 distance: o.distance,
+               },
+             }
+           : null
+       }).filter(Boolean)
+   
+       return {
+         nodesGeoJSON: { type: "FeatureCollection", features: nodeFeatures },
+         arcsGeoJSON: { type: "FeatureCollection", features: arcFeatures },
+       }
+     }, [])
+   
+     /* map refs */
+     const mapRef = useRef(null)
+     const [mapReady, setMapReady] = useState(false)
+     const mapContainerRef = useRef(null)
+   
+     /* update data when map ready */
+     useEffect(() => {
+       if (!mapReady) return
+       const map = mapRef.current.getMap()
+       map.getSource("nodes")?.setData(nodesGeoJSON)
+       map.getSource("arcs")?.setData(arcsGeoJSON)
+     }, [mapReady, nodesGeoJSON, arcsGeoJSON])
+   
+     /* UI */
+     return (
+       <div className="flex h-screen bg-gray-950 text-white">
+         <Sidebar />
+         <div className="flex-1 flex flex-col md:ml-64">
+           <Header title="Supply Chain Globe" />
+           <main className="flex-1 overflow-auto p-6">
+             {loading ? (
+               <div className="flex items-center justify-center h-full">
+                 <LoadingSpinner />
+               </div>
+             ) : (
+               <div ref={mapContainerRef} style={{ position: "relative", width: "100%", height: "80vh" }}>
+                 <Map
+                   ref={mapRef}
+                   mapLib={maplibregl}
+                   logoPosition={null}
+                   attributionControl={false}
+                   mapStyle="https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json"
+                   initialViewState={INITIAL_VIEW_STATE}
+                   style={{ width: "100%", height: "100%" }}
+                   onLoad={(e) => {
+                     const map = e.target
+                     window.supplyGlobe = map // debug in DevTools
+                     map.setProjection({ type: "globe" })
+   
+                     /* --- add sources + layers ONCE --- */
+                     map.addSource("nodes", { type: "geojson", data: { type: "FeatureCollection", features: [] } })
+                     map.addLayer({
+                       id: "node-circles",
+                       type: "circle",
+                       source: "nodes",
+                       paint: {
+                         "circle-radius": ["case", ["==", ["get", "type"], "warehouse"], 6, 4],
+                         "circle-color": ["case", ["==", ["get", "type"], "warehouse"], "#24ffd1", "#ffb400"],
+                         "circle-opacity": 0.9,
+                       },
+                     })
+   
+                     map.addSource("arcs", { type: "geojson", data: { type: "FeatureCollection", features: [] } })
+                     map.addLayer({
+                       id: "arc-lines",
+                       type: "line",
+                       source: "arcs",
+                       paint: {
+                         "line-width": ["case", ["==", ["get", "urgent"], true], 2.5, 1.2],
+                         "line-color": ["case", ["==", ["get", "urgent"], true], "#ff008c", "#00c8ff"],
+                         "line-opacity": 0.8,
+                       },
+                     })
+   
+                     /* ── interactivity ─────────────────────────────── */
+                     // 1. pointer cursor on hover
+                     map.on("mouseenter", "arc-lines", () => {
+                       map.getCanvas().style.cursor = "pointer"
+                     })
+                     map.on("mouseleave", "arc-lines", () => {
+                       map.getCanvas().style.cursor = ""
+                     })
+   
+                     // 2. handle click on arc lines
+                     map.on("click", "arc-lines", (ev) => {
+                       // Get the properties from the feature
+                       const properties = ev.features[0].properties
+   
+                       // Convert the point to pixel coordinates
+                       const pixelPoint = map.project(ev.lngLat)
+   
+                       // Set the popup info and position
+                       setPopupInfo(properties)
+                       setPopupPosition({
+                         x: pixelPoint.x,
+                         y: pixelPoint.y,
+                       })
+                     })
+   
+                     // Close popup when clicking elsewhere on the map
+                     map.on("click", (e) => {
+                       const features = map.queryRenderedFeatures(e.point, {
+                         layers: ["arc-lines"],
+                       })
+   
+                       if (features.length === 0) {
+                         setPopupInfo(null)
+                       }
+                     })
+   
+                     setMapReady(true) // now update-effect will push data
+                   }}
+                 />
+   
+                 {/* Render the custom popup component */}
+                 {popupInfo && <RoutePopup data={popupInfo} position={popupPosition} onClose={() => setPopupInfo(null)} />}
+               </div>
+             )}
+           </main>
+         </div>
+       </div>
+     )
+   }
+   
