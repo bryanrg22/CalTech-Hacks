@@ -8,14 +8,18 @@ import email
 from email import policy
 from email.parser import BytesParser
 from typing import List
-from .part     import Part
-from .order    import Order
-from .sales    import Sales
-from .supplier import Supplier
+from part     import Part
+from order    import Order
+from sales    import Sales
+from supplier import Supplier
+# --- make sure Python can see ../graph.py ---------------------------
+import sys, pathlib
+sys.path.append(str(pathlib.Path(__file__).resolve().parent.parent))
 from graph import create_graph
+# --------------------------------------------------------------------
 import os
 from dotenv import load_dotenv
-from .upload_data import initialize_firebase
+from upload_data import initialize_firebase
 
 from langchain.llms.openai import OpenAI
 from langchain.chains import LLMChain, SequentialChain
@@ -415,8 +419,6 @@ class Hugo:
         llm,
         agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION,
         verbose=True,
-        memory=memory,
-        handle_parsing_errors=True
         memory=memory,
         handle_parsing_errors=True
     )

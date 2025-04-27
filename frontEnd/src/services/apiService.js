@@ -2,7 +2,7 @@
  * Service for interacting with the Firebase CRUD API
  */
 
-const API_BASE_URL = "http://localhost:5000/api" // Update with your actual API URL
+const API_BASE_URL = "/api";
 
 /**
  * Get a document from a collection

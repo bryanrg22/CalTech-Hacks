@@ -6,6 +6,9 @@ from dotenv import load_dotenv
 import getpass
 import os
 
+import sys, pathlib
+backend_root = pathlib.Path(__file__).resolve().parent
+sys.path.append(str(backend_root / "hugo"))
 from hugo.hugo import Hugo
 
 # ——— Load .env and grab your service account file path —————————————
@@ -28,12 +31,6 @@ hugo = Hugo()
 app = Flask(__name__)
 # Enable CORS for all /api/* routes, including OPTIONS preflight,
 # and allow your React dev server origin.
-CORS(
-    app,
-    resources={r"/api/.*": {"origins": "http://localhost:5173"}},
-    methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allow_headers=["Content-Type"],
-)
 
 # --- Helper ------------------------------------------------------------------
 def check_collection(coll_name):
@@ -104,4 +101,4 @@ def ping():
 
 # --- Entry Point -------------------------------------------------------------
 if __name__ == "__main__":
-    app.run(debug=True, host="127.0.0.1", port=5000)
+    app.run(debug=True, host="127.0.0.1", port=5050)
