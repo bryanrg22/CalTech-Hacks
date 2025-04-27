@@ -256,7 +256,7 @@ class Hugo:
       )
       return response.output_text
     
-  def chat(self):
+  def chat(self, prompt: str | None = None):
     # Initialize LangChain components
     llm = OpenAI(api_key=self._key, temperature=0.2)
     memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
@@ -282,30 +282,33 @@ class Hugo:
     Today's date: {current_date}
     """
     tools = [
+        # 0-argument helpers wrapped so LangChain can still pass the prompt
         Tool(
             name="get_inventory_data",
-            func=self.get_inventory_data,
+            func=lambda _prompt: self.get_inventory_data(),
             description="Get all inventory data including parts, suppliers, orders and sales"
         ),
+        Tool(
+            name="check_low_stock",
+            func=lambda _prompt: self.check_low_stocks(),
+            description="Find parts that are currently at or below minimum stock levels"
+        ),
+        Tool(
+            name="check_pending_orders",
+            func=lambda _prompt: self.check_pending_orders(),
+            description="Check all pending or processing orders"
+        ),
+
+        # Helpers that **need** the user’s prompt left as-is
         Tool(
             name="search_parts",
             func=self.search_parts,
             description="Search for parts by name or ID"
         ),
         Tool(
-            name="check_low_stock",
-            func=self.check_low_stocks,
-            description="Find parts that are currently at or below minimum stock levels"
-        ),
-        Tool(
             name="find_suppliers_for_part",
             func=self.find_supplier_for_part,
             description="Find all suppliers for a specific part ID"
-        ),
-        Tool(
-            name="check_pending_orders",
-            func=self.check_pending_orders,
-            description="Check all pending or processing orders"
         ),
         Tool(
             name="get_sales_by_model",
@@ -319,7 +322,8 @@ class Hugo:
         llm,
         agent=AgentType.CHAT_CONVERSATIONAL_REACT_DESCRIPTION,
         verbose=True,
-        memory=memory
+        memory=memory,
+        handle_parsing_errors=True
     )
     
     system_message = system_template.format(
@@ -337,6 +341,11 @@ class Hugo:
     print("Ask me anything about parts, suppliers, orders, or production capacity.")
     print("Type 'exit' to quit.")
     
+     # === single-shot API mode ==========================================
+    if prompt is not None:
+        return agent.run(prompt)
+    # ===================================================================
+
     while True:
         user_input = input("\nYou: ")
         if user_input.lower() in ["exit", "quit", "bye"]:
@@ -351,7 +360,6 @@ class Hugo:
     
     
 if __name__ == "__main__":
-  
   hugo = Hugo()
   hugo.chat()
   

@@ -26,8 +26,14 @@ hugo = Hugo()
 
 # --- Flask App ---------------------------------------------------------------
 app = Flask(__name__)
-# adjust origins as needed
-CORS(app, supports_credentials=True)
+# Enable CORS for all /api/* routes, including OPTIONS preflight,
+# and allow your React dev server origin.
+CORS(
+    app,
+    resources={r"/api/.*": {"origins": "http://localhost:5173"}},
+    methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allow_headers=["Content-Type"],
+)
 
 # --- Helper ------------------------------------------------------------------
 def check_collection(coll_name):
@@ -87,10 +93,14 @@ def chat():
 
     try:
         # Hugo.chat() is interactive; we want a single‐shot call
-        answer = hugo.agent.run(input=query)
+        answer = hugo.chat(query)
         return jsonify({ "response": answer })
     except Exception as e:
         abort(500, description=f"Hugo error: {e}")
+
+@app.route("/ping")
+def ping():
+    return "pong", 200
 
 # --- Entry Point -------------------------------------------------------------
 if __name__ == "__main__":
