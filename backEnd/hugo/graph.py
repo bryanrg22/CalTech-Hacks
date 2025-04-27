@@ -6,8 +6,7 @@ import numpy as np
 from collections import defaultdict
 from upload_data import initialize_firebase, upload_specs
 
-def create_graph():
-  db = initialize_firebase()
+def create_graph(db):
   
   parts_ref = db.collection("parts").stream()
   specs_ref = db.collection("specs").stream()
@@ -100,7 +99,7 @@ def create_graph():
       color = get_edge_color(data.get('stock_status', 100), data.get('blocked', False))
       width = get_edge_width(data.get('qty_needed', 1))
       nx.draw_networkx_edges(G, pos, edgelist=[(u, v)], width=width, 
-                            edge_color=color, arrows=True, arrowsize=15)
+                            edge_color=color, alpha=0.7, arrows=True, arrowsize=15)
 
   # Draw labels
   nx.draw_networkx_labels(G, pos, font_size=8)
@@ -122,11 +121,10 @@ def create_graph():
   plt.tight_layout()
   plt.axis('off')
   plt.savefig('specs_parts_graph.png', dpi=300, bbox_inches='tight')
-  plt.show()
+  # plt.show()
 
   # Create a data summary table for analysis
   def create_summary_table():
-      # Create a dataframe for parts with their stock status
       parts_df = pd.DataFrame(parts_data)
       
       # Calculate stock status percentage
@@ -161,6 +159,7 @@ def create_graph():
 
   # Generate and print summary table
   summary_table = create_summary_table()
+  summary_table.to_csv('parts_summary.csv', index=False)
 
   def create_critical_parts_graph():
       critical_parts = [part['part_id'] for part in parts_data if part['blocked'] or (part['quantity'] < part['min_stock'])]
@@ -221,13 +220,13 @@ def create_graph():
       node_types = nx.get_node_attributes(critical_graph, 'node_type')
       colors = ['skyblue' if node_types[node] == 'spec' else 'red' for node in critical_graph.nodes()]
       
-      pos = nx.spring_layout(critical_graph, k=0.8, iterations=100)
+      pos = nx.spring_layout(critical_graph, k=0.8, iterations=100, seed=42)
       nx.draw_networkx_nodes(critical_graph, pos, node_size=800, node_color=colors, alpha=0.8)
       for (u, v, data) in critical_graph.edges(data=True):
           color = 'red' if data.get('blocked', False) else 'orange'
           width = get_edge_width(data.get('qty_needed', 1))
           nx.draw_networkx_edges(critical_graph, pos, edgelist=[(u, v)], 
-                                width=width, edge_color=color, arrows=True)
+                                width=width, alpha=0.7, edge_color=color, arrows=True)
       
       # Draw labels
       nx.draw_networkx_labels(critical_graph, pos, font_size=10)
@@ -246,7 +245,7 @@ def create_graph():
       plt.axis('off')
       plt.tight_layout()
       plt.savefig('critical_parts_graph.png', dpi=300, bbox_inches='tight')
-      plt.show()
+      # plt.show()
   else:
       print("No critical parts found for visualization")
       
@@ -254,3 +253,4 @@ def create_graph():
 
 if __name__ == "__main__":
   summary_table = create_graph()
+  # print(summary_table)

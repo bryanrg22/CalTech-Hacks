@@ -1,5 +1,6 @@
 import pandas as pd
 import openai
+
 import json
 import ast
 import re
@@ -11,6 +12,7 @@ from part import Part
 from supplier import Supplier
 from order import Order
 from sales import Sales
+from graph import create_graph
 import os
 from dotenv import load_dotenv
 from upload_data import initialize_firebase, upload_specs
@@ -34,7 +36,7 @@ SUPPLY_JSON_PATH = 'data/supply.json'
 class Hugo:
 
   def __init__(self) -> None:
-    
+
     load_dotenv()
 
     # DATABASE
@@ -55,9 +57,12 @@ class Hugo:
     # SALES CLASS
     self.sales = self._init_sales()
 
+    # SUMMARY TABLE
+    self.table = create_graph(self.db)
+
     # CLIENT
     self.client = openai.OpenAI(api_key=self._key)
-  
+
   # === INIT HELPERS ===
   def _init_parts(self) -> List[Part]:
     parts_ref = self.db.collection('parts') 
@@ -82,7 +87,7 @@ class Hugo:
             successor_part=data.get('successor_part', None)
         )
         parts.append(part)
-    
+
     return parts
 
   def _init_suppliers(self) -> List[Supplier]:
@@ -109,7 +114,7 @@ class Hugo:
   def _init_orders(self) -> List[Order]:
     sales_ref = self.db.collection('sales')
     docs = sales_ref.stream()
-    
+
     sales_list = []
     for doc in docs:
         data = doc.to_dict()
@@ -129,7 +134,7 @@ class Hugo:
   def _init_sales(self) -> List[Sales]:
     supply_ref = self.db.collection('supply')
     docs = supply_ref.stream()
-    
+
     suppliers_list = []
     for doc in docs:
         data = doc.to_dict()
@@ -143,45 +148,103 @@ class Hugo:
         )
         suppliers_list.append(supplier)
     return suppliers_list
-  
+
   def _init_specs(self):
     pass
-    
+
   def create_data_context(self):
         parts_data = [vars(part) for part in self.parts]
         suppliers_data = [vars(supplier) for supplier in self.suppliers]
         orders_data = [vars(order) for order in self.orders]
         sales_data = [vars(sale) for sale in self.sales]
-        
+        summary_data = [vars(sale) for sale in self.table]
+
         return {
             "parts": parts_data,
             "suppliers": suppliers_data,
             "orders": orders_data, 
-            "sales": sales_data
+            "sales": sales_data,
+            "relationships table": summary_data
         }
 
   # === TOOL HELPERS ===
   def get_inventory_data(self):
     return json.dumps(self.create_data_context(), indent=2)
-  
+
   def search_parts(self, other):
     return json.dumps([vars(p) for p in self.parts if other.lower() in p.part_name.lower() or other.lower() in p.part_id.lower()], indent=2)
-  
+
   def check_low_stocks(self):
     return json.dumps([vars(p) for p in self.parts if p.quantity <= p.min_stock], indent=2)
-  
+
   def find_supplier_for_part(self, part_id):
     return json.dumps([vars(s) for s in self.suppliers if s.part_id == part_id], indent=2)
-  
+
   def check_pending_orders(self):
     return json.dumps([vars(o) for o in self.orders if o.status == "ordered" or o.status == "delivered"], indent=2)
-  
+
   def get_sales_by_model(self, model):
     return json.dumps([vars(s) for s in self.sales if model.lower() in s.model.lower()], indent=2)
-  
-  def create_relationship(self):
-    pass
-  
+
+  def relationship_evaluation(self, question):
+    prompt = (
+        f"Here is a relationship of parts and specs data:\n{self.table}\n\n"
+        f"Question: {question}\n"
+        f"Answer:"
+    )
+
+    try:
+        response = self.client.chat.completions.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant analyzing data relationships and providing recommendation on what the user should do next."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.2,
+            max_tokens=700)
+
+        answer = response.choices[0].message.content.strip()
+        return answer
+
+    except Exception as e:
+        print(f"Error during OpenAI API call: {e}")
+        return "Error: Could not evaluate relationships due to API issue."
+      
+  def inventory_alerts(self):
+    print("here")
+    prompt = (
+        f"Here is a table of parts and specs:\n{self.table}\n\n"
+        "Please analyze the table and list any parts that should be on alert. "
+        "For each part on alert for status category, explain the reason in a short sentence. "
+        "Return the result in JSON format like {\"part_name\": \"reason\", ...}."
+    )
+
+    try:
+        response = self.client.chat.completions.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant analyzing inventory data for potential alerts."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.2,
+            max_tokens=700
+        )
+
+        answer = response.choices[0].message.content.strip()
+        print("Raw response:\n", answer)
+
+        try:
+            alerts = json.loads(answer)
+        except json.JSONDecodeError:
+            print("Warning: Failed to parse JSON properly. Returning raw text instead.")
+            alerts = {"raw_response": answer}
+
+        return alerts
+
+    except Exception as e:
+        print(f"Error during OpenAI API call: {e}")
+        return {"error": "Could not retrieve inventory alerts."}
+
   # Parsing Action
   def parse_pdf_to_parts_and_requirements(self, pdf_path):
       # Upload file
@@ -234,7 +297,7 @@ class Hugo:
       # Return structured result
       bill_of_materials = parsed_output["Bill_of_Materials"]
       requirements = parsed_output["Assembly_Requirements"]
-      
+
       spl = pdf_path.split("/")
 
       print(bill_of_materials)
@@ -245,7 +308,7 @@ class Hugo:
         "bill of materials" : bill_of_materials,
         "requirements": requirements
       }
-      
+
       converted = json.dumps(data, indent=2)
 
   # Extracting the Email
@@ -272,12 +335,12 @@ class Hugo:
           ]
       )
       return response.output_text
-    
+
   def chat(self):
     # Initialize LangChain components
     llm = OpenAI(api_key=self._key, temperature=0.2)
     memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
-    
+
     # Define system message template
     system_template = """
     You are Hugo, an inventory management assistant for a scooter manufacturing company.
@@ -286,6 +349,7 @@ class Hugo:
     - Suppliers: information about suppliers, prices, lead times, and reliability ratings
     - Orders: purchase orders for parts, including quantities and delivery dates
     - Sales: sales orders for different scooter models
+    - Relationships: Tells you that parts and how the relate to other objects
     
     Answer questions about inventory, production capacity, supply chain, and forecasting.
     Be precise, data-driven, and helpful. If you don't know something, say so clearly.
@@ -295,6 +359,7 @@ class Hugo:
     Available suppliers data: {suppliers_count} supplier relationships
     Available orders data: {orders_count} orders
     Available sales data: {sales_count} sales orders
+    Relationship between specs and parts: {relationships} edge connections
     
     Today's date: {current_date}
     """
@@ -306,7 +371,7 @@ class Hugo:
         ),
         Tool(
             name="search_parts",
-            func=self.search_parts,
+            func=lambda search: self.search_parts(search),
             description="Search for parts by name or ID"
         ),
         Tool(
@@ -316,7 +381,7 @@ class Hugo:
         ),
         Tool(
             name="find_suppliers_for_part",
-            func=self.find_supplier_for_part,
+            func=lambda part_id: self.find_supplier_for_part(part_id),
             description="Find all suppliers for a specific part ID"
         ),
         Tool(
@@ -328,47 +393,59 @@ class Hugo:
             name="get_sales_by_model",
             func=self.get_sales_by_model,
             description="Get sales orders for a specific scooter model"
+        ),
+        Tool(
+          name="relationship_evaluation",
+          func=lambda q: self.relationship_evaluation(q),
+          description="Tells you the relationship graphically of parts and specs"
+        ),
+        Tool(
+          name="inventory_alert",
+          func=self.inventory_alerts,
+          description="This gives inventory alerts of all the summary, parts, production line"
         )
+        
     ]
-    
+
     agent = initialize_agent(
         tools,
         llm,
-        agent=AgentType.CHAT_CONVERSATIONAL_REACT_DESCRIPTION,
+        agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION,
         verbose=True,
-        memory=memory
+        memory=memory,
+        handle_parsing_errors=True
     )
-    
+
     system_message = system_template.format(
         parts_count=len(self.parts),
         suppliers_count=len(self.suppliers),
         orders_count=len(self.orders),
         sales_count=len(self.sales),
+        relationships=len(self.table),
         current_date=datetime.now().strftime("%Y-%m-%d")
     )
-    
+
     # Set the system message
     agent.agent.llm_chain.prompt.messages[0].prompt.template = system_message
-    
+
     print("Welcome to Hugo, your inventory management assistant.")
     print("Ask me anything about parts, suppliers, orders, or production capacity.")
     print("Type 'exit' to quit.")
-    
+
     while True:
         user_input = input("\nYou: ")
         if user_input.lower() in ["exit", "quit", "bye"]:
             print("Goodbye!")
             break
-        
+
         try:
             response = agent.run(input=user_input)
             print(f"\nHugo: {response}")
         except Exception as e:
             print(f"\nHugo: I encountered an error while processing your request: {str(e)}")
-    
-    
+
+
 if __name__ == "__main__":
-  
+
   hugo = Hugo()
   hugo.chat()
-  
