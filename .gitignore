@@ -1,3 +1,5 @@
 .env
 frontEnd/node_modules/.vite/deps/_metadata.json
 backEnd/hugo/hacktech-cce3f-firebase-adminsdk-fbsvc-16eecb3f3c.json
+# backEnd/hugo service-account keys
+/backEnd/hugo/*.json
