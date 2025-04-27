@@ -1,0 +1,93 @@
+{
+    "05900": {
+      "order_date": "2025-03-05",
+      "expected_delivery_date": "2025-03-18",
+      "actual_delivered_at": "2025-03-19",
+      "part_id": "P340",
+      "quantity_ordered": 120,
+      "status": "delivered",
+      "supplier_id": "SupA"
+    },
+    "05901": {
+      "order_date": "2025-03-07",
+      "expected_delivery_date": "2025-03-21",
+      "actual_delivered_at": "2025-03-20",
+      "part_id": "P341",
+      "quantity_ordered": 60,
+      "status": "delivered",
+      "supplier_id": "SupB"
+    },
+    "05902": {
+      "order_date": "2025-03-09",
+      "expected_delivery_date": "2025-03-24",
+      "actual_delivered_at": "",
+      "part_id": "P342",
+      "quantity_ordered": 95,
+      "status": "ordered",
+      "supplier_id": "SupC"
+    },
+    "05903": {
+      "order_date": "2025-03-11",
+      "expected_delivery_date": "2025-03-26",
+      "actual_delivered_at": "",
+      "part_id": "P343",
+      "quantity_ordered": 140,
+      "status": "ordered",
+      "supplier_id": "SupA"
+    },
+    "05904": {
+      "order_date": "2025-03-13",
+      "expected_delivery_date": "2025-03-28",
+      "actual_delivered_at": "",
+      "part_id": "P344",
+      "quantity_ordered": 45,
+      "status": "pending",
+      "supplier_id": "SupD"
+    },
+    "05905": {
+      "order_date": "2025-03-15",
+      "expected_delivery_date": "2025-03-30",
+      "actual_delivered_at": "",
+      "part_id": "P345",
+      "quantity_ordered": 72,
+      "status": "pending",
+      "supplier_id": "SupB"
+    },
+    "05906": {
+      "order_date": "2025-03-17",
+      "expected_delivery_date": "2025-03-31",
+      "actual_delivered_at": "2025-04-01",
+      "part_id": "P346",
+      "quantity_ordered": 180,
+      "status": "delivered",
+      "supplier_id": "SupC"
+    },
+    "05907": {
+      "order_date": "2025-03-19",
+      "expected_delivery_date": "2025-04-02",
+      "actual_delivered_at": "2025-04-03",
+      "part_id": "P347",
+      "quantity_ordered": 30,
+      "status": "delivered",
+      "supplier_id": "SupA"
+    },
+    "05908": {
+      "order_date": "2025-03-21",
+      "expected_delivery_date": "2025-04-05",
+      "actual_delivered_at": "",
+      "part_id": "P348",
+      "quantity_ordered": 110,
+      "status": "ordered",
+      "supplier_id": "SupD"
+    },
+    "05909": {
+      "order_date": "2025-03-23",
+      "expected_delivery_date": "2025-04-07",
+      "actual_delivered_at": "",
+      "part_id": "P349",
+      "quantity_ordered": 55,
+      "status": "pending",
+      "supplier_id": "SupB"
+    }
+  }
+  

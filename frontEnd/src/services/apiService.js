@@ -1,8 +1,9 @@
 /**
  * Service for interacting with the Firebase CRUD API
  */
+import { sendSlackMessage, formatSlackInventoryAlert } from "./slackService"
 
-const API_BASE_URL = "/api";
+const API_BASE_URL = "/api"
 
 /**
  * Get a document from a collection
@@ -111,18 +112,56 @@ export async function deleteDocument(collection, docId) {
 /**
  * Ask Hugo a question
  * @param {string} query — what the user typed
- * @returns {Promise<string>} — Hugo’s reply text
+ * @returns {Promise<string>} — Hugo's reply text
  */
 export async function chatWithHugo(query) {
   const res = await fetch(`${API_BASE_URL}/chat`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ query }),
-  });
+  })
   if (!res.ok) {
-    const err = await res.json().catch(() => ({}));
-    throw new Error(err.description || err.detail || `Chat error: ${res.status}`);
+    const err = await res.json().catch(() => ({}))
+    throw new Error(err.description || err.detail || `Chat error: ${res.status}`)
   }
-  const { response } = await res.json();
-  return response;
+  const { response } = await res.json()
+  return response
+}
+
+/**
+ * Check for parts updates with Hugo AI
+ * @param {boolean} sendToSlack - Whether to send the update to Slack
+ * @returns {Promise<string>} - Hugo's response about parts status
+ */
+export async function checkPartsUpdateWithHugo(sendToSlack = true) {
+  try {
+    // Send query to Hugo AI
+    const response = await chatWithHugo("update user on parts")
+
+    // Save the response to localStorage so the notifications page can access it
+    localStorage.setItem(
+      "partsUpdate",
+      JSON.stringify({
+        message: response,
+        timestamp: new Date().toISOString(),
+      }),
+    )
+
+    // Send to Slack if requested
+    if (sendToSlack) {
+      try {
+        const formattedMessage = formatSlackInventoryAlert(response)
+        await sendSlackMessage(formattedMessage)
+        console.log("Parts update sent to Slack")
+      } catch (slackError) {
+        console.error("Failed to send message to Slack:", slackError)
+        // We don't want to fail the whole operation if just Slack fails
+      }
+    }
+
+    return response
+  } catch (error) {
+    console.error("Error checking parts update with Hugo:", error)
+    throw error
+  }
 }

@@ -1,12 +1,17 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { AlertTriangle, ArrowRight } from 'lucide-react'
+import { AlertTriangle, ArrowRight, MessageSquare } from "lucide-react"
 import { useSupply } from "../hooks/useFirebaseData"
+import { chatWithHugo } from "../services/apiService"
+import { useNavigate } from "react-router-dom"
 
 export default function LowStockAlert({ partsData }) {
   const { data: supplyData, loading: supplyLoading } = useSupply()
   const [lowStockItems, setLowStockItems] = useState([])
+  const [aiAnalysis, setAiAnalysis] = useState("")
+  const [loadingAnalysis, setLoadingAnalysis] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (partsData && partsData.length > 0 && supplyData && supplyData.length > 0) {
@@ -43,12 +48,68 @@ export default function LowStockAlert({ partsData }) {
     }
   }, [partsData, supplyData])
 
+  const getAiAnalysis = async () => {
+    setLoadingAnalysis(true)
+    try {
+      const response = await chatWithHugo("update user on parts")
+      setAiAnalysis(response)
+
+      // Store the response in localStorage for the Notifications page
+      localStorage.setItem(
+        "partsUpdate",
+        JSON.stringify({
+          message: response,
+          timestamp: new Date().toISOString(),
+        }),
+      )
+    } catch (error) {
+      console.error("Error getting AI analysis:", error)
+    } finally {
+      setLoadingAnalysis(false)
+    }
+  }
+
   if (lowStockItems.length === 0) {
     return <p className="text-gray-400">No low stock items found.</p>
   }
 
   return (
     <div className="space-y-4">
+      {/* AI Analysis Button */}
+      <div className="flex justify-end mb-4">
+        <button
+          onClick={getAiAnalysis}
+          disabled={loadingAnalysis}
+          className={`flex items-center px-3 py-2 rounded-md text-sm ${
+            loadingAnalysis ? "bg-gray-700 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
+          }`}
+        >
+          <MessageSquare className="w-4 h-4 mr-2" />
+          {loadingAnalysis ? "Analyzing..." : "Get AI Analysis"}
+        </button>
+      </div>
+
+      {/* AI Analysis Result */}
+      {aiAnalysis && (
+        <div className="bg-blue-900/20 border border-blue-800/30 rounded-lg p-4 mb-4">
+          <div className="flex items-start">
+            <MessageSquare className="w-5 h-5 text-blue-400 mt-0.5 mr-3 flex-shrink-0" />
+            <div>
+              <h4 className="text-sm font-medium text-blue-300 mb-2">AI Analysis</h4>
+              <p className="text-sm text-blue-100 whitespace-pre-wrap">{aiAnalysis}</p>
+              <button
+                onClick={() => navigate("/notifications")}
+                className="mt-3 text-xs text-blue-300 hover:text-blue-200 flex items-center"
+              >
+                View in Notifications
+                <ArrowRight className="w-3 h-3 ml-1" />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Low Stock Items */}
       {lowStockItems.map((item) => (
         <div
           key={item.id}

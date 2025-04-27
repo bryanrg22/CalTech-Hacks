@@ -15,15 +15,6 @@ export function useCollection(collectionName, options = {}) {
       try {
         setLoading(true)
 
-        // Check if user is authenticated
-        if (!auth.currentUser) {
-          console.log("No authenticated user found, using demo data")
-          // Return demo data if not authenticated
-          setData(getDemoData(collectionName))
-          setLoading(false)
-          return
-        }
-
         // Build query with options
         let dataQuery = collection(db, collectionName)
 

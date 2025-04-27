@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, abort
+from slack_service import post_message
 from flask_cors import CORS
 import firebase_admin
 from firebase_admin import credentials, firestore
@@ -94,6 +95,19 @@ def chat():
         return jsonify({ "response": answer })
     except Exception as e:
         abort(500, description=f"Hugo error: {e}")
+
+@app.route("/api/notify-slack", methods=["POST"])
+def notify_slack():
+    payload = request.get_json(silent=True) or {}
+    text = payload.get("message", "").strip()
+    if not text:
+         abort(400, description="`message` is required")
+    try:
+        result = post_message(text)
+        return jsonify({"ok": True, "slack": result})
+    except Exception as e:
+        app.logger.exception("Slack notify failed")
+        abort(500, description=str(e))
 
 @app.route("/ping")
 def ping():

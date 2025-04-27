@@ -1,106 +1,133 @@
 "use client"
 
-import { useState } from "react"
-
+import { useState, useEffect } from "react"
+import {
+  Home,
+  Package,
+  ShoppingCart,
+  Truck,
+  Users,
+  BarChart2,
+  Settings,
+  LogOut,
+  Menu,
+  X,
+  Zap,
+  Map,
+  Bot,
+  Bell,
+  Upload,
+  Boxes,
+} from "lucide-react"
 import { Link, useLocation } from "react-router-dom"
-import { Home, Package, ShoppingCart, Truck, Users, BarChart2, Settings, LogOut, Menu, X, Zap, Map, Bot } from "lucide-react"
 
-export default function Sidebar() {
-  const [expanded, setExpanded] = useState(true)
-  const [mobileOpen, setMobileOpen] = useState(false)
+const Sidebar = () => {
+  const [isOpen, setIsOpen] = useState(true)
+  const [hasNotifications, setHasNotifications] = useState(false)
   const location = useLocation()
 
-  const isActive = (path) => location.pathname === path
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen)
+  }
+
+  // Check for notifications
+  useEffect(() => {
+    const checkNotifications = () => {
+      const storedAlert = localStorage.getItem("lowStockAlert")
+      if (storedAlert) {
+        try {
+          const { timestamp } = JSON.parse(storedAlert)
+          // Check if notification is less than 24 hours old
+          const notificationTime = new Date(timestamp)
+          const now = new Date()
+          const timeDiff = now - notificationTime
+
+          // If less than 24 hours old and not on notifications page, show indicator
+          if (timeDiff < 24 * 60 * 60 * 1000 && location.pathname !== "/notifications") {
+            setHasNotifications(true)
+          } else {
+            setHasNotifications(false)
+          }
+        } catch (error) {
+          console.error("Error parsing notification data:", error)
+        }
+      } else {
+        setHasNotifications(false)
+      }
+    }
+
+    checkNotifications()
+
+    // Check for new notifications every minute
+    const interval = setInterval(checkNotifications, 60000)
+
+    return () => clearInterval(interval)
+  }, [location.pathname])
 
   const navItems = [
     { name: "Dashboard", icon: Home, path: "/dashboard" },
-    { name: "Map", icon: Map, path: "/map" },
+    { name: "Hugo AI", icon: Bot, path: "/hugo-ai" },
+    { name: "Analytics", icon: BarChart2, path: "/analytics" },
+    { name: "Products", icon: Boxes, path: "/products" },
     { name: "Parts", icon: Package, path: "/parts" },
     { name: "Sales", icon: ShoppingCart, path: "/sales" },
     { name: "Orders", icon: Truck, path: "/orders" },
     { name: "Suppliers", icon: Users, path: "/suppliers" },
-    { name: "Analytics", icon: BarChart2, path: "/analytics" },
-    { name: "Hugo AI", icon: Bot, path: "/hugo-ai" },
+    { name: "Map", icon: Map, path: "/map" },
+    {
+      name: "Notifications",
+      icon: Bell,
+      path: "/notifications",
+      badge: hasNotifications,
+    },
     { name: "Settings", icon: Settings, path: "/settings" },
   ]
 
-  const toggleSidebar = () => {
-    setExpanded(!expanded)
-  }
-
-  const toggleMobileSidebar = () => {
-    setMobileOpen(!mobileOpen)
-  }
-
   return (
-    <>
-      {/* Mobile menu button */}
+    <div className="relative">
+      {/* Hamburger menu button */}
       <button
-        onClick={toggleMobileSidebar}
-        className="fixed top-4 left-4 z-50 p-2 rounded-md bg-gray-800 text-white md:hidden"
+        onClick={toggleSidebar}
+        className="absolute top-4 left-4 bg-gray-800 text-white p-2 rounded-md focus:outline-none md:hidden"
       >
-        {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+        {isOpen ? <X /> : <Menu />}
       </button>
 
-      {/* Mobile overlay */}
-      {mobileOpen && <div className="fixed inset-0 bg-black/50 z-40 md:hidden" onClick={() => setMobileOpen(false)} />}
-
       {/* Sidebar */}
-      <aside
-        className={`fixed top-0 left-0 z-40 h-screen bg-gray-900 border-r border-gray-800 transition-all duration-300 ease-in-out
-          ${expanded ? "w-64" : "w-20"} 
-          ${mobileOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}`}
+      <div
+        className={`fixed top-0 left-0 h-full w-64 bg-gray-800 text-white shadow-lg transform transition-transform duration-300 ease-in-out ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } md:translate-x-0 z-10`}
       >
-        <div className="flex flex-col h-full">
-          {/* Logo */}
-          <div
-            className={`flex items-center ${expanded ? "justify-between" : "justify-center"} p-4 border-b border-gray-800`}
-          >
-            <div className="flex items-center">
-              <Zap className="h-8 w-8 text-emerald-500" />
-              {expanded && <span className="ml-2 text-xl font-semibold text-white">Voltway</span>}
-            </div>
-
-            {/* Toggle button (desktop only) */}
-            <button onClick={toggleSidebar} className="hidden md:block text-gray-400 hover:text-white">
-              <Menu size={20} />
-            </button>
-          </div>
-
-          {/* Navigation */}
-          <nav className="flex-1 overflow-y-auto py-4">
-            <ul className="space-y-1 px-2">
-              {navItems.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    to={item.path}
-                    className={`flex items-center ${expanded ? "px-4" : "justify-center"} py-3 rounded-md transition-colors
-                      ${
-                        isActive(item.path)
-                          ? "bg-emerald-600/20 text-emerald-400"
-                          : "text-gray-400 hover:bg-gray-800 hover:text-white"
-                      }`}
-                  >
-                    <item.icon className={`h-5 w-5 ${isActive(item.path) ? "text-emerald-400" : ""}`} />
-                    {expanded && <span className="ml-3">{item.name}</span>}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          {/* Logout */}
-          <div className="p-4 border-t border-gray-800">
-            <Link
-              to="/"
-              className={`flex items-center ${expanded ? "px-4" : "justify-center"} py-3 rounded-md text-gray-400 hover:bg-gray-800 hover:text-white transition-colors`}
-            >
-              <LogOut className="h-5 w-5" />
-              {expanded && <span className="ml-3">Logout</span>}
-            </Link>
-          </div>
+        {/* Sidebar content */}
+        <div className="flex items-center justify-center h-20">
+          <Zap className="mr-2" />
+          <span className="text-lg font-bold">Swerve</span>
         </div>
-      </aside>
-    </>
+        <nav className="mt-5">
+          {navItems.map((item) => (
+            <Link
+              to={item.path}
+              key={item.name}
+              className={`flex items-center py-2 px-4 hover:bg-gray-700 transition-colors duration-200 ${
+                location.pathname === item.path ? "bg-gray-700" : ""
+              }`}
+            >
+              <item.icon className="mr-2" />
+              {item.name}
+              {item.badge && <span className="ml-auto bg-red-500 text-white text-xs rounded-full w-2 h-2"></span>}
+            </Link>
+          ))}
+        </nav>
+        <div className="absolute bottom-0 left-0 w-full p-4">
+          <button className="flex items-center py-2 px-4 hover:bg-gray-700 transition-colors duration-200 w-full justify-start">
+            <LogOut className="mr-2" />
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
   )
 }
+
+export default Sidebar

@@ -1,7 +1,17 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { TrendingUp, TrendingDown, AlertTriangle, Clock, Package, ShoppingCart, Truck, Users, BarChart2 } from 'lucide-react'
+import {
+  TrendingUp,
+  TrendingDown,
+  AlertTriangle,
+  Clock,
+  Package,
+  ShoppingCart,
+  Truck,
+  Users,
+  BarChart2,
+} from "lucide-react"
 import Sidebar from "../components/Sidebar"
 import Header from "../components/Header"
 import InventoryStatusCard from "../components/InventoryStatusCard"
@@ -11,6 +21,7 @@ import SupplierReliabilityChart from "../components/SupplierReliabilityChart"
 import LowStockAlert from "../components/LowStockAlert"
 import { useParts, useOrders, useSales, useSupply } from "../hooks/useFirebaseData"
 import LoadingSpinner from "../components/LoadingSpinner"
+import { DataImportWidget } from "../components/DashboardWidgets"
 
 export default function Dashboard() {
   const { data: partsData, loading: partsLoading } = useParts()
@@ -157,6 +168,11 @@ export default function Dashboard() {
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Data Import Widget */}
+              <div className="mb-8">
+                <DataImportWidget />
               </div>
 
               {/* Alerts and Inventory Status */}

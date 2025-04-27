@@ -7,18 +7,14 @@ import email
 from email import policy
 from email.parser import BytesParser
 from typing import List
-from part     import Part
-from order    import Order
-from sales    import Sales
+from part import Part
 from supplier import Supplier
-# --- make sure Python can see ../graph.py ---------------------------
-import sys, pathlib
-sys.path.append(str(pathlib.Path(__file__).resolve().parent.parent))
+from order import Order
+from sales import Sales
 from graph import create_graph
-# --------------------------------------------------------------------
 import os
 from dotenv import load_dotenv
-from upload_data import initialize_firebase
+from upload_data import initialize_firebase, upload_specs
 
 from langchain_openai import ChatOpenAI
 from langchain.chains import LLMChain, SequentialChain
@@ -331,199 +327,153 @@ class Hugo:
         except Exception as e:
             print(f"Error during OpenAI API call: {e}")
             return {"error": "Could not retrieve inventory alerts."}
-
-  # Parsing Action
-  def parse_pdf_to_parts_and_requirements(self, pdf_path):
-      # Upload file
-      file = self.client.files.create(
-          file=open(pdf_path, "rb"),
-          purpose="user_data"
-      )
-
-      # Send parsing instructions
-      response = self.client.responses.create(
-          model="gpt-4.1",
-          input=[
-              {
-                  "role": "user",
-                  "content": [
-                      {"type": "input_file", "file_id": file.id},
-                      {
-                          "type": "input_text",
-                          "text": """Parse the Bill of Materials into a table and Assembly Requirement instructions.
-  Make the output in dictionary for the Bill of materials.
-  Put the Assembly Requirement in an array of strings for each requirement.
-
-  Make the output like this:
-  {
-      "Bill_of_Materials": [
-          {"Part_ID": "", "Part_Name": "", "Qty": , "Notes": ""},
-          ...
-      ],
-      "Assembly_Requirements": [
-          "",
-          ...
-      ]
-  }"""
-                      },
-                  ],
-              }
-          ]
-      )
-
-      # Clean response text if it's in markdown/json format
-      output = response.output_text.strip()
-      cleaned_output = re.sub(r"^```json|^```|```$", "", output, flags=re.MULTILINE)
-
-      # Parse JSON
-      try:
-          parsed_output = json.loads(cleaned_output)
-      except json.JSONDecodeError as e:
-          raise ValueError("❌ Failed to decode JSON from OpenAI response.") from e
-
-      # Return structured result
-      bill_of_materials = parsed_output["Bill_of_Materials"]
-      requirements = parsed_output["Assembly_Requirements"]
-
-      spl = pdf_path.split("/")
-
-      print(bill_of_materials)
-
-      print(requirements)
-      data = {
-        "spec_name" : spl[-1][:-4],
-        "bill of materials" : bill_of_materials,
-        "requirements": requirements
-      }
-
-      converted = json.dumps(data, indent=2)
-
-  # Extracting the Email
-  def extract_email_body(self, file_path):
-    with open(file_path, 'rb') as f:
-        msg = BytesParser(policy=policy.default).parse(f)
-
-    if msg.is_multipart():
-        for part in msg.walk():
-            if part.get_content_type() == 'text/plain':
-                return part.get_payload(decode=True).decode(errors='ignore')
-    else:
-        return msg.get_payload(decode=True).decode(errors='ignore')
-
-    return None
-
-  # Analysis Action
-  def analyze_email_with_openai(self, email_body):
-      response = self.client.responses.create(
-          model="gpt-4",
-          input=[
-              {"role": "system", "content": "You are a helpful assistant that extracts and analyzes email contents."},
-              {"role": "user", "content": f"Analyze this email:\n\n{email_body}"}
-          ]
-      )
-      return response.output_text
-
-  def chat(self):
-    # Initialize LangChain components
-    llm = OpenAI(api_key=self._key, temperature=0.2)
-    memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
-
-    # Define system message template
-    system_template = """
-    You are Hugo, an inventory management assistant for a scooter manufacturing company.
-    You have access to the following data:
-    - Parts inventory: details about all parts, including quantities, locations, and which models they're used in
-    - Suppliers: information about suppliers, prices, lead times, and reliability ratings
-    - Orders: purchase orders for parts, including quantities and delivery dates
-    - Sales: sales orders for different scooter models
-    - Relationships: Tells you that parts and how the relate to other objects
     
-    Answer questions about inventory, production capacity, supply chain, and forecasting.
-    Be precise, data-driven, and helpful. If you don't know something, say so clearly.
-    Do not include the tool names in your response.
-    
-    Available parts data: {parts_count} parts
-    Available suppliers data: {suppliers_count} supplier relationships
-    Available orders data: {orders_count} orders
-    Available sales data: {sales_count} sales orders
-    Relationship between specs and parts: {relationships} edge connections
-    
-    Today's date: {current_date}
-    """
-    tools = [
-        Tool(
-            name="get_inventory_data",
-            func=self.get_inventory_data,
-            description="Get all inventory data including parts, suppliers, orders and sales"
-        ),
-        Tool(
-            name="search_parts",
-            func=lambda search: self.search_parts(search),
-            description="Search for parts by name or ID"
-        ),
-        Tool(
-            name="check_low_stock",
-            func=self.check_low_stocks,
-            description="Find parts that are currently at or below minimum stock levels"
-        ),
-        Tool(
-            name="find_suppliers_for_part",
-            func=lambda part_id: self.find_supplier_for_part(part_id),
-            description="Find all suppliers for a specific part ID"
-        ),
-        Tool(
-            name="check_pending_orders",
-            func=self.check_pending_orders,
-            description="Check all pending or processing orders"
-        ),
-        Tool(
-            name="get_sales_by_model",
-            func=self.get_sales_by_model,
-            description="Get sales orders for a specific scooter model"
-        ),
-        Tool(
-          name="relationship_evaluation",
-          func=lambda q: self.relationship_evaluation(q),
-          description="Tells you the relationship graphically of parts and specs"
-        ),
-        Tool(
-          name="inventory_alert",
-          func=self.inventory_alerts,
-          description="This gives inventory alerts of all the summary, parts, production line"
+    @tool
+    def general_questions(question: str) -> str:
+        """Answer general questions about the inventory and its data."""
+        print(f"general_questions tool used with question: {question}")
+        global full
+        prompt = (
+            f"Here is a table of parts and specs in JSON format:\n{full['relationships_table']}\n{full['orders']}\n\n"
+            f"Question: {question}\n"
+            f"Answer:"
         )
+
+        load_dotenv()
+
+        _key = os.getenv("OPENAI_API_KEY")
         
-    ]
+        client = openai.OpenAI(api_key=_key)
 
-    agent = initialize_agent(
-        tools,
-        llm,
-        agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION,
-        verbose=True,
-        memory=memory,
-        handle_parsing_errors=True
-    )
+        try:
+            response = client.chat.completions.create(
+                model="gpt-4o",
+                messages=[
+                    {"role": "system", "content": "You are a helpful assistant answering questions about inventory data."},
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=0.2,
+                max_tokens=700,
+                response_format={"type": "json_object"}
+            )
 
-    system_message = system_template.format(
-        parts_count=len(self.parts),
-        suppliers_count=len(self.suppliers),
-        orders_count=len(self.orders),
-        sales_count=len(self.sales),
-        relationships=len(self.table),
-        current_date=datetime.now().strftime("%Y-%m-%d")
-    )
+            answer = response.choices[0].message.content.strip()
+            # raise(answer)
+            return answer
 
-    # Set the system message
-    agent.agent.llm_chain.prompt.messages[0].prompt.template = system_message
+        except Exception as e:
+            print(f"Error during OpenAI API call: {e}")
+            return "Error: Could not answer the question due to API issue."
 
-    print("Welcome to Hugo, your inventory management assistant.")
-    print("Ask me anything about parts, suppliers, orders, or production capacity.")
-    print("Type 'exit' to quit.")
+
+    def chat(self, query: str | None = None):
+        # Initialize LangChain components
+        llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
+        memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+        
+        context_data = self.create_data_context()
+
+        # Define system message template
+        system_template = ChatPromptTemplate.from_messages([
+            ("system", f"""
+            You are Hugo, an inventory management assistant for a scooter manufacturing company.
+            You have access to the following data:
+            - Parts inventory: details about all parts, including quantities, locations, and which models they're used in
+            - Suppliers: information about suppliers, prices, lead times, and reliability ratings
+            - Orders: purchase orders for parts, including quantities and delivery dates
+            - Sales: sales orders for different scooter models
+            - Relationships: Tells you how parts relate to other objects
+            
+            Answer questions about inventory, production capacity, supply chain, and forecasting.
+            Be precise, data-driven, and helpful. If you don't know something, say so clearly.
+            Do not include the tool names in your response.
+            
+            Available parts data: {len(context_data['parts'])} parts
+            Available suppliers data: {len(context_data['suppliers'])} supplier relationships
+            Available orders data: {len(context_data['orders'])} orders
+            Available sales data: {len(context_data['sales'])} sales orders
+            Relationship between specs and parts: {len(context_data['relationships_table'])} relationships
+
+            Today's date: {datetime.now().strftime('%Y-%m-%d')}
+            """),
+            MessagesPlaceholder(variable_name="chat_history"),
+            ("user", "{input}"),
+            MessagesPlaceholder(variable_name="agent_scratchpad")                                            
+        ])
+        
+        
+        
+        # Define all tools
+        tools = [
+            Tool.from_function(
+                name="general_questions",
+                func=self.general_questions,
+                description="Answer general questions about the inventory and its data."
+            ),
+            Tool.from_function(
+                func=self.check_low_stocks,
+                name="check_low_stocks",
+                description="Search for parts that have the loweer stock than the minimum stock level"
+            ),
+            Tool.from_function(
+                func=self.find_supplier_for_part,
+                name="find_supplier_for_part",
+                description="Find all suppliers for a specific part ID"
+            ),
+            Tool.from_function(
+                func=self.check_pending_orders,
+                name="check_pending_orders",
+                description="Check all pending or processing orders"
+            ),
+            Tool.from_function(
+                func=self.relationship_evaluation,
+                name="relationship_evaluation",
+                description="Analyze relationships between parts and specs"
+            ),
+            Tool.from_function(
+                func=self.inventory_alerts,
+                name="inventory_alerts",
+                description="Check for inventory alerts including low stock, blocked parts, etc."
+            )
+        ]
+        
+        llm_with_tools = llm.bind_tools(tools)
+        
+        agent = (
+            {
+                "agent_scratchpad": lambda x: format_to_openai_tool_messages(
+                    x["intermediate_steps"]
+                ),
+                "input": lambda x: x["input"],
+                "chat_history": lambda x: x["chat_history"],
+            }
+            | system_template
+            | llm_with_tools
+            | OpenAIToolsAgentOutputParser()
+        )
+
+        agent_executor = AgentExecutor(
+            agent=agent,
+            tools=tools,
+            memory=memory,
+            verbose=True,
+            handle_parsing_errors=True
+        )
+
+        if query is not None:
+            result = agent_executor.invoke({"input": query})
+            return result["output"]
+
+        print("Welcome to Hugo, your inventory management assistant.")
+        print("Ask me anything about parts, suppliers, orders, or production capacity.")
+        print("Type 'exit' to quit.")
 
         while True:
-            user_input = input("\nYou: ")
+            user_input = query
             if user_input.lower() in ["exit", "quit", "bye"]:
                 print("Goodbye!")
-                break
+                return
+                
             
             try:
                 result = agent_executor.invoke({"input": user_input})
@@ -533,6 +483,5 @@ class Hugo:
 
 
 if __name__ == "__main__":
-
-  hugo = Hugo()
-  hugo.chat()
+    hugo = Hugo()
+    hugo.chat()

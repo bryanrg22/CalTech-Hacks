@@ -27,8 +27,12 @@ export default function Header({ title }) {
 
           {/* User */}
           <div className="flex items-center">
-            <div className="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center text-white">
-              <User className="w-4 h-4" />
+          <div className="w-8 h-8 rounded-full overflow-hidden">
+              <img
+                src="/pfp.jpg"
+                alt="My profile picture"
+                className="w-full h-full object-cover"
+              />
             </div>
             <span className="ml-2 text-sm font-medium text-white hidden md:inline-block">Admin User</span>
           </div>
