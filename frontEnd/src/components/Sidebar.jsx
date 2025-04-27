@@ -100,8 +100,12 @@ const Sidebar = () => {
         } md:translate-x-0 z-10`}
       >
         {/* Sidebar content */}
-        <div className="flex items-center justify-center h-20">
-          <Zap className="mr-2" />
+        <div className="flex items-center justify-center h-16 bg-gray-900">
+          <img
+              src="/logo.png"
+              alt="My profile picture"
+              className="w-12 h-12 rounded-full mr-2"
+            />
           <span className="text-lg font-bold">Swerve</span>
         </div>
         <nav className="mt-5">

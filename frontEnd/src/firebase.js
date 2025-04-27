@@ -1,18 +1,26 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app"
-import { getFirestore, collection } from "firebase/firestore"
-import { getAuth } from "firebase/auth"
-import { getStorage } from "firebase/storage"
+import { initializeApp }   from 'firebase/app';
+import { getFirestore, collection } from 'firebase/firestore';
+import { getAuth        } from 'firebase/auth';
+import { getStorage     } from 'firebase/storage';
+import { auth, salesCollection } from '../firebase';
 
-// Your web app's Firebase configuration
+
+const getEnv = (key) => {
+  /* Works in Vite, CRA, Next, & Node */
+  return (
+    import.meta?.env?.[key]          // Vite
+    ?? process.env?.[key]            // CRA, Node
+  );
+};
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCel2lcphKfP3ruLV5v-P9aRtgVhnjI7uI",
-  authDomain: "hacktech-cce3f.firebaseapp.com",
-  projectId: "hacktech-cce3f",
-  storageBucket: "hacktech-cce3f.firebasestorage.app",
-  messagingSenderId: "486964013965",
-  appId: "1:486964013965:web:57a52ce5fcc5de9e47ebc4",
-}
+  apiKey:            getEnv('VITE_APIKEY')            || getEnv('REACT_APP_APIKEY')            || getEnv('NEXT_PUBLIC_APIKEY'),
+  authDomain:        getEnv('VITE_AUTH_DOMAIN')       || getEnv('REACT_APP_AUTH_DOMAIN')       || getEnv('NEXT_PUBLIC_AUTH_DOMAIN'),
+  projectId:         getEnv('VITE_PROJECT_ID')        || getEnv('REACT_APP_PROJECT_ID')        || getEnv('NEXT_PUBLIC_PROJECT_ID'),
+  storageBucket:     getEnv('VITE_STORAGE_BUCKET')    || getEnv('REACT_APP_STORAGE_BUCKET')    || getEnv('NEXT_PUBLIC_STORAGE_BUCKET'),
+  messagingSenderId: getEnv('VITE_MESSAGING_SENDER_ID')|| getEnv('REACT_APP_MESSAGING_SENDER_ID')|| getEnv('NEXT_PUBLIC_MESSAGING_SENDER_ID'),
+  appId:             getEnv('VITE_APP_ID')            || getEnv('REACT_APP_APP_ID')            || getEnv('NEXT_PUBLIC_APP_ID'),
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
