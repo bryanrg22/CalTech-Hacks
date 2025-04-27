@@ -1,0 +1,240 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "node_type": "spec",
+      "id": "scanned_S1_V2_specs"
+    },
+    {
+      "node_type": "part",
+      "id": "P304"
+    },
+    {
+      "node_type": "part",
+      "id": "P305"
+    },
+    {
+      "node_type": "part",
+      "id": "P307"
+    },
+    {
+      "node_type": "part",
+      "id": "P329"
+    },
+    {
+      "node_type": "part",
+      "id": "P330"
+    },
+    {
+      "node_type": "part",
+      "id": "P331"
+    },
+    {
+      "node_type": "part",
+      "id": "P332"
+    },
+    {
+      "node_type": "spec",
+      "id": "scanned_S2_V1_specs"
+    },
+    {
+      "node_type": "part",
+      "id": "P308"
+    },
+    {
+      "node_type": "spec",
+      "id": "scanned_S2_V2_specs"
+    },
+    {
+      "node_type": "part",
+      "id": "P312"
+    },
+    {
+      "node_type": "part",
+      "id": "P313"
+    },
+    {
+      "node_type": "spec",
+      "id": "scanned_S3_V2_specs"
+    },
+    {
+      "node_type": "part",
+      "id": "P323"
+    }
+  ],
+  "links": [
+    {
+      "qty_needed": 1,
+      "current_stock": 108,
+      "min_stock": 45,
+      "stock_status": 240.0,
+      "blocked": true,
+      "source": "scanned_S1_V2_specs",
+      "target": "P304"
+    },
+    {
+      "qty_needed": 1,
+      "current_stock": 24,
+      "min_stock": 75,
+      "stock_status": 32.0,
+      "blocked": false,
+      "source": "scanned_S1_V2_specs",
+      "target": "P305"
+    },
+    {
+      "qty_needed": 1,
+      "current_stock": 32,
+      "min_stock": 52,
+      "stock_status": 61.53846153846154,
+      "blocked": false,
+      "source": "scanned_S1_V2_specs",
+      "target": "P307"
+    },
+    {
+      "qty_needed": 1,
+      "current_stock": 54,
+      "min_stock": 74,
+      "stock_status": 72.97297297297297,
+      "blocked": false,
+      "source": "scanned_S1_V2_specs",
+      "target": "P329"
+    },
+    {
+      "qty_needed": 2,
+      "current_stock": 26,
+      "min_stock": 44,
+      "stock_status": 59.09090909090909,
+      "blocked": false,
+      "source": "scanned_S1_V2_specs",
+      "target": "P330"
+    },
+    {
+      "qty_needed": 1,
+      "current_stock": 45,
+      "min_stock": 62,
+      "stock_status": 72.58064516129032,
+      "blocked": false,
+      "source": "scanned_S1_V2_specs",
+      "target": "P331"
+    },
+    {
+      "qty_needed": 1,
+      "current_stock": 20,
+      "min_stock": 30,
+      "stock_status": 66.66666666666666,
+      "blocked": false,
+      "source": "scanned_S1_V2_specs",
+      "target": "P332"
+    },
+    {
+      "qty_needed": 1,
+      "current_stock": 20,
+      "min_stock": 30,
+      "stock_status": 66.66666666666666,
+      "blocked": false,
+      "source": "scanned_S2_V1_specs",
+      "target": "P308"
+    },
+    {
+      "qty_needed": 1,
+      "current_stock": 144,
+      "min_stock": 50,
+      "stock_status": 288.0,
+      "blocked": true,
+      "source": "scanned_S2_V2_specs",
+      "target": "P312"
+    },
+    {
+      "qty_needed": 1,
+      "current_stock": 193,
+      "min_stock": 72,
+      "stock_status": 268.05555555555554,
+      "blocked": true,
+      "source": "scanned_S2_V2_specs",
+      "target": "P313"
+    },
+    {
+      "qty_needed": 1,
+      "current_stock": 54,
+      "min_stock": 74,
+      "stock_status": 72.97297297297297,
+      "blocked": false,
+      "source": "scanned_S2_V2_specs",
+      "target": "P329"
+    },
+    {
+      "qty_needed": 2,
+      "current_stock": 26,
+      "min_stock": 44,
+      "stock_status": 59.09090909090909,
+      "blocked": false,
+      "source": "scanned_S2_V2_specs",
+      "target": "P330"
+    },
+    {
+      "qty_needed": 1,
+      "current_stock": 45,
+      "min_stock": 62,
+      "stock_status": 72.58064516129032,
+      "blocked": false,
+      "source": "scanned_S2_V2_specs",
+      "target": "P331"
+    },
+    {
+      "qty_needed": 1,
+      "current_stock": 20,
+      "min_stock": 30,
+      "stock_status": 66.66666666666666,
+      "blocked": false,
+      "source": "scanned_S2_V2_specs",
+      "target": "P332"
+    },
+    {
+      "qty_needed": 1,
+      "current_stock": 59,
+      "min_stock": 71,
+      "stock_status": 83.09859154929578,
+      "blocked": false,
+      "source": "scanned_S3_V2_specs",
+      "target": "P323"
+    },
+    {
+      "qty_needed": 1,
+      "current_stock": 54,
+      "min_stock": 74,
+      "stock_status": 72.97297297297297,
+      "blocked": false,
+      "source": "scanned_S3_V2_specs",
+      "target": "P329"
+    },
+    {
+      "qty_needed": 2,
+      "current_stock": 26,
+      "min_stock": 44,
+      "stock_status": 59.09090909090909,
+      "blocked": false,
+      "source": "scanned_S3_V2_specs",
+      "target": "P330"
+    },
+    {
+      "qty_needed": 1,
+      "current_stock": 45,
+      "min_stock": 62,
+      "stock_status": 72.58064516129032,
+      "blocked": false,
+      "source": "scanned_S3_V2_specs",
+      "target": "P331"
+    },
+    {
+      "qty_needed": 1,
+      "current_stock": 20,
+      "min_stock": 30,
+      "stock_status": 66.66666666666666,
+      "blocked": false,
+      "source": "scanned_S3_V2_specs",
+      "target": "P332"
+    }
+  ]
+}
