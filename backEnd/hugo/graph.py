@@ -1,5 +1,6 @@
 import json
 import networkx as nx
+from networkx.readwrite import json_graph
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -25,15 +26,6 @@ def create_graph(db):
     doc_dict['spec_name'] = doc.id
     data.append(doc_dict)
   specs_data = data
-  
-  # print(specs_json_data)
-  
-  # with open('/home/bkhwaja/vscode/CalTech-Hacks/backEnd/data/specs.json', 'r') as f:
-  #     specs_data = json.load(f)
-
-  # with open('/home/bkhwaja/vscode/CalTech-Hacks/backEnd/data/parts.json', 'r') as f:
-  #     parts_data = json.load(f)
-      
 
   # Convert parts data to a dictionary for easy lookup
   parts_dict = {part['part_id']: part for part in parts_data}
@@ -103,6 +95,11 @@ def create_graph(db):
 
   # Draw labels
   nx.draw_networkx_labels(G, pos, font_size=8)
+  
+  data_G = json_graph.node_link_data(G)
+  
+  # with open("basic.json", "w") as f:
+  #   json.dump(data_G, f, indent=2)
 
   # Add legends
   spec_patch = plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='skyblue', 
@@ -214,6 +211,12 @@ def create_graph(db):
 
   # Draw the critical parts graph if there are any critical parts
   critical_graph = create_critical_parts_graph()
+  data = json_graph.node_link_data(critical_graph)
+  # json_string = json.dumps(data)
+  # print(json_string)
+  # with open("critical.json", "w") as f:
+  #   json.dump(data, f, indent=2)
+  
   if critical_graph:
       plt.figure(figsize=(12, 8))
       
@@ -252,5 +255,6 @@ def create_graph(db):
   return summary_table
 
 if __name__ == "__main__":
-  summary_table = create_graph()
+  db = initialize_firebase()
+  summary_table = create_graph(db)
   # print(summary_table)
