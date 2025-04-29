@@ -1,8 +1,10 @@
-# Voltway Procurement Management System (1st Place @ HackTech)
+# Swerve - 1st Place @ HackTech 2025
 
-1st Place in Dryft AI Challenge @ HackTech 2025 (Caltech's hackathon) 
+1st Place in Dryft AI Challenge @ HackTech (Caltech's hackathon) 
 
-A comprehensive procurement and inventory management system for Voltway electric scooters. This application helps manage parts inventory, track orders, analyze sales data, and monitor supplier reliability.
+Swerve - Voltway Procurement Management System - Agentic AI co-pilot that enhances industrial procurement operations.
+
+A comprehensive inventory management system for Voltway electric scooters. This application helps manage parts inventory, track orders, analyze sales data, and monitor supplier reliability.
 
 ## Tech Stack
 
